@@ -85,6 +85,36 @@ const roadmap = [
   },
 ];
 
+const coreContributors = [
+  {
+    name: "Lead Blockchain Developer",
+    role: "Protocol & Infrastructure",
+    text: "Owns core architecture, network design, validator logic, and long-term chain scalability.",
+  },
+  {
+    name: "Product Designer",
+    role: "Brand & Experience",
+    text: "Shapes the visual identity, premium interface language, and user journey across the ecosystem.",
+  },
+  {
+    name: "Ecosystem Strategist",
+    role: "Growth & Partnerships",
+    text: "Leads adoption strategy, ecosystem positioning, and collaboration with external builders.",
+  },
+  {
+    name: "Community Operations Lead",
+    role: "Global Community",
+    text: "Coordinates communication, community growth, and contributor alignment across regions.",
+  },
+];
+
+const humanitarianStats = [
+  { label: "People in need across the Occupied Palestinian Territory", value: "3.6M+" },
+  { label: "People in Gaza projected to face crisis-level or worse food insecurity through mid-April 2026", value: "1.6M" },
+  { label: "Children under 5 in Gaza expected to suffer acute malnutrition through June 2026", value: "132,000+" },
+  { label: "Severe acute malnutrition cases among children under 5", value: "41,000+" },
+];
+
 const faqs = [
   {
     q: "What is Win Coin?",
@@ -385,6 +415,33 @@ export default function WinCoinLandingPage() {
           </section>
 
           <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <SectionTitle
+              eyebrow="Core Contributors"
+              title="A project built by infrastructure, design, and ecosystem specialists"
+              text="This team area is ready to receive your real names, titles, and profile links. The structure is already prepared in a premium layout so we can swap placeholders with actual contributors instantly."
+            />
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              {coreContributors.map((item, index) => (
+                <motion.div
+                  key={item.role}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.07 }}
+                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+                >
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 text-lg font-semibold text-white">
+                    {item.name.split(" ").map((word) => word[0]).slice(0, 2).join("")}
+                  </div>
+                  <div className="text-xs uppercase tracking-[0.24em] text-cyan-300">{item.role}</div>
+                  <h3 className="mt-3 text-xl font-medium text-white">{item.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
             <div className="grid gap-6 rounded-[36px] border border-white/10 bg-gradient-to-br from-cyan-400/10 via-violet-500/10 to-fuchsia-500/10 p-8 backdrop-blur-xl lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
               <div>
                 <div className="text-xs uppercase tracking-[0.3em] text-cyan-300">Security & Trust</div>
@@ -399,6 +456,47 @@ export default function WinCoinLandingPage() {
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Advanced cryptography</div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Transparent governance</div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Validator incentives</div>
+              </div>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <SectionTitle
+              eyebrow="Humanitarian Reality"
+              title="A crisis section that can be used respectfully and with purpose"
+              text="This block is designed for a humanitarian commitment page, relief partnership section, or transparent social impact message. It should be paired with a real pledge, donation mechanism, or verified aid initiative rather than used only as an emotional visual layer."
+            />
+            <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="text-xs uppercase tracking-[0.24em] text-slate-400">Live humanitarian framing</div>
+                <h3 className="mt-3 text-3xl font-semibold text-white">Why action matters now</h3>
+                <p className="mt-4 text-sm leading-8 text-slate-300">
+                  If you decide to include a Gaza-focused impact section, the strongest approach is to frame it around dignity, transparency, and direct support. Instead of promotional shock imagery, use sober documentary visuals, verified metrics, and a clearly stated relief commitment.
+                </p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {humanitarianStats.map((item) => (
+                    <div key={item.label} className="rounded-[24px] border border-white/10 bg-white/5 p-5">
+                      <div className="text-3xl font-semibold text-white">{item.value}</div>
+                      <div className="mt-2 text-sm leading-6 text-slate-300">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 text-xs uppercase tracking-[0.24em] text-cyan-300">Recommended visual direction</div>
+                <div className="aspect-[4/5] rounded-[28px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
+                  <div className="flex h-full flex-col justify-between rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_40%)] p-6">
+                    <div>
+                      <div className="text-sm uppercase tracking-[0.25em] text-slate-400">Visual placeholder</div>
+                      <h3 className="mt-4 max-w-xs text-3xl font-semibold leading-tight text-white">
+                        Use dignity-first humanitarian imagery, not sensationalism.
+                      </h3>
+                    </div>
+                    <p className="max-w-sm text-sm leading-7 text-slate-300">
+                      Best practice: documentary-style photos, relief distribution scenes, silhouettes, or map-based visuals. If children are shown, use respectful licensed imagery and pair it with a concrete aid statement.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
