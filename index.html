@@ -1,607 +1,450 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Win Coin</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+import React from "react";
+import { motion } from "framer-motion";
+import { ChevronRight, Shield, Layers, Coins, Network, Globe, Menu, ArrowUpRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-    html {
-      scroll-behavior: smooth;
-    }
+const navItems = [
+  "Technology",
+  "Ecosystem",
+  "Utility",
+  "Tokenomics",
+  "Roadmap",
+  "FAQ",
+];
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #071a3a;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+const featureCards = [
+  {
+    icon: Layers,
+    title: "Modular Layer 1 Architecture",
+    text: "Win Coin is designed as a scalable blockchain foundation for next-generation decentralized products, financial rails, and ecosystem-level innovation.",
+  },
+  {
+    icon: Network,
+    title: "High-Throughput Infrastructure",
+    text: "Built for speed, reliability, and future expansion across applications, users, and cross-network integrations.",
+  },
+  {
+    icon: Shield,
+    title: "Secure by Design",
+    text: "A security-first approach with transparent architecture, validator incentives, and infrastructure focused on long-term trust.",
+  },
+  {
+    icon: Globe,
+    title: "Global Ecosystem Vision",
+    text: "Win Coin supports an open digital economy where builders, communities, and participants can collaborate without borders.",
+  },
+];
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+const ecosystemItems = [
+  "DeFi Applications",
+  "Smart Contracts",
+  "Validator Network",
+  "Cross-Chain Integrations",
+  "Developer Tooling",
+  "Digital Payments",
+];
 
-    .container {
-      width: 90%;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
+const utilityItems = [
+  "Transaction Fees",
+  "Staking Rewards",
+  "Governance Voting",
+  "Ecosystem Access",
+  "Validator Incentives",
+  "Community Participation",
+];
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(7, 26, 58, 0.95);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-    }
+const tokenomics = [
+  { label: "Ecosystem Growth", value: 40 },
+  { label: "Development", value: 20 },
+  { label: "Liquidity", value: 15 },
+  { label: "Marketing", value: 15 },
+  { label: "Team", value: 10 },
+];
 
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-    }
+const roadmap = [
+  {
+    phase: "Phase 01",
+    title: "Foundation",
+    points: ["Concept development", "Brand identity and website", "Community formation", "Infrastructure planning"],
+  },
+  {
+    phase: "Phase 02",
+    title: "Launch",
+    points: ["Token launch", "Initial ecosystem rollout", "Exchange expansion", "Strategic partnerships"],
+  },
+  {
+    phase: "Phase 03",
+    title: "Expansion",
+    points: ["Developer onboarding", "dApp integrations", "Staking and utility growth", "Cross-chain compatibility"],
+  },
+  {
+    phase: "Phase 04",
+    title: "Scale",
+    points: ["Global ecosystem adoption", "Advanced governance", "Infrastructure optimization", "Long-term sustainability"],
+  },
+];
 
-    .brand {
-      font-size: 28px;
-      font-weight: 700;
-      color: #ffd700;
-    }
+const faqs = [
+  {
+    q: "What is Win Coin?",
+    a: "Win Coin is a blockchain ecosystem designed to support decentralized applications, digital finance, and a scalable community-driven network.",
+  },
+  {
+    q: "What makes Win Coin different?",
+    a: "Win Coin is positioned around infrastructure and ecosystem growth, combining Layer 1 ambitions with practical utility and long-term network participation.",
+  },
+  {
+    q: "What can the WIN token be used for?",
+    a: "The WIN token is designed for transaction payments, staking, governance, validator incentives, and broader access across the ecosystem.",
+  },
+  {
+    q: "Is the project focused on global adoption?",
+    a: "Yes. The project vision is centered on building a globally accessible digital ecosystem with scalable infrastructure and cross-market usability.",
+  },
+];
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 14px;
-      color: #dfe7fb;
-    }
+function SectionTitle({ eyebrow, title, text }) {
+  return (
+    <div className="mx-auto mb-12 max-w-3xl text-center">
+      <div className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-300/80">
+        {eyebrow}
+      </div>
+      <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">{title}</h2>
+      <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">{text}</p>
+    </div>
+  );
+}
 
-    .hero {
-      background: linear-gradient(180deg, #10295a 0%, #071a3a 100%);
-      padding: 90px 0 70px;
-      text-align: center;
-    }
+export default function WinCoinLandingPage() {
+  return (
+    <div className="min-h-screen bg-[#050816] text-slate-100">
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,209,255,0.16),transparent_25%),radial-gradient(circle_at_80%_20%,rgba(108,92,231,0.22),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(155,140,255,0.12),transparent_30%)]" />
+        <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:70px_70px]" />
 
-    .hero-logo {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      margin: 0 auto 24px;
-      background: linear-gradient(135deg, #ffd700, #ffb800);
-      color: #071a3a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 44px;
-      font-weight: 900;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
+        <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 shadow-[0_0_40px_rgba(0,209,255,0.25)]">
+              <Coins className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <div className="text-lg font-semibold tracking-[0.24em] text-white">WIN COIN</div>
+              <div className="text-[10px] uppercase tracking-[0.35em] text-slate-400">Layer 1 Ecosystem</div>
+            </div>
+          </div>
 
-    .hero h1 {
-      font-size: 62px;
-      color: #ffd700;
-      margin-bottom: 14px;
-    }
+          <nav className="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
+            {navItems.map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-white">
+                {item}
+              </a>
+            ))}
+          </nav>
 
-    .hero h2 {
-      font-size: 34px;
-      margin-bottom: 20px;
-    }
+          <div className="hidden lg:block">
+            <Button className="rounded-full border border-white/10 bg-white/10 px-5 text-white backdrop-blur hover:bg-white/15">
+              Whitepaper <ArrowUpRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
 
-    .hero p {
-      max-width: 860px;
-      margin: 0 auto 30px;
-      font-size: 18px;
-      color: #e4ebfb;
-    }
+          <button className="rounded-xl border border-white/10 bg-white/5 p-2 text-slate-200 lg:hidden">
+            <Menu className="h-5 w-5" />
+          </button>
+        </header>
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
+        <main>
+          <section className="relative z-10 mx-auto grid min-h-[88vh] max-w-7xl items-center gap-14 px-6 pb-16 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:pt-16">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="max-w-3xl"
+            >
+              <div className="mb-6 inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cyan-300">
+                Infrastructure for the Next Digital Economy
+              </div>
+              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
+                Building a scalable blockchain ecosystem for global digital participation.
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+                Win Coin is a next-generation Layer 1 and ecosystem-focused network designed to power decentralized applications, financial systems, secure infrastructure, and community-led digital growth.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button className="rounded-full bg-white px-6 py-6 text-sm font-medium text-slate-950 hover:bg-slate-100">
+                  Explore Ecosystem <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button variant="outline" className="rounded-full border-white/15 bg-white/5 px-6 py-6 text-sm text-white backdrop-blur hover:bg-white/10">
+                  Read Whitepaper
+                </Button>
+              </div>
 
-    .btn {
-      display: inline-block;
-      padding: 14px 26px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
+              <div className="mt-12 grid gap-4 sm:grid-cols-3">
+                {[
+                  ["Layer", "Modular L1"],
+                  ["Focus", "Ecosystem Utility"],
+                  ["Vision", "Global Adoption"],
+                ].map(([k, v]) => (
+                  <div key={k} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                    <div className="text-xs uppercase tracking-[0.22em] text-slate-400">{k}</div>
+                    <div className="mt-2 text-lg font-medium text-white">{v}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
 
-    .btn-primary {
-      background: #ffd700;
-      color: #071a3a;
-    }
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="relative mx-auto flex w-full max-w-xl items-center justify-center"
+            >
+              <div className="absolute h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
+              <div className="absolute h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+                className="relative flex h-[420px] w-[420px] items-center justify-center rounded-full border border-cyan-300/20 bg-white/5 shadow-[0_0_100px_rgba(0,209,255,0.12)] backdrop-blur-xl"
+              >
+                <div className="absolute inset-8 rounded-full border border-dashed border-white/10" />
+                <div className="absolute inset-16 rounded-full border border-white/10" />
+                {[
+                  "top-5 left-1/2 -translate-x-1/2",
+                  "bottom-8 left-12",
+                  "right-12 top-16",
+                  "right-8 bottom-20",
+                  "left-10 top-24",
+                ].map((pos, index) => (
+                  <div key={index} className={`absolute ${pos}`}>
+                    <div className="h-4 w-4 rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.9)]" />
+                  </div>
+                ))}
+                <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 shadow-[0_0_70px_rgba(108,92,231,0.45)]">
+                  <div className="flex h-40 w-40 items-center justify-center rounded-full border border-white/15 bg-[#050816]/25 backdrop-blur-md">
+                    <span className="text-6xl font-semibold tracking-[0.2em] text-white">W</span>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </section>
 
-    .btn-secondary {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      background: transparent;
-    }
+          <section id="technology" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <SectionTitle
+              eyebrow="Technology"
+              title="A serious blockchain foundation with premium ecosystem positioning"
+              text="Win Coin is presented as a credible infrastructure project, blending Layer 1 ambition with ecosystem-level usability, long-term utility, and modern digital finance readiness."
+            />
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              {featureCards.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ delay: index * 0.08 }}
+                  >
+                    <Card className="h-full rounded-[28px] border-white/10 bg-white/5 backdrop-blur-xl">
+                      <CardContent className="p-7">
+                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 text-cyan-300">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <h3 className="text-xl font-medium text-white">{item.title}</h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </section>
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+          <section id="ecosystem" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div>
+                <div className="mb-3 inline-flex rounded-full border border-violet-400/20 bg-violet-400/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-violet-200">
+                  Ecosystem
+                </div>
+                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+                  Designed to grow beyond a token into a living digital economy.
+                </h2>
+                <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-300 md:text-base">
+                  Win Coin is structured to support a broad ecosystem of applications, integrations, validators, governance, and digital participation layers that expand over time.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {ecosystemItems.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.06 }}
+                    className="rounded-[24px] border border-white/10 bg-white/5 p-5 text-white backdrop-blur-xl"
+                  >
+                    <div className="text-xs uppercase tracking-[0.22em] text-slate-400">Module {String(index + 1).padStart(2, "0")}</div>
+                    <div className="mt-3 text-lg font-medium">{item}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
 
-    .hero-panel {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 28px;
-      text-align: left;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    }
+          <section id="utility" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <SectionTitle
+              eyebrow="Token Utility"
+              title="Utility-led value across the entire network"
+              text="The WIN token is positioned as the functional layer of the network, supporting governance, access, participation, payments, and ecosystem-wide incentives."
+            />
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {utilityItems.map((item, index) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.07 }}
+                  className="rounded-[26px] border border-white/10 bg-gradient-to-b from-white/8 to-white/[0.03] p-6 backdrop-blur-xl"
+                >
+                  <div className="text-xs uppercase tracking-[0.22em] text-cyan-300">WIN Utility</div>
+                  <div className="mt-3 text-2xl font-medium text-white">{item}</div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
 
-    .hero-panel-title {
-      font-size: 24px;
-      color: #ffd700;
-      margin-bottom: 10px;
-      text-align: center;
-    }
+          <section id="tokenomics" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <div>
+                <div className="mb-3 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-300">
+                  Tokenomics
+                </div>
+                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">A clear token structure for long-term ecosystem growth</h2>
+                <p className="mt-5 max-w-xl text-sm leading-8 text-slate-300 md:text-base">
+                  This section is ready to publish visually. You can replace the percentages later if your final token distribution changes.
+                </p>
+                <div className="mt-8 rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                  <div className="text-xs uppercase tracking-[0.24em] text-slate-400">Total Supply</div>
+                  <div className="mt-3 text-4xl font-semibold text-white">1,000,000,000 WIN</div>
+                </div>
+              </div>
+              <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="space-y-5">
+                  {tokenomics.map((item) => (
+                    <div key={item.label}>
+                      <div className="mb-2 flex items-center justify-between text-sm text-slate-200">
+                        <span>{item.label}</span>
+                        <span>{item.value}%</span>
+                      </div>
+                      <div className="h-3 overflow-hidden rounded-full bg-white/5">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${item.value}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8 }}
+                          className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-violet-500 to-fuchsia-500"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
 
-    .hero-panel p {
-      margin-bottom: 0;
-      font-size: 16px;
-      color: #eef3ff;
-      text-align: center;
-    }
+          <section id="roadmap" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <SectionTitle
+              eyebrow="Roadmap"
+              title="A roadmap built for credibility, rollout, and scale"
+              text="The roadmap structure balances launch readiness with long-term expansion so the project appears strategic, serious, and growth-oriented from day one."
+            />
+            <div className="grid gap-6 xl:grid-cols-4">
+              {roadmap.map((item, index) => (
+                <motion.div
+                  key={item.phase}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+                >
+                  <div className="text-xs uppercase tracking-[0.3em] text-cyan-300">{item.phase}</div>
+                  <h3 className="mt-3 text-2xl font-medium text-white">{item.title}</h3>
+                  <div className="mt-5 space-y-3">
+                    {item.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3 text-sm leading-7 text-slate-300">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-violet-400" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
 
-    section {
-      padding: 75px 0;
-    }
+          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+            <div className="grid gap-6 rounded-[36px] border border-white/10 bg-gradient-to-br from-cyan-400/10 via-violet-500/10 to-fuchsia-500/10 p-8 backdrop-blur-xl lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-cyan-300">Security & Trust</div>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                  Infrastructure-focused messaging that strengthens investor confidence.
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm leading-8 text-slate-300 md:text-base">
+                  Built with a security-led narrative, transparent ecosystem positioning, and premium presentation standards suitable for a global Web3 audience.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 text-sm text-slate-200">
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Advanced cryptography</div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Transparent governance</div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Validator incentives</div>
+              </div>
+            </div>
+          </section>
 
-    .section-title {
-      text-align: center;
-      font-size: 38px;
-      color: #ffd700;
-      margin-bottom: 16px;
-    }
+          <section id="faq" className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
+            <SectionTitle
+              eyebrow="FAQ"
+              title="Essential answers for first-time visitors and potential partners"
+              text="This section keeps the site clear, investor-friendly, and easy to navigate for users discovering the project for the first time."
+            />
+            <div className="space-y-4">
+              {faqs.map((item, index) => (
+                <motion.div
+                  key={item.q}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.06 }}
+                  className="rounded-[24px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+                >
+                  <h3 className="text-lg font-medium text-white">{item.q}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.a}</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+        </main>
 
-    .section-subtitle {
-      text-align: center;
-      max-width: 860px;
-      margin: 0 auto 40px;
-      color: #d7e0f7;
-      font-size: 17px;
-    }
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: #112a59;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 26px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-    }
-
-    .card h3 {
-      color: #ffd700;
-      margin-bottom: 12px;
-      font-size: 24px;
-    }
-
-    .card p {
-      color: #edf2ff;
-      font-size: 16px;
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .impact-box {
-      background: #ffffff;
-      color: #071a3a;
-      border-radius: 16px;
-      padding: 28px 16px;
-      text-align: center;
-    }
-
-    .impact-box h3 {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
-
-    .impact-box p {
-      color: #3c4c72;
-      font-size: 15px;
-    }
-
-    .story-section {
-      background: #0b234d;
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .story-card {
-      border-radius: 18px;
-      padding: 30px;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-
-    .story-before {
-      background: linear-gradient(135deg, #4a1f1f, #6f2d2d);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .story-after {
-      background: linear-gradient(135deg, #1d5c46, #2f8b69);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .story-card h3 {
-      font-size: 30px;
-      margin-bottom: 14px;
-      color: #ffd700;
-    }
-
-    .story-card p {
-      font-size: 17px;
-      color: #ffffff;
-    }
-
-    .donation-box {
-      max-width: 920px;
-      margin: 0 auto;
-      background: #112a59;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 32px;
-      text-align: center;
-    }
-
-    .donation-box p {
-      color: #eef2ff;
-      margin-bottom: 12px;
-      font-size: 17px;
-    }
-
-    .wallet-box {
-      margin-top: 20px;
-      background: #071a3a;
-      border: 1px solid #29457d;
-      border-radius: 12px;
-      padding: 14px;
-      color: #ffd700;
-      font-size: 15px;
-      word-break: break-all;
-    }
-
-    .partner-wrap {
-      text-align: center;
-    }
-
-    .partner-list {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .partner-item {
-      padding: 14px 18px;
-      border-radius: 999px;
-      background: #112a59;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #ffffff;
-      font-size: 15px;
-    }
-
-    .roadmap-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .roadmap-box {
-      background: #112a59;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .roadmap-box h3 {
-      color: #ffd700;
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .roadmap-box p {
-      color: #eef2ff;
-      font-size: 15px;
-    }
-
-    .mission-quote {
-      max-width: 920px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 24px;
-      color: #ffffff;
-    }
-
-    .mission-quote strong {
-      color: #ffd700;
-    }
-
-    .footer {
-      padding: 35px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #d8e0f5;
-      font-size: 14px;
-    }
-
-    @media (max-width: 992px) {
-      .cards-3,
-      .impact-grid,
-      .roadmap-grid,
-      .story-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero h2 {
-        font-size: 28px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .cards-3,
-      .impact-grid,
-      .roadmap-grid,
-      .story-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero h2 {
-        font-size: 24px;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .nav-wrap {
-        flex-direction: column;
-        gap: 14px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="navbar">
-    <div class="container nav-wrap">
-      <div class="brand">Win Coin</div>
-      <div class="nav-links">
-        <a href="#how">How It Works</a>
-        <a href="#impact">Impact</a>
-        <a href="#stories">Stories</a>
-        <a href="#donate">Donate</a>
-        <a href="#partners">Partners</a>
-        <a href="#roadmap">Roadmap</a>
+        <footer className="border-t border-white/10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+            <div>
+              <div className="text-lg font-semibold tracking-[0.24em] text-white">WIN COIN</div>
+              <p className="mt-2 max-w-md text-sm leading-7 text-slate-400">
+                A premium Layer 1 and ecosystem-focused digital infrastructure concept built for modern Web3 positioning.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 text-sm text-slate-300">
+              {['X / Twitter', 'Telegram', 'Discord', 'GitHub', 'Medium'].map((item) => (
+                <a key={item} href="#" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10">
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
-  </div>
-
-  <section class="hero">
-    <div class="container">
-      <div class="hero-logo">W</div>
-      <h1>Win Coin</h1>
-      <h2>Shop. Earn. Help. Win.</h2>
-      <p>
-        Win Coin is a humanitarian Web3 ecosystem designed to turn everyday shopping into real-world impact.
-        Our mission is to support mothers, pregnant women, children, hospitals, schools, and families affected by war, poverty, and crisis.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="btn btn-primary" href="#impact">See Impact</a>
-        <a class="btn btn-secondary" href="#donate">Support the Mission</a>
-      </div>
-
-      <div class="hero-panel">
-        <div class="hero-panel-title">From War to Hope</div>
-        <p>
-          Win Coin is built on a simple vision: turning hardship into support, tears into smiles, and crisis into hope through everyday participation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="container">
-      <h2 class="section-title">How It Works</h2>
-      <p class="section-subtitle">
-        Win Coin connects shopping, rewards, and humanitarian support in one ecosystem.
-      </p>
-
-      <div class="cards-3">
-        <div class="card">
-          <h3>1. Shop</h3>
-          <p>
-            Users shop through partner merchants and selected campaigns designed to reward participation.
-          </p>
-        </div>
-        <div class="card">
-          <h3>2. Earn WIN</h3>
-          <p>
-            Users receive WIN token rewards based on shopping activity, campaigns, and community support systems.
-          </p>
-        </div>
-        <div class="card">
-          <h3>3. Help</h3>
-          <p>
-            WIN can be saved, used, or directed toward humanitarian aid supporting women, children, hospitals, schools, and families in need.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="impact">
-    <div class="container">
-      <h2 class="section-title">Impact Dashboard</h2>
-      <p class="section-subtitle">
-        These values can be updated manually as your project grows.
-      </p>
-
-      <div class="impact-grid">
-        <div class="impact-box">
-          <h3>$0</h3>
-          <p>Total Donations</p>
-        </div>
-        <div class="impact-box">
-          <h3>0</h3>
-          <p>Families Supported</p>
-        </div>
-        <div class="impact-box">
-          <h3>0</h3>
-          <p>Children Helped</p>
-        </div>
-        <div class="impact-box">
-          <h3>0</h3>
-          <p>Latest Aid Delivered</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="stories" class="story-section">
-    <div class="container">
-      <h2 class="section-title">Before / After</h2>
-      <p class="section-subtitle">
-        Win Coin represents the transition from conflict to peace, from need to support, and from sadness to hope.
-      </p>
-
-      <div class="story-grid">
-        <div class="story-card story-before">
-          <h3>Before</h3>
-          <p>
-            War, hunger, lack of medicine, lack of clean water, and broken infrastructure affect the most vulnerable:
-            mothers, pregnant women, babies, children, and entire families struggling to survive.
-          </p>
-        </div>
-
-        <div class="story-card story-after">
-          <h3>After</h3>
-          <p>
-            With support, essential food, medical supplies, school materials, and basic needs can reach people in crisis.
-            The result is hope, dignity, safety, and visible positive change.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="donate">
-    <div class="container">
-      <h2 class="section-title">Donation Model</h2>
-      <p class="section-subtitle">
-        Support can come from WIN token rewards, direct crypto donations, and future merchant campaigns.
-      </p>
-
-      <div class="donation-box">
-        <p><strong>Estimated impact:</strong> Every <span style="color:#ffd700; font-weight:bold;">$300</span> can support one family with essential needs.</p>
-        <p>Planned donation methods:</p>
-        <p><strong>WIN • USDT (TRC20) • BTC • ETH • BNB</strong></p>
-        <div class="wallet-box">TRC20 Donation Address: COMING SOON</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="partners">
-    <div class="container partner-wrap">
-      <h2 class="section-title">Partnership Discussions in Progress</h2>
-      <p class="section-subtitle">
-        We aim to collaborate with global e-commerce, retail, payment, and humanitarian logistics partners.
-      </p>
-
-      <div class="partner-list">
-        <div class="partner-item">Global E-Commerce</div>
-        <div class="partner-item">Retail Stores</div>
-        <div class="partner-item">Payment Partners</div>
-        <div class="partner-item">Humanitarian Logistics</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="roadmap">
-    <div class="container">
-      <h2 class="section-title">Roadmap</h2>
-      <p class="section-subtitle">
-        A simple roadmap for building Win Coin step by step.
-      </p>
-
-      <div class="roadmap-grid">
-        <div class="roadmap-box">
-          <h3>Phase 1</h3>
-          <p>Brand creation, website setup, whitepaper, and community building.</p>
-        </div>
-        <div class="roadmap-box">
-          <h3>Phase 2</h3>
-          <p>WIN token deployment, fair launch, trust setup, and charity framework.</p>
-        </div>
-        <div class="roadmap-box">
-          <h3>Phase 3</h3>
-          <p>App and web app development, merchant system, and donation dashboard.</p>
-        </div>
-        <div class="roadmap-box">
-          <h3>Phase 4</h3>
-          <p>Global growth, partner expansion, real-world campaigns, and broader impact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2 class="section-title">Our Mission</h2>
-      <div class="mission-quote">
-        Let the World Win. Let Peace Win. <br><br>
-        <strong>Win Coin is not just a token. It is a humanitarian movement.</strong>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    © 2026 Win Coin — Humanitarian Web3 Ecosystem
-  </div>
-
-</body>
-</html>
+  );
+}
