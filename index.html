@@ -1055,5 +1055,37 @@
     document.getElementById('walletTop').addEventListener('click', connectWallet);
     document.getElementById('walletMain').addEventListener('click', connectWallet);
   </script>
+  <section class="coin3d">
+<div class="coin-wrap">
+<div class="coin"></div>
+</div>
+</section>
+
+<style>
+.coin3d{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:120px 0;
+}
+
+.coin-wrap{
+perspective:1000px;
+}
+
+.coin{
+width:180px;
+height:180px;
+border-radius:50%;
+background:linear-gradient(145deg,#7a5cff,#3dd6ff);
+box-shadow:0 0 40px rgba(122,92,255,0.6);
+animation:spinCoin 8s linear infinite;
+}
+
+@keyframes spinCoin{
+0%{transform:rotateY(0deg)}
+100%{transform:rotateY(360deg)}
+}
+</style>
 </body>
 </html>
