@@ -13,7 +13,7 @@
 <style>
 
 body{
-background:#060d1f;
+background:#070f25;
 color:white;
 font-family:Inter,Arial;
 margin:0;
@@ -46,7 +46,7 @@ gap:30px;
 .card{
 background:#0f1a36;
 padding:25px;
-border-radius:15px;
+border-radius:16px;
 }
 
 .avatar{
@@ -63,7 +63,7 @@ font-weight:bold;
 
 .logo-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:30px;
 text-align:center;
 }
@@ -87,16 +87,19 @@ font-weight:bold;
 <body>
 
 
+
 <section>
 
 <h1>Building a scalable blockchain ecosystem</h1>
 
 <p>
 Win Coin is a next-generation Layer 1 ecosystem designed
-to power decentralized applications and humanitarian transparency.
+to power decentralized applications, financial systems
+and transparent humanitarian infrastructure.
 </p>
 
 </section>
+
 
 
 <section>
@@ -108,30 +111,32 @@ to power decentralized applications and humanitarian transparency.
 <div class="card">
 <div class="avatar">FV</div>
 <h3>Founder & Vision</h3>
-<p>Strategic direction and ecosystem vision.</p>
+<p>Responsible for ecosystem direction and strategic positioning.</p>
 </div>
 
 <div class="card">
 <div class="avatar">LD</div>
-<h3>Lead Developer</h3>
-<p>Smart contracts and blockchain infrastructure.</p>
+<h3>Lead Blockchain Developer</h3>
+<p>Smart contracts, security and blockchain infrastructure.</p>
 </div>
 
 <div class="card">
 <div class="avatar">PD</div>
 <h3>Product Designer</h3>
-<p>UI/UX and ecosystem experience.</p>
+<p>Product UI, ecosystem UX and design direction.</p>
 </div>
 
 <div class="card">
 <div class="avatar">MG</div>
 <h3>Marketing & Growth</h3>
-<p>Community growth and partnerships.</p>
+<p>Community expansion, partnerships and visibility.</p>
 </div>
 
 </div>
 
 </section>
+
+
 
 
 <section>
@@ -158,17 +163,19 @@ to power decentralized applications and humanitarian transparency.
 </div>
 
 <p style="font-size:12px;margin-top:30px">
-Names listed above are referenced for ecosystem research and market awareness.
-They do not imply partnership, employment, or endorsement unless officially announced.
+Names referenced above are included for ecosystem awareness and
+industry research purposes only. They do not imply partnership,
+employment, advisory roles or endorsement unless officially announced.
 </p>
 
 </section>
 
 
 
+
 <section>
 
-<h2>VC & Ecosystem</h2>
+<h2>VC & Ecosystem Landscape</h2>
 
 <div class="logo-grid">
 
@@ -185,10 +192,13 @@ They do not imply partnership, employment, or endorsement unless officially anno
 </div>
 
 <p style="font-size:12px;margin-top:30px">
-All logos and names are referenced as part of the Web3 ecosystem landscape and do not imply formal partnership.
+Logos and brand names displayed above represent ecosystem research
+and industry landscape references. They do not indicate investment
+or partnership unless publicly confirmed.
 </p>
 
 </section>
+
 
 
 
@@ -200,13 +210,13 @@ All logos and names are referenced as part of the Web3 ecosystem landscape and d
 
 <div class="card">
 <h3>UNRWA</h3>
-<p>Humanitarian assistance for Palestinian refugees</p>
+<p>Humanitarian aid for Palestinian refugees</p>
 <p>www.unrwa.org</p>
 </div>
 
 <div class="card">
 <h3>World Food Programme</h3>
-<p>Global food security and emergency aid</p>
+<p>Global food security humanitarian organization</p>
 <p>www.wfp.org</p>
 </div>
 
@@ -218,13 +228,14 @@ All logos and names are referenced as part of the Web3 ecosystem landscape and d
 
 <div class="card">
 <h3>UNICEF</h3>
-<p>Global humanitarian support for children</p>
+<p>Humanitarian support for children and families</p>
 <p>www.unicef.org</p>
 </div>
 
 </div>
 
 </section>
+
 
 
 
@@ -236,7 +247,7 @@ All logos and names are referenced as part of the Web3 ecosystem landscape and d
 
 <div class="card">
 <h3>Cold Wallet Addresses</h3>
-<p>Future donation wallets will be published here.</p>
+<p>Future humanitarian wallet addresses will be published here.</p>
 </div>
 
 <div class="card">
@@ -255,13 +266,15 @@ All logos and names are referenced as part of the Web3 ecosystem landscape and d
 
 
 
+
 <section>
 
-<h2>Live Token Supply</h2>
+<h2>Total Token Supply</h2>
 
 <div class="counter" id="counter">0</div>
 
 </section>
+
 
 
 
@@ -276,7 +289,7 @@ let interval = setInterval(()=>{
 
 count += 5000000
 
-counter.innerText = count.toLocaleString()
+counter.innerText = count.toLocaleString() + " WIN"
 
 if(count >= target){
 clearInterval(interval)
@@ -288,6 +301,6 @@ clearInterval(interval)
 
 
 
-</body>
 
+</body>
 </html>
