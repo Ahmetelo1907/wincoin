@@ -151,6 +151,27 @@
       font-size:14px;
     }
 
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .lang-select{
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      font-weight:700;
+      outline:none;
+      cursor:pointer;
+    }
+
+    .lang-select option{
+      color:#111827;
+    }
+
     .btn{
       padding:13px 18px;
       border-radius:999px;
@@ -523,6 +544,7 @@
       .grid4{grid-template-columns:repeat(2,1fr)}
       .grid3,.grid2{grid-template-columns:1fr}
       .navlinks{display:none}
+      .nav-right{gap:8px}
     }
 
     @media(max-width:700px){
@@ -530,6 +552,8 @@
       .grid4,.stats{grid-template-columns:1fr}
       .hero h1{font-size:46px}
       .hero p{font-size:16px}
+      .nav-right{flex-direction:column; align-items:flex-end}
+      .lang-select,.btn{width:auto}
     }
   </style>
 </head>
@@ -540,51 +564,58 @@
       <div class="logo">W</div>
       <div>
         <div class="brand-name">WIN COIN</div>
-        <div class="brand-sub">Layer 1 Ecosystem</div>
+        <div class="brand-sub" data-i18n="brand_sub">Layer 1 Ecosystem</div>
       </div>
     </a>
 
     <div class="navlinks">
-      <a href="#team">Team</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#investors">Investors</a>
-      <a href="#relief">Relief</a>
-      <a href="#wallets">Wallets</a>
+      <a href="#team" data-i18n="nav_team">Team</a>
+      <a href="#tokenomics" data-i18n="nav_tokenomics">Tokenomics</a>
+      <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
+      <a href="#investors" data-i18n="nav_investors">Investors</a>
+      <a href="#relief" data-i18n="nav_relief">Relief</a>
+      <a href="#wallets" data-i18n="nav_wallets">Wallets</a>
     </div>
 
-    <button class="btn" id="walletTop">Connect Wallet</button>
+    <div class="nav-right">
+      <select id="languageSwitcher" class="lang-select">
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+        <option value="zh">中文</option>
+      </select>
+      <button class="btn" id="walletTop" data-i18n="connect_wallet">Connect Wallet</button>
+    </div>
   </div>
 
   <main class="container" id="top">
 
     <section class="hero">
       <div class="reveal">
-        <div class="tag">Infrastructure for the Next Digital Economy</div>
-        <h1>Building a scalable blockchain ecosystem for global participation.</h1>
-        <p>
+        <div class="tag" data-i18n="hero_tag">Infrastructure for the Next Digital Economy</div>
+        <h1 data-i18n="hero_title">Building a scalable blockchain ecosystem for global participation.</h1>
+        <p data-i18n="hero_text">
           Win Coin is a premium Web3 concept designed around Layer 1 positioning,
           ecosystem expansion, transparent humanitarian reporting, and investor-facing
           infrastructure storytelling.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#tokenomics">Explore Tokenomics</a>
-          <a class="btn" href="#wallets">Donation Tracker</a>
+          <a class="btn primary" href="#tokenomics" data-i18n="hero_btn_1">Explore Tokenomics</a>
+          <a class="btn" href="#wallets" data-i18n="hero_btn_2">Donation Tracker</a>
         </div>
 
         <div class="stats">
           <div class="card stat">
-            <small>Layer</small>
-            <b>Modular L1</b>
+            <small data-i18n="stat_layer_label">Layer</small>
+            <b data-i18n="stat_layer_value">Modular L1</b>
           </div>
           <div class="card stat">
-            <small>Positioning</small>
-            <b>Ecosystem Utility</b>
+            <small data-i18n="stat_position_label">Positioning</small>
+            <b data-i18n="stat_position_value">Ecosystem Utility</b>
           </div>
           <div class="card stat">
-            <small>Mission</small>
-            <b>Transparent Impact</b>
+            <small data-i18n="stat_mission_label">Mission</small>
+            <b data-i18n="stat_mission_value">Transparent Impact</b>
           </div>
         </div>
       </div>
@@ -605,9 +636,9 @@
 
     <section class="section" id="team">
       <div class="head reveal">
-        <div class="tag">Core Team</div>
-        <h2>Built by product, infrastructure, and growth-focused contributors</h2>
-        <p>
+        <div class="tag" data-i18n="team_tag">Core Team</div>
+        <h2 data-i18n="team_title">Built by product, infrastructure, and growth-focused contributors</h2>
+        <p data-i18n="team_text">
           Win Coin is structured around a multidisciplinary execution model spanning vision,
           development, design, and ecosystem growth.
         </p>
@@ -616,39 +647,39 @@
       <div class="grid4">
         <div class="card tile reveal">
           <div class="avatar">FV</div>
-          <span class="role">Founder & Vision</span>
-          <h3>Founder & Vision</h3>
-          <p>Responsible for strategic direction, network narrative, and long-term ecosystem positioning.</p>
+          <span class="role" data-i18n="role_founder">Founder & Vision</span>
+          <h3 data-i18n="team_card_1_title">Founder & Vision</h3>
+          <p data-i18n="team_card_1_text">Responsible for strategic direction, network narrative, and long-term ecosystem positioning.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="avatar">LD</div>
-          <span class="role">Lead Developer</span>
-          <h3>Lead Blockchain Developer</h3>
-          <p>Focused on smart contracts, network architecture, security, and technical implementation.</p>
+          <span class="role" data-i18n="role_developer">Lead Developer</span>
+          <h3 data-i18n="team_card_2_title">Lead Blockchain Developer</h3>
+          <p data-i18n="team_card_2_text">Focused on smart contracts, network architecture, security, and technical implementation.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="avatar">PD</div>
-          <span class="role">Product Designer</span>
-          <h3>Product Designer</h3>
-          <p>Leads interface language, product flow, visual identity, and ecosystem-level experience.</p>
+          <span class="role" data-i18n="role_designer">Product Designer</span>
+          <h3 data-i18n="team_card_3_title">Product Designer</h3>
+          <p data-i18n="team_card_3_text">Leads interface language, product flow, visual identity, and ecosystem-level experience.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="avatar">MG</div>
-          <span class="role">Marketing & Growth</span>
-          <h3>Marketing & Growth</h3>
-          <p>Drives global ecosystem visibility, community expansion, and strategic communications.</p>
+          <span class="role" data-i18n="role_marketing">Marketing & Growth</span>
+          <h3 data-i18n="team_card_4_title">Marketing & Growth</h3>
+          <p data-i18n="team_card_4_text">Drives global ecosystem visibility, community expansion, and strategic communications.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="strategic">
       <div class="head reveal">
-        <div class="tag">Strategic Network</div>
-        <h2>Exploring relationships across the global Web3 landscape</h2>
-        <p>
+        <div class="tag" data-i18n="strategic_tag">Strategic Network</div>
+        <h2 data-i18n="strategic_title">Exploring relationships across the global Web3 landscape</h2>
+        <p data-i18n="strategic_text">
           Win Coin monitors high-signal operators, product builders, and ecosystem participants
           as part of long-term market research and relationship mapping.
         </p>
@@ -658,23 +689,23 @@
         <div class="card tile reveal">
           <div class="icon">GY</div>
           <h3>Guy Young</h3>
-          <p>Referenced within ecosystem landscape research and market awareness.</p>
+          <p data-i18n="strategic_card_text">Referenced within ecosystem landscape research and market awareness.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">AK</div>
           <h3>Aurora Kind</h3>
-          <p>Referenced within ecosystem landscape research and market awareness.</p>
+          <p data-i18n="strategic_card_text">Referenced within ecosystem landscape research and market awareness.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">CL</div>
           <h3>Chris Larsen</h3>
-          <p>Referenced within ecosystem landscape research and market awareness.</p>
+          <p data-i18n="strategic_card_text">Referenced within ecosystem landscape research and market awareness.</p>
         </div>
       </div>
 
-      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px">
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px" data-i18n="strategic_legal">
         Names referenced in this section are included for ecosystem awareness and industry research purposes only.
         They do not imply partnership, employment, advisory status, or endorsement unless officially confirmed.
       </p>
@@ -682,41 +713,41 @@
 
     <section class="section" id="tokenomics">
       <div class="head reveal">
-        <div class="tag">Tokenomics</div>
-        <h2>Animated token distribution and live supply view</h2>
-        <p>
+        <div class="tag" data-i18n="tokenomics_tag">Tokenomics</div>
+        <h2 data-i18n="tokenomics_title">Animated token distribution and live supply view</h2>
+        <p data-i18n="tokenomics_text">
           This section combines a live total supply counter with animated category distribution bars.
         </p>
       </div>
 
       <div class="split">
         <div class="card supply reveal">
-          <small>Total Token Supply</small>
+          <small data-i18n="supply_label">Total Token Supply</small>
           <div class="big" id="supplyCounter" data-target="1000000000">0 WIN</div>
-          <p class="muted" style="margin-top:14px">
+          <p class="muted" style="margin-top:14px" data-i18n="supply_text">
             Live animated supply indicator for investor presentation and ecosystem communication.
           </p>
         </div>
 
         <div class="card bars reveal">
           <div class="baritem">
-            <div class="bartop"><span>Ecosystem Growth</span><span>40%</span></div>
+            <div class="bartop"><span data-i18n="bar_1_label">Ecosystem Growth</span><span>40%</span></div>
             <div class="barbg"><div class="barfill" data-value="40"></div></div>
           </div>
           <div class="baritem">
-            <div class="bartop"><span>Development</span><span>20%</span></div>
+            <div class="bartop"><span data-i18n="bar_2_label">Development</span><span>20%</span></div>
             <div class="barbg"><div class="barfill" data-value="20"></div></div>
           </div>
           <div class="baritem">
-            <div class="bartop"><span>Liquidity</span><span>15%</span></div>
+            <div class="bartop"><span data-i18n="bar_3_label">Liquidity</span><span>15%</span></div>
             <div class="barbg"><div class="barfill" data-value="15"></div></div>
           </div>
           <div class="baritem">
-            <div class="bartop"><span>Marketing</span><span>15%</span></div>
+            <div class="bartop"><span data-i18n="bar_4_label">Marketing</span><span>15%</span></div>
             <div class="barbg"><div class="barfill" data-value="15"></div></div>
           </div>
           <div class="baritem">
-            <div class="bartop"><span>Team</span><span>10%</span></div>
+            <div class="bartop"><span data-i18n="bar_5_label">Team</span><span>10%</span></div>
             <div class="barbg"><div class="barfill" data-value="10"></div></div>
           </div>
         </div>
@@ -725,9 +756,9 @@
 
     <section class="section" id="roadmap">
       <div class="head reveal">
-        <div class="tag">Roadmap Timeline</div>
-        <h2>Execution path from concept to ecosystem scale</h2>
-        <p>
+        <div class="tag" data-i18n="roadmap_tag">Roadmap Timeline</div>
+        <h2 data-i18n="roadmap_title">Execution path from concept to ecosystem scale</h2>
+        <p data-i18n="roadmap_text">
           A clean timeline gives visitors and potential investors an immediate sense of progress.
         </p>
       </div>
@@ -735,41 +766,41 @@
       <div class="timeline">
         <div class="card road reveal">
           <div class="phase">Phase 01</div>
-          <h3>Foundation</h3>
+          <h3 data-i18n="road_1_title">Foundation</h3>
           <ul>
-            <li>Brand identity and website launch</li>
-            <li>Whitepaper publication</li>
-            <li>Community seeding</li>
+            <li data-i18n="road_1_li_1">Brand identity and website launch</li>
+            <li data-i18n="road_1_li_2">Whitepaper publication</li>
+            <li data-i18n="road_1_li_3">Community seeding</li>
           </ul>
         </div>
 
         <div class="card road reveal">
           <div class="phase">Phase 02</div>
-          <h3>Network Readiness</h3>
+          <h3 data-i18n="road_2_title">Network Readiness</h3>
           <ul>
-            <li>Contract architecture</li>
-            <li>Tokenomics communication</li>
-            <li>Ecosystem outreach</li>
+            <li data-i18n="road_2_li_1">Contract architecture</li>
+            <li data-i18n="road_2_li_2">Tokenomics communication</li>
+            <li data-i18n="road_2_li_3">Ecosystem outreach</li>
           </ul>
         </div>
 
         <div class="card road reveal">
           <div class="phase">Phase 03</div>
-          <h3>Expansion</h3>
+          <h3 data-i18n="road_3_title">Expansion</h3>
           <ul>
-            <li>Utility dashboards</li>
-            <li>Investor materials</li>
-            <li>Transparency framework</li>
+            <li data-i18n="road_3_li_1">Utility dashboards</li>
+            <li data-i18n="road_3_li_2">Investor materials</li>
+            <li data-i18n="road_3_li_3">Transparency framework</li>
           </ul>
         </div>
 
         <div class="card road reveal">
           <div class="phase">Phase 04</div>
-          <h3>Scale</h3>
+          <h3 data-i18n="road_4_title">Scale</h3>
           <ul>
-            <li>Wider integrations</li>
-            <li>Donation wallet archive</li>
-            <li>Long-term infrastructure growth</li>
+            <li data-i18n="road_4_li_1">Wider integrations</li>
+            <li data-i18n="road_4_li_2">Donation wallet archive</li>
+            <li data-i18n="road_4_li_3">Long-term infrastructure growth</li>
           </ul>
         </div>
       </div>
@@ -777,9 +808,9 @@
 
     <section class="section" id="investors">
       <div class="head reveal">
-        <div class="tag">Investor Logo Slider</div>
-        <h2>Global venture and ecosystem landscape</h2>
-        <p>
+        <div class="tag" data-i18n="investors_tag">Investor Logo Slider</div>
+        <h2 data-i18n="investors_title">Global venture and ecosystem landscape</h2>
+        <p data-i18n="investors_text">
           This scrolling strip communicates market awareness while preserving legal clarity.
         </p>
       </div>
@@ -806,7 +837,7 @@
         </div>
       </div>
 
-      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px">
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px" data-i18n="investors_legal">
         Logos and names displayed above represent ecosystem research and landscape mapping only.
         They do not imply investment, partnership, employment, or endorsement unless publicly confirmed.
       </p>
@@ -814,9 +845,9 @@
 
     <section class="section" id="partners">
       <div class="head reveal">
-        <div class="tag">Ecosystem Partners</div>
-        <h2>Target ecosystem directions and infrastructure alignment</h2>
-        <p>
+        <div class="tag" data-i18n="partners_tag">Ecosystem Partners</div>
+        <h2 data-i18n="partners_title">Target ecosystem directions and infrastructure alignment</h2>
+        <p data-i18n="partners_text">
           A structured partner section helps frame the project as integration-ready and expansion-ready.
         </p>
       </div>
@@ -824,35 +855,35 @@
       <div class="grid4">
         <div class="card tile reveal">
           <div class="icon">L1</div>
-          <h3>Layer 1 Infrastructure</h3>
-          <p>Network architecture, validator systems, and core execution design.</p>
+          <h3 data-i18n="partners_card_1_title">Layer 1 Infrastructure</h3>
+          <p data-i18n="partners_card_1_text">Network architecture, validator systems, and core execution design.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">DF</div>
-          <h3>DeFi Integrations</h3>
-          <p>Compatibility with staking, liquidity, utility dashboards, and on-chain tooling.</p>
+          <h3 data-i18n="partners_card_2_title">DeFi Integrations</h3>
+          <p data-i18n="partners_card_2_text">Compatibility with staking, liquidity, utility dashboards, and on-chain tooling.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">CM</div>
-          <h3>Community Systems</h3>
-          <p>Growth channels, contributor networks, and global adoption loops.</p>
+          <h3 data-i18n="partners_card_3_title">Community Systems</h3>
+          <p data-i18n="partners_card_3_text">Growth channels, contributor networks, and global adoption loops.</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">IM</div>
-          <h3>Impact Infrastructure</h3>
-          <p>Public donation reporting and transparent relief workflows.</p>
+          <h3 data-i18n="partners_card_4_title">Impact Infrastructure</h3>
+          <p data-i18n="partners_card_4_text">Public donation reporting and transparent relief workflows.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="relief">
       <div class="head reveal">
-        <div class="tag">Relief Partners</div>
-        <h2>Humanitarian organizations for transparent giving</h2>
-        <p>
+        <div class="tag" data-i18n="relief_tag">Relief Partners</div>
+        <h2 data-i18n="relief_title">Humanitarian organizations for transparent giving</h2>
+        <p data-i18n="relief_text">
           This section shows public relief channels that may be referenced in future charitable distributions.
         </p>
       </div>
@@ -861,33 +892,33 @@
         <div class="card tile reveal">
           <div class="icon">UN</div>
           <h3>UNRWA</h3>
-          <p>Humanitarian aid for Palestinian refugees.</p>
+          <p data-i18n="relief_card_1_text">Humanitarian aid for Palestinian refugees.</p>
           <p class="muted">Official site: www.unrwa.org</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">WF</div>
           <h3>World Food Programme</h3>
-          <p>Global food security and emergency response.</p>
+          <p data-i18n="relief_card_2_text">Global food security and emergency response.</p>
           <p class="muted">Official site: www.wfp.org</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">MS</div>
           <h3>Doctors Without Borders</h3>
-          <p>Emergency medical humanitarian aid.</p>
+          <p data-i18n="relief_card_3_text">Emergency medical humanitarian aid.</p>
           <p class="muted">Official site: www.msf.org</p>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">UC</div>
           <h3>UNICEF</h3>
-          <p>Humanitarian support for children and families.</p>
+          <p data-i18n="relief_card_4_text">Humanitarian support for children and families.</p>
           <p class="muted">Official site: www.unicef.org</p>
         </div>
       </div>
 
-      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px">
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px" data-i18n="relief_legal">
         Donation destinations listed above are independent third-party humanitarian organizations.
         Win Coin does not represent, own, or control these organizations.
       </p>
@@ -895,9 +926,9 @@
 
     <section class="section" id="wallets">
       <div class="head reveal">
-        <div class="tag">Live Donation Wallet Tracker</div>
-        <h2>Transparent wallet placeholders for future cold wallet disclosure</h2>
-        <p>
+        <div class="tag" data-i18n="wallets_tag">Live Donation Wallet Tracker</div>
+        <h2 data-i18n="wallets_title">Transparent wallet placeholders for future cold wallet disclosure</h2>
+        <p data-i18n="wallets_text">
           You said wallet addresses will be added later. This section is ready now.
         </p>
       </div>
@@ -905,50 +936,401 @@
       <div class="grid3">
         <div class="card tile reveal">
           <div class="icon">CW</div>
-          <h3>Cold Wallet #1</h3>
-          <p>Primary humanitarian reserve wallet.</p>
+          <h3 data-i18n="wallet_1_title">Cold Wallet #1</h3>
+          <p data-i18n="wallet_1_text">Primary humanitarian reserve wallet.</p>
           <div class="walletbox" id="wallet1">TO_BE_ADDED_LATER</div>
-          <button class="mini" data-copy="wallet1">Copy</button>
-          <div class="status">Status: Pending publication</div>
+          <button class="mini" data-copy="wallet1" data-i18n="copy_btn">Copy</button>
+          <div class="status" data-i18n="wallet_status_pending">Status: Pending publication</div>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">TX</div>
-          <h3>Cold Wallet #2</h3>
-          <p>Secondary routing wallet for public reporting.</p>
+          <h3 data-i18n="wallet_2_title">Cold Wallet #2</h3>
+          <p data-i18n="wallet_2_text">Secondary routing wallet for public reporting.</p>
           <div class="walletbox" id="wallet2">TO_BE_ADDED_LATER</div>
-          <button class="mini" data-copy="wallet2">Copy</button>
-          <div class="status">Status: Pending publication</div>
+          <button class="mini" data-copy="wallet2" data-i18n="copy_btn">Copy</button>
+          <div class="status" data-i18n="wallet_status_pending">Status: Pending publication</div>
         </div>
 
         <div class="card tile reveal">
           <div class="icon">RP</div>
-          <h3>Transparency Archive</h3>
-          <p>Each future donation can be linked here with transaction hash, destination, and reporting note.</p>
+          <h3 data-i18n="wallet_3_title">Transparency Archive</h3>
+          <p data-i18n="wallet_3_text">Each future donation can be linked here with transaction hash, destination, and reporting note.</p>
           <div class="walletbox">HASH / DATE / DESTINATION / AMOUNT</div>
-          <div class="status">Status: Reporting module ready</div>
+          <div class="status" data-i18n="wallet_status_ready">Status: Reporting module ready</div>
         </div>
       </div>
     </section>
 
     <section class="section" id="wallet-connect">
       <div class="head reveal">
-        <div class="tag">Web3 Wallet</div>
-        <h2>Simple wallet connection button</h2>
-        <p>
+        <div class="tag" data-i18n="web3_tag">Web3 Wallet</div>
+        <h2 data-i18n="web3_title">Simple wallet connection button</h2>
+        <p data-i18n="web3_text">
           This is a lightweight browser-wallet connection layer for MetaMask-compatible wallets.
         </p>
       </div>
 
       <div class="card tile reveal" style="text-align:center">
-        <button class="btn primary" id="walletMain">Connect Web3 Wallet</button>
-        <p class="muted" id="walletStatus" style="margin-top:18px">Wallet not connected.</p>
+        <button class="btn primary" id="walletMain" data-i18n="connect_wallet">Connect Wallet</button>
+        <p class="muted" id="walletStatus" style="margin-top:18px" data-i18n="wallet_not_connected">Wallet not connected.</p>
       </div>
     </section>
 
   </main>
 
   <script>
+    const translations = {
+      en: {
+        brand_sub: "Layer 1 Ecosystem",
+        nav_team: "Team",
+        nav_tokenomics: "Tokenomics",
+        nav_roadmap: "Roadmap",
+        nav_investors: "Investors",
+        nav_relief: "Relief",
+        nav_wallets: "Wallets",
+        connect_wallet: "Connect Wallet",
+        hero_tag: "Infrastructure for the Next Digital Economy",
+        hero_title: "Building a scalable blockchain ecosystem for global participation.",
+        hero_text: "Win Coin is a premium Web3 concept designed around Layer 1 positioning, ecosystem expansion, transparent humanitarian reporting, and investor-facing infrastructure storytelling.",
+        hero_btn_1: "Explore Tokenomics",
+        hero_btn_2: "Donation Tracker",
+        stat_layer_label: "Layer",
+        stat_layer_value: "Modular L1",
+        stat_position_label: "Positioning",
+        stat_position_value: "Ecosystem Utility",
+        stat_mission_label: "Mission",
+        stat_mission_value: "Transparent Impact",
+        team_tag: "Core Team",
+        team_title: "Built by product, infrastructure, and growth-focused contributors",
+        team_text: "Win Coin is structured around a multidisciplinary execution model spanning vision, development, design, and ecosystem growth.",
+        role_founder: "Founder & Vision",
+        role_developer: "Lead Developer",
+        role_designer: "Product Designer",
+        role_marketing: "Marketing & Growth",
+        team_card_1_title: "Founder & Vision",
+        team_card_1_text: "Responsible for strategic direction, network narrative, and long-term ecosystem positioning.",
+        team_card_2_title: "Lead Blockchain Developer",
+        team_card_2_text: "Focused on smart contracts, network architecture, security, and technical implementation.",
+        team_card_3_title: "Product Designer",
+        team_card_3_text: "Leads interface language, product flow, visual identity, and ecosystem-level experience.",
+        team_card_4_title: "Marketing & Growth",
+        team_card_4_text: "Drives global ecosystem visibility, community expansion, and strategic communications.",
+        strategic_tag: "Strategic Network",
+        strategic_title: "Exploring relationships across the global Web3 landscape",
+        strategic_text: "Win Coin monitors high-signal operators, product builders, and ecosystem participants as part of long-term market research and relationship mapping.",
+        strategic_card_text: "Referenced within ecosystem landscape research and market awareness.",
+        strategic_legal: "Names referenced in this section are included for ecosystem awareness and industry research purposes only. They do not imply partnership, employment, advisory status, or endorsement unless officially confirmed.",
+        tokenomics_tag: "Tokenomics",
+        tokenomics_title: "Animated token distribution and live supply view",
+        tokenomics_text: "This section combines a live total supply counter with animated category distribution bars.",
+        supply_label: "Total Token Supply",
+        supply_text: "Live animated supply indicator for investor presentation and ecosystem communication.",
+        bar_1_label: "Ecosystem Growth",
+        bar_2_label: "Development",
+        bar_3_label: "Liquidity",
+        bar_4_label: "Marketing",
+        bar_5_label: "Team",
+        roadmap_tag: "Roadmap Timeline",
+        roadmap_title: "Execution path from concept to ecosystem scale",
+        roadmap_text: "A clean timeline gives visitors and potential investors an immediate sense of progress.",
+        road_1_title: "Foundation",
+        road_1_li_1: "Brand identity and website launch",
+        road_1_li_2: "Whitepaper publication",
+        road_1_li_3: "Community seeding",
+        road_2_title: "Network Readiness",
+        road_2_li_1: "Contract architecture",
+        road_2_li_2: "Tokenomics communication",
+        road_2_li_3: "Ecosystem outreach",
+        road_3_title: "Expansion",
+        road_3_li_1: "Utility dashboards",
+        road_3_li_2: "Investor materials",
+        road_3_li_3: "Transparency framework",
+        road_4_title: "Scale",
+        road_4_li_1: "Wider integrations",
+        road_4_li_2: "Donation wallet archive",
+        road_4_li_3: "Long-term infrastructure growth",
+        investors_tag: "Investor Logo Slider",
+        investors_title: "Global venture and ecosystem landscape",
+        investors_text: "This scrolling strip communicates market awareness while preserving legal clarity.",
+        investors_legal: "Logos and names displayed above represent ecosystem research and landscape mapping only. They do not imply investment, partnership, employment, or endorsement unless publicly confirmed.",
+        partners_tag: "Ecosystem Partners",
+        partners_title: "Target ecosystem directions and infrastructure alignment",
+        partners_text: "A structured partner section helps frame the project as integration-ready and expansion-ready.",
+        partners_card_1_title: "Layer 1 Infrastructure",
+        partners_card_1_text: "Network architecture, validator systems, and core execution design.",
+        partners_card_2_title: "DeFi Integrations",
+        partners_card_2_text: "Compatibility with staking, liquidity, utility dashboards, and on-chain tooling.",
+        partners_card_3_title: "Community Systems",
+        partners_card_3_text: "Growth channels, contributor networks, and global adoption loops.",
+        partners_card_4_title: "Impact Infrastructure",
+        partners_card_4_text: "Public donation reporting and transparent relief workflows.",
+        relief_tag: "Relief Partners",
+        relief_title: "Humanitarian organizations for transparent giving",
+        relief_text: "This section shows public relief channels that may be referenced in future charitable distributions.",
+        relief_card_1_text: "Humanitarian aid for Palestinian refugees.",
+        relief_card_2_text: "Global food security and emergency response.",
+        relief_card_3_text: "Emergency medical humanitarian aid.",
+        relief_card_4_text: "Humanitarian support for children and families.",
+        relief_legal: "Donation destinations listed above are independent third-party humanitarian organizations. Win Coin does not represent, own, or control these organizations.",
+        wallets_tag: "Live Donation Wallet Tracker",
+        wallets_title: "Transparent wallet placeholders for future cold wallet disclosure",
+        wallets_text: "You said wallet addresses will be added later. This section is ready now.",
+        wallet_1_title: "Cold Wallet #1",
+        wallet_1_text: "Primary humanitarian reserve wallet.",
+        wallet_2_title: "Cold Wallet #2",
+        wallet_2_text: "Secondary routing wallet for public reporting.",
+        wallet_3_title: "Transparency Archive",
+        wallet_3_text: "Each future donation can be linked here with transaction hash, destination, and reporting note.",
+        copy_btn: "Copy",
+        wallet_status_pending: "Status: Pending publication",
+        wallet_status_ready: "Status: Reporting module ready",
+        web3_tag: "Web3 Wallet",
+        web3_title: "Simple wallet connection button",
+        web3_text: "This is a lightweight browser-wallet connection layer for MetaMask-compatible wallets.",
+        wallet_not_connected: "Wallet not connected."
+      },
+      tr: {
+        brand_sub: "Katman 1 Ekosistemi",
+        nav_team: "Ekip",
+        nav_tokenomics: "Tokenomik",
+        nav_roadmap: "Yol Haritası",
+        nav_investors: "Yatırımcılar",
+        nav_relief: "Yardım",
+        nav_wallets: "Cüzdanlar",
+        connect_wallet: "Cüzdan Bağla",
+        hero_tag: "Yeni Dijital Ekonomi İçin Altyapı",
+        hero_title: "Küresel katılım için ölçeklenebilir bir blockchain ekosistemi inşa ediyoruz.",
+        hero_text: "Win Coin; Katman 1 konumlandırması, ekosistem büyümesi, şeffaf insani yardım raporlaması ve yatırımcı odaklı altyapı anlatımı etrafında tasarlanmış premium bir Web3 konseptidir.",
+        hero_btn_1: "Tokenomiği İncele",
+        hero_btn_2: "Bağış Takibi",
+        stat_layer_label: "Katman",
+        stat_layer_value: "Modüler L1",
+        stat_position_label: "Konumlandırma",
+        stat_position_value: "Ekosistem Faydası",
+        stat_mission_label: "Misyon",
+        stat_mission_value: "Şeffaf Etki",
+        team_tag: "Çekirdek Ekip",
+        team_title: "Ürün, altyapı ve büyüme odaklı katkıcılar tarafından inşa edildi",
+        team_text: "Win Coin; vizyon, geliştirme, tasarım ve ekosistem büyümesini kapsayan çok disiplinli bir yürütme modeli etrafında yapılandırılmıştır.",
+        role_founder: "Kurucu & Vizyon",
+        role_developer: "Lider Geliştirici",
+        role_designer: "Ürün Tasarımcısı",
+        role_marketing: "Pazarlama & Büyüme",
+        team_card_1_title: "Kurucu & Vizyon",
+        team_card_1_text: "Stratejik yön, ağ anlatısı ve uzun vadeli ekosistem konumlandırmasından sorumludur.",
+        team_card_2_title: "Lider Blockchain Geliştiricisi",
+        team_card_2_text: "Akıllı kontratlar, ağ mimarisi, güvenlik ve teknik uygulamaya odaklanır.",
+        team_card_3_title: "Ürün Tasarımcısı",
+        team_card_3_text: "Arayüz dili, ürün akışı, görsel kimlik ve ekosistem deneyimini yönetir.",
+        team_card_4_title: "Pazarlama & Büyüme",
+        team_card_4_text: "Küresel görünürlük, topluluk büyümesi ve stratejik iletişimi yürütür.",
+        strategic_tag: "Stratejik Ağ",
+        strategic_title: "Küresel Web3 ekosistemindeki ilişkileri keşfetmek",
+        strategic_text: "Win Coin; yüksek sinyalli operatörleri, ürün geliştiricilerini ve ekosistem katılımcılarını uzun vadeli pazar araştırması ve ilişki haritalaması kapsamında izler.",
+        strategic_card_text: "Ekosistem araştırması ve pazar farkındalığı kapsamında referans verilmiştir.",
+        strategic_legal: "Bu bölümde geçen isimler yalnızca ekosistem farkındalığı ve sektör araştırması amacıyla yer almaktadır. Resmî olarak doğrulanmadıkça ortaklık, istihdam, danışmanlık veya destek anlamına gelmez.",
+        tokenomics_tag: "Tokenomik",
+        tokenomics_title: "Animasyonlu token dağılımı ve canlı arz görünümü",
+        tokenomics_text: "Bu bölüm, canlı toplam arz sayacını animasyonlu kategori dağılım çubuklarıyla birleştirir.",
+        supply_label: "Toplam Token Arzı",
+        supply_text: "Yatırımcı sunumu ve ekosistem iletişimi için canlı animasyonlu arz göstergesi.",
+        bar_1_label: "Ekosistem Büyümesi",
+        bar_2_label: "Geliştirme",
+        bar_3_label: "Likidite",
+        bar_4_label: "Pazarlama",
+        bar_5_label: "Ekip",
+        roadmap_tag: "Yol Haritası",
+        roadmap_title: "Fikirden ekosistem ölçeğine uzanan yürütme yolu",
+        roadmap_text: "Temiz bir zaman çizelgesi, ziyaretçilere ve potansiyel yatırımcılara ilerleme hissi verir.",
+        road_1_title: "Temel",
+        road_1_li_1: "Marka kimliği ve web sitesi lansmanı",
+        road_1_li_2: "Whitepaper yayını",
+        road_1_li_3: "Topluluk oluşturma",
+        road_2_title: "Ağ Hazırlığı",
+        road_2_li_1: "Kontrat mimarisi",
+        road_2_li_2: "Tokenomik iletişimi",
+        road_2_li_3: "Ekosistem erişimi",
+        road_3_title: "Genişleme",
+        road_3_li_1: "Fayda panelleri",
+        road_3_li_2: "Yatırımcı materyalleri",
+        road_3_li_3: "Şeffaflık çerçevesi",
+        road_4_title: "Ölçek",
+        road_4_li_1: "Daha geniş entegrasyonlar",
+        road_4_li_2: "Bağış cüzdan arşivi",
+        road_4_li_3: "Uzun vadeli altyapı büyümesi",
+        investors_tag: "Yatırımcı Logo Kaydırıcısı",
+        investors_title: "Küresel girişim ve ekosistem görünümü",
+        investors_text: "Bu kayan alan, hukuki netliği korurken pazar farkındalığını gösterir.",
+        investors_legal: "Burada yer alan logo ve isimler yalnızca ekosistem araştırması ve pazar haritalaması amaçlıdır. Kamuya açık şekilde doğrulanmadıkça yatırım, ortaklık, istihdam veya destek anlamına gelmez.",
+        partners_tag: "Ekosistem Partnerleri",
+        partners_title: "Hedef ekosistem yönleri ve altyapı uyumu",
+        partners_text: "Yapılandırılmış partner bölümü, projeyi entegrasyona ve büyümeye hazır gösterir.",
+        partners_card_1_title: "Katman 1 Altyapısı",
+        partners_card_1_text: "Ağ mimarisi, doğrulayıcı sistemleri ve çekirdek yürütme tasarımı.",
+        partners_card_2_title: "DeFi Entegrasyonları",
+        partners_card_2_text: "Staking, likidite, fayda panelleri ve zincir üstü araçlarla uyumluluk.",
+        partners_card_3_title: "Topluluk Sistemleri",
+        partners_card_3_text: "Büyüme kanalları, katkıcı ağları ve küresel benimsenme döngüleri.",
+        partners_card_4_title: "Etki Altyapısı",
+        partners_card_4_text: "Kamusal bağış raporlaması ve şeffaf yardım akışları.",
+        relief_tag: "Yardım Partnerleri",
+        relief_title: "Şeffaf bağış için insani yardım kuruluşları",
+        relief_text: "Bu bölüm, gelecekteki bağışlarda referans alınabilecek kamuya açık yardım kanallarını gösterir.",
+        relief_card_1_text: "Filistinli mülteciler için insani yardım.",
+        relief_card_2_text: "Küresel gıda güvenliği ve acil müdahale.",
+        relief_card_3_text: "Acil tıbbi insani yardım.",
+        relief_card_4_text: "Çocuklar ve aileler için insani destek.",
+        relief_legal: "Yukarıda listelenen bağış hedefleri bağımsız üçüncü taraf insani yardım kuruluşlarıdır. Win Coin bu kuruluşları temsil etmez, sahip değildir veya kontrol etmez.",
+        wallets_tag: "Canlı Bağış Cüzdan Takibi",
+        wallets_title: "Gelecekteki soğuk cüzdan açıklamaları için şeffaf alanlar",
+        wallets_text: "Cüzdan adreslerinin daha sonra ekleneceğini söyledin. Bu bölüm şimdi hazır.",
+        wallet_1_title: "Soğuk Cüzdan #1",
+        wallet_1_text: "Ana insani yardım rezerv cüzdanı.",
+        wallet_2_title: "Soğuk Cüzdan #2",
+        wallet_2_text: "Kamusal raporlama için ikincil yönlendirme cüzdanı.",
+        wallet_3_title: "Şeffaflık Arşivi",
+        wallet_3_text: "Her gelecekteki bağış burada işlem kodu, hedef ve raporlama notuyla bağlanabilir.",
+        copy_btn: "Kopyala",
+        wallet_status_pending: "Durum: Yayın bekleniyor",
+        wallet_status_ready: "Durum: Raporlama modülü hazır",
+        web3_tag: "Web3 Cüzdan",
+        web3_title: "Basit cüzdan bağlantı düğmesi",
+        web3_text: "Bu, MetaMask uyumlu cüzdanlar için hafif bir tarayıcı cüzdan bağlantı katmanıdır.",
+        wallet_not_connected: "Cüzdan bağlı değil."
+      },
+      zh: {
+        brand_sub: "第一层生态系统",
+        nav_team: "团队",
+        nav_tokenomics: "代币经济",
+        nav_roadmap: "路线图",
+        nav_investors: "投资者",
+        nav_relief: "援助",
+        nav_wallets: "钱包",
+        connect_wallet: "连接钱包",
+        hero_tag: "面向新数字经济的基础设施",
+        hero_title: "为全球参与构建可扩展的区块链生态系统。",
+        hero_text: "Win Coin 是一个高端 Web3 概念，围绕 Layer 1 定位、生态扩张、透明的人道主义报告和面向投资者的基础设施叙事而设计。",
+        hero_btn_1: "查看代币经济",
+        hero_btn_2: "捐赠追踪",
+        stat_layer_label: "层级",
+        stat_layer_value: "模块化 L1",
+        stat_position_label: "定位",
+        stat_position_value: "生态实用性",
+        stat_mission_label: "使命",
+        stat_mission_value: "透明影响力",
+        team_tag: "核心团队",
+        team_title: "由产品、基础设施和增长导向的贡献者共同构建",
+        team_text: "Win Coin 采用多学科执行模型，覆盖愿景、开发、设计和生态增长。",
+        role_founder: "创始人 & 愿景",
+        role_developer: "首席开发者",
+        role_designer: "产品设计师",
+        role_marketing: "市场与增长",
+        team_card_1_title: "创始人 & 愿景",
+        team_card_1_text: "负责战略方向、网络叙事和长期生态定位。",
+        team_card_2_title: "首席区块链开发者",
+        team_card_2_text: "专注于智能合约、网络架构、安全与技术实施。",
+        team_card_3_title: "产品设计师",
+        team_card_3_text: "负责界面语言、产品流程、视觉识别和生态体验。",
+        team_card_4_title: "市场与增长",
+        team_card_4_text: "推动全球生态可见度、社区扩张和战略传播。",
+        strategic_tag: "战略网络",
+        strategic_title: "探索全球 Web3 生态中的关系网络",
+        strategic_text: "Win Coin 持续关注高价值运营者、产品建设者和生态参与者，用于长期市场研究与关系映射。",
+        strategic_card_text: "用于生态研究和市场认知的参考。",
+        strategic_legal: "本部分提及的名称仅用于生态认知和行业研究目的。除非官方确认，否则不代表合作、雇佣、顾问关系或背书。",
+        tokenomics_tag: "代币经济",
+        tokenomics_title: "动态代币分配与实时供应视图",
+        tokenomics_text: "本部分将实时总供应计数器与动画分配条形图结合展示。",
+        supply_label: "总代币供应量",
+        supply_text: "用于投资者展示和生态沟通的动态供应指示器。",
+        bar_1_label: "生态增长",
+        bar_2_label: "开发",
+        bar_3_label: "流动性",
+        bar_4_label: "市场营销",
+        bar_5_label: "团队",
+        roadmap_tag: "路线图时间线",
+        roadmap_title: "从概念到生态规模化的执行路径",
+        roadmap_text: "清晰的时间线可让访客和潜在投资者迅速感知项目进展。",
+        road_1_title: "基础阶段",
+        road_1_li_1: "品牌识别与网站上线",
+        road_1_li_2: "白皮书发布",
+        road_1_li_3: "社区种子建设",
+        road_2_title: "网络准备",
+        road_2_li_1: "合约架构",
+        road_2_li_2: "代币经济沟通",
+        road_2_li_3: "生态拓展",
+        road_3_title: "扩展阶段",
+        road_3_li_1: "实用仪表盘",
+        road_3_li_2: "投资者材料",
+        road_3_li_3: "透明框架",
+        road_4_title: "规模化",
+        road_4_li_1: "更广泛的集成",
+        road_4_li_2: "捐赠钱包档案",
+        road_4_li_3: "长期基础设施增长",
+        investors_tag: "投资者标识滚动区",
+        investors_title: "全球风投与生态版图",
+        investors_text: "此滚动区域在保持法律清晰的同时展示市场认知。",
+        investors_legal: "此处显示的标识和名称仅用于生态研究与市场映射。除非公开确认，不代表投资、合作、雇佣或背书。",
+        partners_tag: "生态合作方向",
+        partners_title: "目标生态方向与基础设施兼容性",
+        partners_text: "结构化的合作方向板块有助于展现项目的集成准备度与扩展潜力。",
+        partners_card_1_title: "Layer 1 基础设施",
+        partners_card_1_text: "网络架构、验证者系统和核心执行设计。",
+        partners_card_2_title: "DeFi 集成",
+        partners_card_2_text: "兼容质押、流动性、实用仪表盘和链上工具。",
+        partners_card_3_title: "社区系统",
+        partners_card_3_text: "增长渠道、贡献者网络与全球采用循环。",
+        partners_card_4_title: "影响力基础设施",
+        partners_card_4_text: "公开捐赠报告与透明援助流程。",
+        relief_tag: "援助合作方",
+        relief_title: "用于透明捐赠的人道主义组织",
+        relief_text: "本部分展示未来慈善分配中可能引用的公开援助渠道。",
+        relief_card_1_text: "为巴勒斯坦难民提供人道主义援助。",
+        relief_card_2_text: "全球粮食安全与紧急响应。",
+        relief_card_3_text: "紧急医疗人道主义援助。",
+        relief_card_4_text: "为儿童和家庭提供人道主义支持。",
+        relief_legal: "上方列出的捐赠目标均为独立的第三方人道主义组织。Win Coin 不代表、拥有或控制这些组织。",
+        wallets_tag: "实时捐赠钱包追踪",
+        wallets_title: "为未来冷钱包披露准备的透明占位区",
+        wallets_text: "你提到钱包地址将稍后添加。本部分现在已准备就绪。",
+        wallet_1_title: "冷钱包 #1",
+        wallet_1_text: "主要人道主义储备钱包。",
+        wallet_2_title: "冷钱包 #2",
+        wallet_2_text: "用于公开报告的次级路由钱包。",
+        wallet_3_title: "透明档案",
+        wallet_3_text: "未来每笔捐赠都可在此附带交易哈希、目标和报告说明。",
+        copy_btn: "复制",
+        wallet_status_pending: "状态：待发布",
+        wallet_status_ready: "状态：报告模块已就绪",
+        web3_tag: "Web3 钱包",
+        web3_title: "简单的钱包连接按钮",
+        web3_text: "这是一个适用于 MetaMask 兼容钱包的轻量级浏览器钱包连接层。",
+        wallet_not_connected: "钱包未连接。"
+      }
+    };
+
+    function setLanguage(lang){
+      document.documentElement.lang = lang;
+      localStorage.setItem('wincoin_lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if(translations[lang] && translations[lang][key]){
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    const switcher = document.getElementById('languageSwitcher');
+    const savedLang = localStorage.getItem('wincoin_lang') || 'en';
+    switcher.value = savedLang;
+    setLanguage(savedLang);
+
+    switcher.addEventListener('change', (e)=>{
+      setLanguage(e.target.value);
+    });
+
     const revealEls = document.querySelectorAll('.reveal');
     const ro = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
@@ -989,11 +1371,19 @@
         const text = document.getElementById(id).textContent.trim();
         try{
           await navigator.clipboard.writeText(text);
-          btn.textContent = 'Copied';
-          setTimeout(()=>btn.textContent='Copy',1200);
+          const currentLang = localStorage.getItem('wincoin_lang') || 'en';
+          btn.textContent = currentLang === 'tr' ? 'Kopyalandı' : currentLang === 'zh' ? '已复制' : 'Copied';
+          setTimeout(()=>{
+            const lang = localStorage.getItem('wincoin_lang') || 'en';
+            btn.textContent = translations[lang].copy_btn;
+          },1200);
         }catch(e){
-          btn.textContent = 'Copy failed';
-          setTimeout(()=>btn.textContent='Copy',1200);
+          const currentLang = localStorage.getItem('wincoin_lang') || 'en';
+          btn.textContent = currentLang === 'tr' ? 'Hata' : currentLang === 'zh' ? '失败' : 'Copy failed';
+          setTimeout(()=>{
+            const lang = localStorage.getItem('wincoin_lang') || 'en';
+            btn.textContent = translations[lang].copy_btn;
+          },1200);
         }
       });
     });
@@ -1002,9 +1392,15 @@
       const status = document.getElementById('walletStatus');
       const top = document.getElementById('walletTop');
       const main = document.getElementById('walletMain');
+      const lang = localStorage.getItem('wincoin_lang') || 'en';
 
       if(!window.ethereum){
-        status.textContent = 'No browser wallet detected. Install MetaMask or another compatible wallet.';
+        status.textContent =
+          lang === 'tr'
+          ? 'Tarayıcı cüzdanı bulunamadı. MetaMask veya uyumlu bir cüzdan yükleyin.'
+          : lang === 'zh'
+          ? '未检测到浏览器钱包。请安装 MetaMask 或兼容钱包。'
+          : 'No browser wallet detected. Install MetaMask or another compatible wallet.';
         return;
       }
 
@@ -1012,13 +1408,25 @@
         const accounts = await window.ethereum.request({ method:'eth_requestAccounts' });
         const a = accounts[0] || '';
         const short = a ? a.slice(0,6) + '...' + a.slice(-4) : 'Connected';
-        status.textContent = 'Connected wallet: ' + short;
+
+        status.textContent =
+          lang === 'tr'
+          ? 'Bağlı cüzdan: ' + short
+          : lang === 'zh'
+          ? '已连接钱包：' + short
+          : 'Connected wallet: ' + short;
+
         top.textContent = short;
         main.textContent = short;
         top.classList.add('connected');
         main.classList.add('connected');
       }catch(e){
-        status.textContent = 'Wallet connection request was rejected or failed.';
+        status.textContent =
+          lang === 'tr'
+          ? 'Cüzdan bağlantı isteği reddedildi veya başarısız oldu.'
+          : lang === 'zh'
+          ? '钱包连接请求被拒绝或失败。'
+          : 'Wallet connection request was rejected or failed.';
       }
     }
 
