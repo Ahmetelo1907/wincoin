@@ -1,548 +1,581 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { ChevronRight, Shield, Layers, Coins, Network, Globe, Menu, ArrowUpRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win Coin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: rgba(255,255,255,0.05);
+      --line: rgba(255,255,255,0.10);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --cyan: #22d3ee;
+      --violet: #8b5cf6;
+      --pink: #d946ef;
+      --card: rgba(255,255,255,0.04);
+      --shadow: 0 0 60px rgba(34, 211, 238, 0.10);
+      --radius: 28px;
+      --max: 1200px;
+    }
 
-const navItems = [
-  "Technology",
-  "Ecosystem",
-  "Utility",
-  "Tokenomics",
-  "Roadmap",
-  "FAQ",
-];
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(34,211,238,0.12), transparent 25%),
+        radial-gradient(circle at 80% 20%, rgba(139,92,246,0.18), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(217,70,239,0.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+    }
 
-const featureCards = [
-  {
-    icon: Layers,
-    title: "Modular Layer 1 Architecture",
-    text: "Win Coin is designed as a scalable blockchain foundation for next-generation decentralized products, financial rails, and ecosystem-level innovation.",
-  },
-  {
-    icon: Network,
-    title: "High-Throughput Infrastructure",
-    text: "Built for speed, reliability, and future expansion across applications, users, and cross-network integrations.",
-  },
-  {
-    icon: Shield,
-    title: "Secure by Design",
-    text: "A security-first approach with transparent architecture, validator incentives, and infrastructure focused on long-term trust.",
-  },
-  {
-    icon: Globe,
-    title: "Global Ecosystem Vision",
-    text: "Win Coin supports an open digital economy where builders, communities, and participants can collaborate without borders.",
-  },
-];
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: .35;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-const ecosystemItems = [
-  "DeFi Applications",
-  "Smart Contracts",
-  "Validator Network",
-  "Cross-Chain Integrations",
-  "Developer Tooling",
-  "Digital Payments",
-];
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; position: relative; z-index: 1; }
+    .section { padding: 88px 0; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
 
-const utilityItems = [
-  "Transaction Fees",
-  "Staking Rewards",
-  "Governance Voting",
-  "Ecosystem Access",
-  "Validator Incentives",
-  "Community Participation",
-];
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 46px; height: 46px; border-radius: 16px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
+      font-weight: 800;
+      box-shadow: 0 0 40px rgba(34,211,238,.20);
+    }
+    .brand-name { font-size: 18px; font-weight: 700; letter-spacing: .24em; }
+    .brand-sub { font-size: 10px; color: var(--muted); letter-spacing: .35em; text-transform: uppercase; margin-top: 4px; }
+    .nav-links { display: flex; gap: 28px; color: #cbd5e1; font-size: 14px; }
+    .nav-cta {
+      padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: white;
+    }
 
-const tokenomics = [
-  { label: "Ecosystem Growth", value: 40 },
-  { label: "Development", value: 20 },
-  { label: "Liquidity", value: 15 },
-  { label: "Marketing", value: 15 },
-  { label: "Team", value: 10 },
-];
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 50px;
+      padding: 40px 0 40px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,211,238,.20);
+      background: rgba(34,211,238,.10);
+      color: #a5f3fc;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 900px;
+    }
+    .hero p {
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.85;
+      max-width: 700px;
+      margin: 24px 0 0;
+    }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 22px; border-radius: 999px; border: 1px solid var(--line);
+      font-weight: 600;
+    }
+    .btn-primary { background: white; color: #020617; }
+    .btn-secondary { background: rgba(255,255,255,.06); color: white; }
+    .hero-stats {
+      margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+      max-width: 620px;
+    }
+    .hero-stat { padding: 18px; }
+    .hero-stat-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .22em; }
+    .hero-stat-value { margin-top: 10px; font-size: 18px; font-weight: 600; }
 
-const roadmap = [
-  {
-    phase: "Phase 01",
-    title: "Foundation",
-    points: ["Concept development", "Brand identity and website", "Community formation", "Infrastructure planning"],
-  },
-  {
-    phase: "Phase 02",
-    title: "Launch",
-    points: ["Token launch", "Initial ecosystem rollout", "Exchange expansion", "Strategic partnerships"],
-  },
-  {
-    phase: "Phase 03",
-    title: "Expansion",
-    points: ["Developer onboarding", "dApp integrations", "Staking and utility growth", "Cross-chain compatibility"],
-  },
-  {
-    phase: "Phase 04",
-    title: "Scale",
-    points: ["Global ecosystem adoption", "Advanced governance", "Infrastructure optimization", "Long-term sustainability"],
-  },
-];
+    .orb-wrap { display: flex; justify-content: center; align-items: center; }
+    .orb {
+      position: relative; width: min(420px, 90vw); aspect-ratio: 1;
+      border-radius: 50%; border: 1px solid rgba(34,211,238,.18);
+      background: rgba(255,255,255,.04); box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      animation: float 7s ease-in-out infinite;
+    }
+    .orb::before, .orb::after {
+      content: ''; position: absolute; inset: 32px; border-radius: 50%; border: 1px dashed rgba(255,255,255,.12);
+    }
+    .orb::after { inset: 64px; border-style: solid; }
+    .coin {
+      position: absolute; inset: 50%; transform: translate(-50%, -50%);
+      width: 180px; height: 180px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
+      display: grid; place-items: center;
+      box-shadow: 0 0 70px rgba(139,92,246,.35);
+    }
+    .coin span {
+      width: 146px; height: 146px; display: grid; place-items: center;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,.18);
+      background: rgba(5,8,22,.20); backdrop-filter: blur(10px);
+      font-size: 72px; font-weight: 800; letter-spacing: .18em;
+    }
+    .dot {
+      position: absolute; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--cyan); box-shadow: 0 0 20px rgba(34,211,238,.9);
+      animation: pulse 2.2s infinite;
+    }
+    .dot:nth-child(1) { top: 18px; left: 50%; transform: translateX(-50%); }
+    .dot:nth-child(2) { bottom: 34px; left: 48px; }
+    .dot:nth-child(3) { top: 70px; right: 48px; }
+    .dot:nth-child(4) { right: 30px; bottom: 90px; }
+    .dot:nth-child(5) { left: 38px; top: 110px; }
 
-const coreContributors = [
-  {
-    name: "Lead Blockchain Developer",
-    role: "Protocol & Infrastructure",
-    text: "Owns core architecture, network design, validator logic, and long-term chain scalability.",
-  },
-  {
-    name: "Product Designer",
-    role: "Brand & Experience",
-    text: "Shapes the visual identity, premium interface language, and user journey across the ecosystem.",
-  },
-  {
-    name: "Ecosystem Strategist",
-    role: "Growth & Partnerships",
-    text: "Leads adoption strategy, ecosystem positioning, and collaboration with external builders.",
-  },
-  {
-    name: "Community Operations Lead",
-    role: "Global Community",
-    text: "Coordinates communication, community growth, and contributor alignment across regions.",
-  },
-];
+    .section-head { text-align: center; max-width: 820px; margin: 0 auto 42px; }
+    .section-head h2 { margin: 0; font-size: clamp(32px, 4vw, 54px); line-height: 1.08; }
+    .section-head p { margin: 16px 0 0; color: #cbd5e1; line-height: 1.9; }
+    .section-tag {
+      display: inline-block; margin-bottom: 14px; padding: 8px 14px; border-radius: 999px;
+      border: 1px solid rgba(139,92,246,.22); background: rgba(139,92,246,.10);
+      color: #ddd6fe; font-size: 12px; text-transform: uppercase; letter-spacing: .28em;
+    }
 
-const humanitarianStats = [
-  { label: "People in need across the Occupied Palestinian Territory", value: "3.6M+" },
-  { label: "People in Gaza projected to face crisis-level or worse food insecurity through mid-April 2026", value: "1.6M" },
-  { label: "Children under 5 in Gaza expected to suffer acute malnutrition through June 2026", value: "132,000+" },
-  { label: "Severe acute malnutrition cases among children under 5", value: "41,000+" },
-];
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .feature, .tile, .faq, .team, .stat-box, .road-card { padding: 28px; }
+    .feature h3, .road-card h3, .team h3, .faq h3 { margin: 14px 0 0; font-size: 22px; }
+    .feature p, .team p, .faq p, .road-card p, .text-muted { color: #cbd5e1; line-height: 1.9; }
+    .icon {
+      width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(34,211,238,.18), rgba(139,92,246,.18));
+      border: 1px solid var(--line); font-size: 22px;
+    }
+    .two-col {
+      display: grid; grid-template-columns: .95fr 1.05fr; gap: 24px; align-items: start;
+    }
+    .list-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .mini-tile { padding: 22px; }
+    .mini-tile small { color: var(--muted); text-transform: uppercase; letter-spacing: .22em; font-size: 11px; display:block; margin-bottom: 12px; }
+    .mini-tile strong { font-size: 20px; }
 
-const faqs = [
-  {
-    q: "What is Win Coin?",
-    a: "Win Coin is a blockchain ecosystem designed to support decentralized applications, digital finance, and a scalable community-driven network.",
-  },
-  {
-    q: "What makes Win Coin different?",
-    a: "Win Coin is positioned around infrastructure and ecosystem growth, combining Layer 1 ambitions with practical utility and long-term network participation.",
-  },
-  {
-    q: "What can the WIN token be used for?",
-    a: "The WIN token is designed for transaction payments, staking, governance, validator incentives, and broader access across the ecosystem.",
-  },
-  {
-    q: "Is the project focused on global adoption?",
-    a: "Yes. The project vision is centered on building a globally accessible digital ecosystem with scalable infrastructure and cross-market usability.",
-  },
-];
+    .tokenomics-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; }
+    .supply { padding: 28px; }
+    .supply small { color: var(--muted); text-transform: uppercase; letter-spacing: .22em; }
+    .supply .num { font-size: 44px; font-weight: 800; margin-top: 14px; }
+    .bars { padding: 28px; }
+    .bar-item + .bar-item { margin-top: 20px; }
+    .bar-top { display: flex; justify-content: space-between; color: #e2e8f0; font-size: 14px; margin-bottom: 10px; }
+    .bar-bg { height: 12px; background: rgba(255,255,255,.06); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink)); border-radius: 999px; }
 
-function SectionTitle({ eyebrow, title, text }) {
-  return (
-    <div className="mx-auto mb-12 max-w-3xl text-center">
-      <div className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-300/80">
-        {eyebrow}
+    .phase { color: #a5f3fc; font-size: 12px; text-transform: uppercase; letter-spacing: .28em; }
+    .road-card ul { padding-left: 18px; margin: 18px 0 0; color: #cbd5e1; }
+    .road-card li + li { margin-top: 12px; }
+
+    .impact-banner {
+      padding: 34px; background: linear-gradient(135deg, rgba(34,211,238,.10), rgba(139,92,246,.10), rgba(217,70,239,.10));
+    }
+    .impact-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 24px; }
+    .visual-box {
+      min-height: 520px; display: flex; flex-direction: column; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      padding: 26px;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+    .stat-number { font-size: 34px; font-weight: 800; }
+
+    footer { border-top: 1px solid var(--line); padding: 36px 0; margin-top: 20px; }
+    .footer-wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .socials a { padding: 11px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.05); }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: .9; }
+      50% { transform: scale(1.16); opacity: 1; }
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero, .two-col, .tokenomics-wrap, .impact-grid { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 700px) {
+      .section { padding: 70px 0; }
+      .grid-4, .grid-3, .grid-2, .list-grid, .hero-stats, .stats-grid { grid-template-columns: 1fr; }
+      .footer-wrap { flex-direction: column; align-items: flex-start; }
+      .brand-name { letter-spacing: .16em; }
+      h1 { font-size: 42px; }
+      .hero p { font-size: 16px; }
+      .supply .num { font-size: 34px; }
+      .visual-box { min-height: 380px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="nav">
+      <div class="brand">
+        <div class="logo">W</div>
+        <div>
+          <div class="brand-name">WIN COIN</div>
+          <div class="brand-sub">Layer 1 Ecosystem</div>
+        </div>
       </div>
-      <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">{title}</h2>
-      <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">{text}</p>
-    </div>
-  );
-}
+      <nav class="nav-links">
+        <a href="#technology">Technology</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#utility">Utility</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contributors">Contributors</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#" class="nav-cta">Whitepaper</a>
+    </header>
 
-export default function WinCoinLandingPage() {
-  return (
-    <div className="min-h-screen bg-[#050816] text-slate-100">
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,209,255,0.16),transparent_25%),radial-gradient(circle_at_80%_20%,rgba(108,92,231,0.22),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(155,140,255,0.12),transparent_30%)]" />
-        <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:70px_70px]" />
-
-        <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 shadow-[0_0_40px_rgba(0,209,255,0.25)]">
-              <Coins className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <div className="text-lg font-semibold tracking-[0.24em] text-white">WIN COIN</div>
-              <div className="text-[10px] uppercase tracking-[0.35em] text-slate-400">Layer 1 Ecosystem</div>
-            </div>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Infrastructure for the Next Digital Economy</div>
+        <h1>Building a scalable blockchain ecosystem for global digital participation.</h1>
+        <p>
+          Win Coin is a next-generation Layer 1 and ecosystem-focused network designed to power decentralized applications,
+          financial systems, secure infrastructure, and community-led digital growth.
+        </p>
+        <div class="actions">
+          <a href="#ecosystem" class="btn btn-primary">Explore Ecosystem</a>
+          <a href="#" class="btn btn-secondary">Read Whitepaper</a>
+        </div>
+        <div class="hero-stats">
+          <div class="card hero-stat">
+            <div class="hero-stat-label">Layer</div>
+            <div class="hero-stat-value">Modular L1</div>
           </div>
-
-          <nav className="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
-            {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-white">
-                {item}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden lg:block">
-            <Button className="rounded-full border border-white/10 bg-white/10 px-5 text-white backdrop-blur hover:bg-white/15">
-              Whitepaper <ArrowUpRight className="ml-2 h-4 w-4" />
-            </Button>
+          <div class="card hero-stat">
+            <div class="hero-stat-label">Focus</div>
+            <div class="hero-stat-value">Ecosystem Utility</div>
           </div>
-
-          <button className="rounded-xl border border-white/10 bg-white/5 p-2 text-slate-200 lg:hidden">
-            <Menu className="h-5 w-5" />
-          </button>
-        </header>
-
-        <main>
-          <section className="relative z-10 mx-auto grid min-h-[88vh] max-w-7xl items-center gap-14 px-6 pb-16 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:pt-16">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="max-w-3xl"
-            >
-              <div className="mb-6 inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-cyan-300">
-                Infrastructure for the Next Digital Economy
-              </div>
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
-                Building a scalable blockchain ecosystem for global digital participation.
-              </h1>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
-                Win Coin is a next-generation Layer 1 and ecosystem-focused network designed to power decentralized applications, financial systems, secure infrastructure, and community-led digital growth.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button className="rounded-full bg-white px-6 py-6 text-sm font-medium text-slate-950 hover:bg-slate-100">
-                  Explore Ecosystem <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button variant="outline" className="rounded-full border-white/15 bg-white/5 px-6 py-6 text-sm text-white backdrop-blur hover:bg-white/10">
-                  Read Whitepaper
-                </Button>
-              </div>
-
-              <div className="mt-12 grid gap-4 sm:grid-cols-3">
-                {[
-                  ["Layer", "Modular L1"],
-                  ["Focus", "Ecosystem Utility"],
-                  ["Vision", "Global Adoption"],
-                ].map(([k, v]) => (
-                  <div key={k} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-                    <div className="text-xs uppercase tracking-[0.22em] text-slate-400">{k}</div>
-                    <div className="mt-2 text-lg font-medium text-white">{v}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="relative mx-auto flex w-full max-w-xl items-center justify-center"
-            >
-              <div className="absolute h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
-              <div className="absolute h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
-                className="relative flex h-[420px] w-[420px] items-center justify-center rounded-full border border-cyan-300/20 bg-white/5 shadow-[0_0_100px_rgba(0,209,255,0.12)] backdrop-blur-xl"
-              >
-                <div className="absolute inset-8 rounded-full border border-dashed border-white/10" />
-                <div className="absolute inset-16 rounded-full border border-white/10" />
-                {[
-                  "top-5 left-1/2 -translate-x-1/2",
-                  "bottom-8 left-12",
-                  "right-12 top-16",
-                  "right-8 bottom-20",
-                  "left-10 top-24",
-                ].map((pos, index) => (
-                  <div key={index} className={`absolute ${pos}`}>
-                    <div className="h-4 w-4 rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.9)]" />
-                  </div>
-                ))}
-                <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 shadow-[0_0_70px_rgba(108,92,231,0.45)]">
-                  <div className="flex h-40 w-40 items-center justify-center rounded-full border border-white/15 bg-[#050816]/25 backdrop-blur-md">
-                    <span className="text-6xl font-semibold tracking-[0.2em] text-white">W</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </section>
-
-          <section id="technology" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <SectionTitle
-              eyebrow="Technology"
-              title="A serious blockchain foundation with premium ecosystem positioning"
-              text="Win Coin is presented as a credible infrastructure project, blending Layer 1 ambition with ecosystem-level usability, long-term utility, and modern digital finance readiness."
-            />
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {featureCards.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ delay: index * 0.08 }}
-                  >
-                    <Card className="h-full rounded-[28px] border-white/10 bg-white/5 backdrop-blur-xl">
-                      <CardContent className="p-7">
-                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 text-cyan-300">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <h3 className="text-xl font-medium text-white">{item.title}</h3>
-                        <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </section>
-
-          <section id="ecosystem" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-              <div>
-                <div className="mb-3 inline-flex rounded-full border border-violet-400/20 bg-violet-400/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-violet-200">
-                  Ecosystem
-                </div>
-                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                  Designed to grow beyond a token into a living digital economy.
-                </h2>
-                <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-300 md:text-base">
-                  Win Coin is structured to support a broad ecosystem of applications, integrations, validators, governance, and digital participation layers that expand over time.
-                </p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {ecosystemItems.map((item, index) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.06 }}
-                    className="rounded-[24px] border border-white/10 bg-white/5 p-5 text-white backdrop-blur-xl"
-                  >
-                    <div className="text-xs uppercase tracking-[0.22em] text-slate-400">Module {String(index + 1).padStart(2, "0")}</div>
-                    <div className="mt-3 text-lg font-medium">{item}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="utility" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <SectionTitle
-              eyebrow="Token Utility"
-              title="Utility-led value across the entire network"
-              text="The WIN token is positioned as the functional layer of the network, supporting governance, access, participation, payments, and ecosystem-wide incentives."
-            />
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {utilityItems.map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.07 }}
-                  className="rounded-[26px] border border-white/10 bg-gradient-to-b from-white/8 to-white/[0.03] p-6 backdrop-blur-xl"
-                >
-                  <div className="text-xs uppercase tracking-[0.22em] text-cyan-300">WIN Utility</div>
-                  <div className="mt-3 text-2xl font-medium text-white">{item}</div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          <section id="tokenomics" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <div>
-                <div className="mb-3 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-300">
-                  Tokenomics
-                </div>
-                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">A clear token structure for long-term ecosystem growth</h2>
-                <p className="mt-5 max-w-xl text-sm leading-8 text-slate-300 md:text-base">
-                  This section is ready to publish visually. You can replace the percentages later if your final token distribution changes.
-                </p>
-                <div className="mt-8 rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-                  <div className="text-xs uppercase tracking-[0.24em] text-slate-400">Total Supply</div>
-                  <div className="mt-3 text-4xl font-semibold text-white">1,000,000,000 WIN</div>
-                </div>
-              </div>
-              <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-                <div className="space-y-5">
-                  {tokenomics.map((item) => (
-                    <div key={item.label}>
-                      <div className="mb-2 flex items-center justify-between text-sm text-slate-200">
-                        <span>{item.label}</span>
-                        <span>{item.value}%</span>
-                      </div>
-                      <div className="h-3 overflow-hidden rounded-full bg-white/5">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${item.value}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.8 }}
-                          className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-violet-500 to-fuchsia-500"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="roadmap" className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <SectionTitle
-              eyebrow="Roadmap"
-              title="A roadmap built for credibility, rollout, and scale"
-              text="The roadmap structure balances launch readiness with long-term expansion so the project appears strategic, serious, and growth-oriented from day one."
-            />
-            <div className="grid gap-6 xl:grid-cols-4">
-              {roadmap.map((item, index) => (
-                <motion.div
-                  key={item.phase}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
-                >
-                  <div className="text-xs uppercase tracking-[0.3em] text-cyan-300">{item.phase}</div>
-                  <h3 className="mt-3 text-2xl font-medium text-white">{item.title}</h3>
-                  <div className="mt-5 space-y-3">
-                    {item.points.map((point) => (
-                      <div key={point} className="flex items-start gap-3 text-sm leading-7 text-slate-300">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-violet-400" />
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <SectionTitle
-              eyebrow="Core Contributors"
-              title="A project built by infrastructure, design, and ecosystem specialists"
-              text="This team area is ready to receive your real names, titles, and profile links. The structure is already prepared in a premium layout so we can swap placeholders with actual contributors instantly."
-            />
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {coreContributors.map((item, index) => (
-                <motion.div
-                  key={item.role}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.07 }}
-                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
-                >
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 text-lg font-semibold text-white">
-                    {item.name.split(" ").map((word) => word[0]).slice(0, 2).join("")}
-                  </div>
-                  <div className="text-xs uppercase tracking-[0.24em] text-cyan-300">{item.role}</div>
-                  <h3 className="mt-3 text-xl font-medium text-white">{item.name}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <div className="grid gap-6 rounded-[36px] border border-white/10 bg-gradient-to-br from-cyan-400/10 via-violet-500/10 to-fuchsia-500/10 p-8 backdrop-blur-xl lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
-              <div>
-                <div className="text-xs uppercase tracking-[0.3em] text-cyan-300">Security & Trust</div>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                  Infrastructure-focused messaging that strengthens investor confidence.
-                </h2>
-                <p className="mt-4 max-w-2xl text-sm leading-8 text-slate-300 md:text-base">
-                  Built with a security-led narrative, transparent ecosystem positioning, and premium presentation standards suitable for a global Web3 audience.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 text-sm text-slate-200">
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Advanced cryptography</div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Transparent governance</div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Validator incentives</div>
-              </div>
-            </div>
-          </section>
-
-          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <SectionTitle
-              eyebrow="Humanitarian Reality"
-              title="A crisis section that can be used respectfully and with purpose"
-              text="This block is designed for a humanitarian commitment page, relief partnership section, or transparent social impact message. It should be paired with a real pledge, donation mechanism, or verified aid initiative rather than used only as an emotional visual layer."
-            />
-            <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-                <div className="text-xs uppercase tracking-[0.24em] text-slate-400">Live humanitarian framing</div>
-                <h3 className="mt-3 text-3xl font-semibold text-white">Why action matters now</h3>
-                <p className="mt-4 text-sm leading-8 text-slate-300">
-                  If you decide to include a Gaza-focused impact section, the strongest approach is to frame it around dignity, transparency, and direct support. Instead of promotional shock imagery, use sober documentary visuals, verified metrics, and a clearly stated relief commitment.
-                </p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {humanitarianStats.map((item) => (
-                    <div key={item.label} className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                      <div className="text-3xl font-semibold text-white">{item.value}</div>
-                      <div className="mt-2 text-sm leading-6 text-slate-300">{item.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-                <div className="mb-4 text-xs uppercase tracking-[0.24em] text-cyan-300">Recommended visual direction</div>
-                <div className="aspect-[4/5] rounded-[28px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
-                  <div className="flex h-full flex-col justify-between rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_40%)] p-6">
-                    <div>
-                      <div className="text-sm uppercase tracking-[0.25em] text-slate-400">Visual placeholder</div>
-                      <h3 className="mt-4 max-w-xs text-3xl font-semibold leading-tight text-white">
-                        Use dignity-first humanitarian imagery, not sensationalism.
-                      </h3>
-                    </div>
-                    <p className="max-w-sm text-sm leading-7 text-slate-300">
-                      Best practice: documentary-style photos, relief distribution scenes, silhouettes, or map-based visuals. If children are shown, use respectful licensed imagery and pair it with a concrete aid statement.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="faq" className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-            <SectionTitle
-              eyebrow="FAQ"
-              title="Essential answers for first-time visitors and potential partners"
-              text="This section keeps the site clear, investor-friendly, and easy to navigate for users discovering the project for the first time."
-            />
-            <div className="space-y-4">
-              {faqs.map((item, index) => (
-                <motion.div
-                  key={item.q}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.06 }}
-                  className="rounded-[24px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
-                >
-                  <h3 className="text-lg font-medium text-white">{item.q}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{item.a}</p>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-        </main>
-
-        <footer className="border-t border-white/10">
-          <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-            <div>
-              <div className="text-lg font-semibold tracking-[0.24em] text-white">WIN COIN</div>
-              <p className="mt-2 max-w-md text-sm leading-7 text-slate-400">
-                A premium Layer 1 and ecosystem-focused digital infrastructure concept built for modern Web3 positioning.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 text-sm text-slate-300">
-              {['X / Twitter', 'Telegram', 'Discord', 'GitHub', 'Medium'].map((item) => (
-                <a key={item} href="#" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10">
-                  {item}
-                </a>
-              ))}
-            </div>
+          <div class="card hero-stat">
+            <div class="hero-stat-label">Vision</div>
+            <div class="hero-stat-value">Global Adoption</div>
           </div>
-        </footer>
+        </div>
       </div>
-    </div>
-  );
-}
+      <div class="orb-wrap">
+        <div class="orb">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="coin"><span>W</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technology">
+      <div class="section-head">
+        <div class="section-tag">Technology</div>
+        <h2>A serious blockchain foundation with premium ecosystem positioning</h2>
+        <p>
+          Win Coin is presented as a credible infrastructure project, blending Layer 1 ambition with ecosystem-level usability,
+          long-term utility, and modern digital finance readiness.
+        </p>
+      </div>
+      <div class="grid-4">
+        <div class="card feature">
+          <div class="icon">◈</div>
+          <h3>Modular Layer 1 Architecture</h3>
+          <p>Win Coin is designed as a scalable blockchain foundation for next-generation decentralized products, financial rails, and ecosystem-level innovation.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">◎</div>
+          <h3>High-Throughput Infrastructure</h3>
+          <p>Built for speed, reliability, and future expansion across applications, users, and cross-network integrations.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">✦</div>
+          <h3>Secure by Design</h3>
+          <p>A security-first approach with transparent architecture, validator incentives, and infrastructure focused on long-term trust.</p>
+        </div>
+        <div class="card feature">
+          <div class="icon">◌</div>
+          <h3>Global Ecosystem Vision</h3>
+          <p>Win Coin supports an open digital economy where builders, communities, and participants can collaborate without borders.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ecosystem">
+      <div class="two-col">
+        <div>
+          <div class="section-tag">Ecosystem</div>
+          <h2>Designed to grow beyond a token into a living digital economy.</h2>
+          <p class="text-muted">
+            Win Coin is structured to support a broad ecosystem of applications, integrations, validators, governance,
+            and digital participation layers that expand over time.
+          </p>
+        </div>
+        <div class="list-grid">
+          <div class="card mini-tile"><small>Module 01</small><strong>DeFi Applications</strong></div>
+          <div class="card mini-tile"><small>Module 02</small><strong>Smart Contracts</strong></div>
+          <div class="card mini-tile"><small>Module 03</small><strong>Validator Network</strong></div>
+          <div class="card mini-tile"><small>Module 04</small><strong>Cross-Chain Integrations</strong></div>
+          <div class="card mini-tile"><small>Module 05</small><strong>Developer Tooling</strong></div>
+          <div class="card mini-tile"><small>Module 06</small><strong>Digital Payments</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="utility">
+      <div class="section-head">
+        <div class="section-tag">Token Utility</div>
+        <h2>Utility-led value across the entire network</h2>
+        <p>The WIN token is positioned as the functional layer of the network, supporting governance, access, participation, payments, and ecosystem-wide incentives.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card tile">Transaction Fees</div>
+        <div class="card tile">Staking Rewards</div>
+        <div class="card tile">Governance Voting</div>
+        <div class="card tile">Ecosystem Access</div>
+        <div class="card tile">Validator Incentives</div>
+        <div class="card tile">Community Participation</div>
+      </div>
+    </section>
+
+    <section class="section" id="tokenomics">
+      <div class="tokenomics-wrap">
+        <div>
+          <div class="section-tag">Tokenomics</div>
+          <h2>A clear token structure for long-term ecosystem growth</h2>
+          <p class="text-muted">This section is ready visually. You can update the percentages later with your final token distribution.</p>
+          <div class="card supply">
+            <small>Total Supply</small>
+            <div class="num">1,000,000,000 WIN</div>
+          </div>
+        </div>
+        <div class="card bars">
+          <div class="bar-item">
+            <div class="bar-top"><span>Ecosystem Growth</span><span>40%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:40%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-top"><span>Development</span><span>20%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:20%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-top"><span>Liquidity</span><span>15%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:15%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-top"><span>Marketing</span><span>15%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:15%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-top"><span>Team</span><span>10%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:10%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-head">
+        <div class="section-tag">Roadmap</div>
+        <h2>A roadmap built for credibility, rollout, and scale</h2>
+        <p>The roadmap structure balances launch readiness with long-term expansion so the project appears strategic, serious, and growth-oriented from day one.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card road-card">
+          <div class="phase">Phase 01</div>
+          <h3>Foundation</h3>
+          <ul>
+            <li>Concept development</li>
+            <li>Brand identity and website</li>
+            <li>Community formation</li>
+            <li>Infrastructure planning</li>
+          </ul>
+        </div>
+        <div class="card road-card">
+          <div class="phase">Phase 02</div>
+          <h3>Launch</h3>
+          <ul>
+            <li>Token launch</li>
+            <li>Initial ecosystem rollout</li>
+            <li>Exchange expansion</li>
+            <li>Strategic partnerships</li>
+          </ul>
+        </div>
+        <div class="card road-card">
+          <div class="phase">Phase 03</div>
+          <h3>Expansion</h3>
+          <ul>
+            <li>Developer onboarding</li>
+            <li>dApp integrations</li>
+            <li>Staking and utility growth</li>
+            <li>Cross-chain compatibility</li>
+          </ul>
+        </div>
+        <div class="card road-card">
+          <div class="phase">Phase 04</div>
+          <h3>Scale</h3>
+          <ul>
+            <li>Global ecosystem adoption</li>
+            <li>Advanced governance</li>
+            <li>Infrastructure optimization</li>
+            <li>Long-term sustainability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contributors">
+      <div class="section-head">
+        <div class="section-tag">Core Contributors</div>
+        <h2>A project built by infrastructure, design, and ecosystem specialists</h2>
+        <p>This section is ready for your real names, roles, and profile links. I left it usable with placeholders so you can publish now and replace later.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card team">
+          <div class="icon">LD</div>
+          <h3>Lead Blockchain Developer</h3>
+          <p>Owns core architecture, network design, validator logic, and long-term chain scalability.</p>
+        </div>
+        <div class="card team">
+          <div class="icon">PD</div>
+          <h3>Product Designer</h3>
+          <p>Shapes the visual identity, premium interface language, and user journey across the ecosystem.</p>
+        </div>
+        <div class="card team">
+          <div class="icon">ES</div>
+          <h3>Ecosystem Strategist</h3>
+          <p>Leads adoption strategy, ecosystem positioning, and collaboration with external builders.</p>
+        </div>
+        <div class="card team">
+          <div class="icon">CO</div>
+          <h3>Community Operations Lead</h3>
+          <p>Coordinates communication, community growth, and contributor alignment across regions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card impact-banner">
+        <div class="impact-grid">
+          <div>
+            <div class="section-tag">Humanitarian Reality</div>
+            <h2>Use any relief-related section respectfully and with a real commitment</h2>
+            <p class="text-muted">
+              If you include a Gaza-focused impact section, pair it with a transparent donation plan, verified partner information,
+              and dignity-first visuals instead of shock-driven imagery.
+            </p>
+            <div class="stats-grid">
+              <div class="card stat-box"><div class="stat-number">3.6M+</div><div class="text-muted">People in need across the Occupied Palestinian Territory</div></div>
+              <div class="card stat-box"><div class="stat-number">1.6M</div><div class="text-muted">People in Gaza projected to face crisis-level or worse food insecurity</div></div>
+              <div class="card stat-box"><div class="stat-number">132,000+</div><div class="text-muted">Children under 5 expected to suffer acute malnutrition</div></div>
+              <div class="card stat-box"><div class="stat-number">41,000+</div><div class="text-muted">Severe acute malnutrition cases among children under 5</div></div>
+            </div>
+          </div>
+          <div class="card visual-box">
+            <div>
+              <div class="section-tag">Visual direction</div>
+              <h3 style="font-size:36px; margin:0;">Use dignity-first humanitarian imagery, not sensationalism.</h3>
+            </div>
+            <p class="text-muted">
+              Best practice: documentary-style photos, relief distribution scenes, silhouettes, or map-based visuals.
+              If children are shown, use respectful licensed imagery and pair it with a concrete aid statement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-head">
+        <div class="section-tag">FAQ</div>
+        <h2>Essential answers for first-time visitors and potential partners</h2>
+        <p>This section keeps the site clear, investor-friendly, and easy to navigate for users discovering the project for the first time.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card faq">
+          <h3>What is Win Coin?</h3>
+          <p>Win Coin is a blockchain ecosystem designed to support decentralized applications, digital finance, and a scalable community-driven network.</p>
+        </div>
+        <div class="card faq">
+          <h3>What makes Win Coin different?</h3>
+          <p>Win Coin is positioned around infrastructure and ecosystem growth, combining Layer 1 ambitions with practical utility and long-term network participation.</p>
+        </div>
+        <div class="card faq">
+          <h3>What can the WIN token be used for?</h3>
+          <p>The WIN token is designed for transaction payments, staking, governance, validator incentives, and broader access across the ecosystem.</p>
+        </div>
+        <div class="card faq">
+          <h3>Is the project focused on global adoption?</h3>
+          <p>Yes. The project vision is centered on building a globally accessible digital ecosystem with scalable infrastructure and cross-market usability.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-wrap">
+        <div>
+          <div class="brand-name">WIN COIN</div>
+          <div class="text-muted" style="margin-top:10px; max-width:560px;">A premium Layer 1 and ecosystem-focused digital infrastructure concept built for modern Web3 positioning.</div>
+        </div>
+        <div class="socials">
+          <a href="#">X / Twitter</a>
+          <a href="#">Telegram</a>
+          <a href="#">Discord</a>
+          <a href="#">GitHub</a>
+          <a href="#">Medium</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
