@@ -1,297 +1,1059 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win Coin — Premium Web3 Landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#050816;
+      --bg2:#0b1020;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --cyan:#22d3ee;
+      --violet:#8b5cf6;
+      --pink:#d946ef;
+      --line:rgba(255,255,255,.10);
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.03);
+      --max:1200px;
+      --r:26px;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:Inter,sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(34,211,238,.14), transparent 25%),
+        radial-gradient(circle at 80% 15%, rgba(139,92,246,.18), transparent 28%),
+        radial-gradient(circle at 50% 82%, rgba(217,70,239,.08), transparent 30%),
+        linear-gradient(180deg, var(--bg), var(--bg2) 70%, #081322);
+      overflow-x:hidden;
+    }
 
-<title>Win Coin</title>
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:68px 68px;
+      pointer-events:none;
+      opacity:.22;
+      z-index:0;
+    }
 
-<link rel="stylesheet" href="assets/style.css">
+    a{color:inherit;text-decoration:none}
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin:auto;
+      position:relative;
+      z-index:1;
+    }
 
-<style>
+    .section{padding:96px 0}
+    .tag{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(34,211,238,.2);
+      background:rgba(34,211,238,.1);
+      color:#bff6ff;
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+    }
 
-body{
-background:#070f25;
-color:white;
-font-family:Arial;
-margin:0;
-}
+    .head{
+      text-align:center;
+      max-width:860px;
+      margin:0 auto 42px;
+    }
 
-section{
-padding:100px 10%;
-}
+    .head h2{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(34px,4.2vw,56px);
+      line-height:1.04;
+      margin:18px 0 0;
+      letter-spacing:-.04em;
+    }
 
-h1{
-font-size:60px;
-}
+    .head p{
+      color:#cbd5e1;
+      line-height:1.9;
+      margin:16px 0 0;
+    }
 
-h2{
-font-size:40px;
-}
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      box-shadow:0 18px 50px rgba(2,6,23,.36),0 0 60px rgba(34,211,238,.07);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+    }
 
-p{
-color:#9aa4c3;
-}
+    .nav{
+      position:sticky;
+      top:14px;
+      z-index:30;
+      width:min(calc(100% - 20px), calc(var(--max) + 16px));
+      margin:14px auto 0;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-.card{
-background:#0f1a36;
-padding:25px;
-border-radius:15px;
-}
+    .logo{
+      width:46px;
+      height:46px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      background:linear-gradient(135deg,var(--cyan),var(--violet),var(--pink));
+      box-shadow:0 0 40px rgba(34,211,238,.24);
+    }
 
-.avatar{
-width:60px;
-height:60px;
-border-radius:50%;
-background:#5b7cff;
-display:flex;
-align-items:center;
-justify-content:center;
-margin-bottom:10px;
-font-weight:bold;
-}
+    .brand-name{
+      font-weight:800;
+      letter-spacing:.18em;
+    }
 
-.logo-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:30px;
-text-align:center;
-}
+    .brand-sub{
+      font-size:10px;
+      color:var(--muted);
+      letter-spacing:.3em;
+      text-transform:uppercase;
+      margin-top:4px;
+    }
 
-.partner{
-background:#0f1a36;
-padding:20px;
-border-radius:12px;
-}
+    .navlinks{
+      display:flex;
+      gap:22px;
+      color:#cbd5e1;
+      font-size:14px;
+    }
 
-.counter{
-font-size:50px;
-font-weight:bold;
-}
+    .btn{
+      padding:13px 18px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
 
-</style>
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.1);
+    }
 
+    .btn.primary{
+      background:#fff;
+      color:#020617;
+    }
+
+    .btn.connected{
+      background:rgba(16,185,129,.16);
+      color:#d1fae5;
+      border-color:rgba(16,185,129,.35);
+    }
+
+    .hero{
+      min-height:90vh;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:40px;
+      align-items:center;
+      padding:44px 0 26px;
+    }
+
+    .hero h1{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(46px,7vw,84px);
+      line-height:1.02;
+      letter-spacing:-.05em;
+      margin:18px 0 0;
+    }
+
+    .hero p{
+      max-width:740px;
+      color:#cbd5e1;
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .stat{
+      padding:18px;
+    }
+
+    .stat small{
+      display:block;
+      color:var(--muted);
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    }
+
+    .stat b{
+      display:block;
+      margin-top:10px;
+      font-size:19px;
+    }
+
+    .scene{
+      position:relative;
+      width:min(480px,95vw);
+      aspect-ratio:1;
+      margin:auto;
+    }
+
+    .ring,.ring2,.ring3{
+      position:absolute;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    .ring{
+      inset:4%;
+      animation:spin 20s linear infinite;
+    }
+
+    .ring2{
+      inset:16%;
+      border-style:dashed;
+      animation:spinr 24s linear infinite;
+    }
+
+    .ring3{
+      inset:28%;
+      border-color:rgba(34,211,238,.22);
+    }
+
+    .node{
+      position:absolute;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 18px rgba(34,211,238,.9);
+      animation:pulse 2.2s infinite;
+    }
+
+    .n1{top:7%;left:50%;transform:translateX(-50%)}
+    .n2{right:12%;top:20%}
+    .n3{right:10%;bottom:24%}
+    .n4{left:50%;bottom:8%;transform:translateX(-50%)}
+    .n5{left:12%;bottom:20%}
+    .n6{left:12%;top:23%}
+
+    .coin{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%) rotateX(68deg);
+      width:210px;
+      height:210px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--cyan),var(--violet),var(--pink));
+      border:2px solid rgba(255,255,255,.18);
+      box-shadow:0 0 80px rgba(139,92,246,.35);
+      animation:coin 12s linear infinite;
+    }
+
+    .coin::before{
+      content:"W";
+      position:absolute;
+      inset:16px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(4,8,22,.18);
+      font-family:"Space Grotesk",sans-serif;
+      font-size:76px;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .grid4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .tile{
+      padding:26px;
+    }
+
+    .tile h3{
+      margin:14px 0 0;
+      font-size:22px;
+    }
+
+    .tile p,.muted{
+      color:#cbd5e1;
+      line-height:1.9;
+    }
+
+    .icon,.avatar{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));
+      border:1px solid var(--line);
+      font-weight:800;
+    }
+
+    .role{
+      display:block;
+      margin-top:8px;
+      color:#a5f3fc;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:24px;
+    }
+
+    .supply{
+      padding:26px;
+    }
+
+    .supply small{
+      display:block;
+      color:var(--muted);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+    }
+
+    .supply .big{
+      font-size:46px;
+      font-weight:800;
+      margin-top:14px;
+    }
+
+    .bars{
+      padding:26px;
+    }
+
+    .baritem + .baritem{
+      margin-top:18px;
+    }
+
+    .bartop{
+      display:flex;
+      justify-content:space-between;
+      font-size:14px;
+      color:#e2e8f0;
+      margin-bottom:8px;
+    }
+
+    .barbg{
+      height:12px;
+      background:rgba(255,255,255,.06);
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .barfill{
+      height:100%;
+      width:0;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));
+      transition:1.2s ease;
+    }
+
+    .timeline{
+      position:relative;
+      display:grid;
+      gap:18px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:22px;
+      top:10px;
+      bottom:10px;
+      width:2px;
+      background:linear-gradient(180deg,var(--cyan),var(--violet),var(--pink));
+      opacity:.55;
+    }
+
+    .road{
+      margin-left:56px;
+      position:relative;
+      padding:24px;
+    }
+
+    .road::before{
+      content:"";
+      position:absolute;
+      left:-42px;
+      top:28px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--cyan),var(--violet));
+      box-shadow:0 0 18px rgba(34,211,238,.6);
+    }
+
+    .phase{
+      font-size:12px;
+      color:#a5f3fc;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+    }
+
+    .road ul{
+      margin:14px 0 0;
+      padding-left:18px;
+      color:#cbd5e1;
+    }
+
+    .road li+li{
+      margin-top:10px;
+    }
+
+    .slider{
+      overflow:hidden;
+    }
+
+    .track{
+      display:flex;
+      gap:16px;
+      width:max-content;
+      animation:slide 24s linear infinite;
+    }
+
+    .pill{
+      min-width:230px;
+      padding:18px 20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      text-align:center;
+      font-weight:700;
+    }
+
+    .walletbox{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px dashed rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      word-break:break-all;
+    }
+
+    .mini{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      cursor:pointer;
+      font-weight:700;
+      margin-top:14px;
+    }
+
+    .status{
+      margin-top:12px;
+      color:#a5f3fc;
+      font-size:14px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:.7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.16)}
+    }
+
+    @keyframes spin{
+      from{transform:rotate(0)}
+      to{transform:rotate(360deg)}
+    }
+
+    @keyframes spinr{
+      from{transform:rotate(0)}
+      to{transform:rotate(-360deg)}
+    }
+
+    @keyframes coin{
+      from{transform:translate(-50%,-50%) rotateX(68deg) rotateZ(0)}
+      to{transform:translate(-50%,-50%) rotateX(68deg) rotateZ(360deg)}
+    }
+
+    @keyframes slide{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    @media(max-width:1080px){
+      .hero,.split{grid-template-columns:1fr}
+      .grid4{grid-template-columns:repeat(2,1fr)}
+      .grid3,.grid2{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+
+    @media(max-width:700px){
+      .section{padding:74px 0}
+      .grid4,.stats{grid-template-columns:1fr}
+      .hero h1{font-size:46px}
+      .hero p{font-size:16px}
+    }
+  </style>
 </head>
-
-
 <body>
 
-
-
-<section>
-
-<h1>Win Coin Ecosystem</h1>
-
-<p>
-Win Coin is a next-generation Layer 1 ecosystem designed
-to power decentralized applications and transparent
-humanitarian funding systems.
-</p>
-
-</section>
-
-
-
-<section>
-
-<h2>Core Team</h2>
-
-<div class="grid">
-
-<div class="card">
-<div class="avatar">FV</div>
-<h3>Founder & Vision</h3>
-<p>Strategic direction and ecosystem vision.</p>
-</div>
-
-<div class="card">
-<div class="avatar">LD</div>
-<h3>Lead Blockchain Developer</h3>
-<p>Blockchain infrastructure and smart contract systems.</p>
-</div>
-
-<div class="card">
-<div class="avatar">PD</div>
-<h3>Product Designer</h3>
-<p>UI/UX design and ecosystem interface architecture.</p>
-</div>
-
-<div class="card">
-<div class="avatar">MG</div>
-<h3>Marketing & Growth</h3>
-<p>Community expansion and global ecosystem awareness.</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>Strategic Network</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Guy Young</h3>
-<p>Referenced within ecosystem landscape research.</p>
-</div>
-
-<div class="card">
-<h3>Aurora Kind</h3>
-<p>Referenced within ecosystem landscape research.</p>
-</div>
-
-<div class="card">
-<h3>Chris Larsen</h3>
-<p>Referenced within ecosystem landscape research.</p>
-</div>
-
-</div>
-
-<p style="font-size:12px;margin-top:30px">
-Names listed above are referenced for ecosystem awareness and
-industry research purposes only. They do not imply partnership
-or endorsement unless officially confirmed.
-</p>
-
-</section>
-
-
-
-<section>
-
-<h2>VC & Ecosystem Landscape</h2>
-
-<div class="logo-grid">
-
-<div class="partner">Andreessen Horowitz</div>
-<div class="partner">Google Ventures</div>
-<div class="partner">IDG Capital</div>
-
-<div class="partner">Ethereum</div>
-<div class="partner">Base</div>
-<div class="partner">Arbitrum</div>
-<div class="partner">Optimism</div>
-<div class="partner">Polygon</div>
-
-</div>
-
-<p style="font-size:12px;margin-top:30px">
-Logos and names displayed above represent ecosystem research
-and landscape mapping only and do not imply partnership.
-</p>
-
-</section>
-
-
-
-<section>
-
-<h2>Relief Partners</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>UNRWA</h3>
-<p>Humanitarian aid for Palestinian refugees</p>
-<p>www.unrwa.org</p>
-</div>
-
-<div class="card">
-<h3>World Food Programme</h3>
-<p>Global food security humanitarian organization</p>
-<p>www.wfp.org</p>
-</div>
-
-<div class="card">
-<h3>Doctors Without Borders</h3>
-<p>Emergency medical humanitarian aid</p>
-<p>www.msf.org</p>
-</div>
-
-<div class="card">
-<h3>UNICEF</h3>
-<p>Humanitarian support for children and families</p>
-<p>www.unicef.org</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>Donation Transparency</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Cold Wallet Addresses</h3>
-<p>Future humanitarian wallet addresses will be published here.</p>
-</div>
-
-<div class="card">
-<h3>Transaction Proof</h3>
-<p>All donations will be verified through blockchain transactions.</p>
-</div>
-
-<div class="card">
-<h3>Public Reporting</h3>
-<p>All humanitarian transfers will be publicly documented.</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>Total Token Supply</h2>
-
-<div class="counter" id="counter">0</div>
-
-</section>
-
-
-
-<script>
-
-let count = 0
-let target = 1000000000
-
-let counter = document.getElementById("counter")
-
-let interval = setInterval(()=>{
-
-count += 5000000
-
-counter.innerText = count.toLocaleString() + " WIN"
-
-if(count >= target){
-clearInterval(interval)
-}
-
-},40)
-
-</script>
-
-
-
+  <div class="nav card">
+    <a href="#top" class="brand">
+      <div class="logo">W</div>
+      <div>
+        <div class="brand-name">WIN COIN</div>
+        <div class="brand-sub">Layer 1 Ecosystem</div>
+      </div>
+    </a>
+
+    <div class="navlinks">
+      <a href="#team">Team</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#investors">Investors</a>
+      <a href="#relief">Relief</a>
+      <a href="#wallets">Wallets</a>
+    </div>
+
+    <button class="btn" id="walletTop">Connect Wallet</button>
+  </div>
+
+  <main class="container" id="top">
+
+    <section class="hero">
+      <div class="reveal">
+        <div class="tag">Infrastructure for the Next Digital Economy</div>
+        <h1>Building a scalable blockchain ecosystem for global participation.</h1>
+        <p>
+          Win Coin is a premium Web3 concept designed around Layer 1 positioning,
+          ecosystem expansion, transparent humanitarian reporting, and investor-facing
+          infrastructure storytelling.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#tokenomics">Explore Tokenomics</a>
+          <a class="btn" href="#wallets">Donation Tracker</a>
+        </div>
+
+        <div class="stats">
+          <div class="card stat">
+            <small>Layer</small>
+            <b>Modular L1</b>
+          </div>
+          <div class="card stat">
+            <small>Positioning</small>
+            <b>Ecosystem Utility</b>
+          </div>
+          <div class="card stat">
+            <small>Mission</small>
+            <b>Transparent Impact</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene reveal">
+        <div class="ring"></div>
+        <div class="ring2"></div>
+        <div class="ring3"></div>
+        <div class="node n1"></div>
+        <div class="node n2"></div>
+        <div class="node n3"></div>
+        <div class="node n4"></div>
+        <div class="node n5"></div>
+        <div class="node n6"></div>
+        <div class="coin"></div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="head reveal">
+        <div class="tag">Core Team</div>
+        <h2>Built by product, infrastructure, and growth-focused contributors</h2>
+        <p>
+          Win Coin is structured around a multidisciplinary execution model spanning vision,
+          development, design, and ecosystem growth.
+        </p>
+      </div>
+
+      <div class="grid4">
+        <div class="card tile reveal">
+          <div class="avatar">FV</div>
+          <span class="role">Founder & Vision</span>
+          <h3>Founder & Vision</h3>
+          <p>Responsible for strategic direction, network narrative, and long-term ecosystem positioning.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="avatar">LD</div>
+          <span class="role">Lead Developer</span>
+          <h3>Lead Blockchain Developer</h3>
+          <p>Focused on smart contracts, network architecture, security, and technical implementation.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="avatar">PD</div>
+          <span class="role">Product Designer</span>
+          <h3>Product Designer</h3>
+          <p>Leads interface language, product flow, visual identity, and ecosystem-level experience.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="avatar">MG</div>
+          <span class="role">Marketing & Growth</span>
+          <h3>Marketing & Growth</h3>
+          <p>Drives global ecosystem visibility, community expansion, and strategic communications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="strategic">
+      <div class="head reveal">
+        <div class="tag">Strategic Network</div>
+        <h2>Exploring relationships across the global Web3 landscape</h2>
+        <p>
+          Win Coin monitors high-signal operators, product builders, and ecosystem participants
+          as part of long-term market research and relationship mapping.
+        </p>
+      </div>
+
+      <div class="grid3">
+        <div class="card tile reveal">
+          <div class="icon">GY</div>
+          <h3>Guy Young</h3>
+          <p>Referenced within ecosystem landscape research and market awareness.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">AK</div>
+          <h3>Aurora Kind</h3>
+          <p>Referenced within ecosystem landscape research and market awareness.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">CL</div>
+          <h3>Chris Larsen</h3>
+          <p>Referenced within ecosystem landscape research and market awareness.</p>
+        </div>
+      </div>
+
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px">
+        Names referenced in this section are included for ecosystem awareness and industry research purposes only.
+        They do not imply partnership, employment, advisory status, or endorsement unless officially confirmed.
+      </p>
+    </section>
+
+    <section class="section" id="tokenomics">
+      <div class="head reveal">
+        <div class="tag">Tokenomics</div>
+        <h2>Animated token distribution and live supply view</h2>
+        <p>
+          This section combines a live total supply counter with animated category distribution bars.
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="card supply reveal">
+          <small>Total Token Supply</small>
+          <div class="big" id="supplyCounter" data-target="1000000000">0 WIN</div>
+          <p class="muted" style="margin-top:14px">
+            Live animated supply indicator for investor presentation and ecosystem communication.
+          </p>
+        </div>
+
+        <div class="card bars reveal">
+          <div class="baritem">
+            <div class="bartop"><span>Ecosystem Growth</span><span>40%</span></div>
+            <div class="barbg"><div class="barfill" data-value="40"></div></div>
+          </div>
+          <div class="baritem">
+            <div class="bartop"><span>Development</span><span>20%</span></div>
+            <div class="barbg"><div class="barfill" data-value="20"></div></div>
+          </div>
+          <div class="baritem">
+            <div class="bartop"><span>Liquidity</span><span>15%</span></div>
+            <div class="barbg"><div class="barfill" data-value="15"></div></div>
+          </div>
+          <div class="baritem">
+            <div class="bartop"><span>Marketing</span><span>15%</span></div>
+            <div class="barbg"><div class="barfill" data-value="15"></div></div>
+          </div>
+          <div class="baritem">
+            <div class="bartop"><span>Team</span><span>10%</span></div>
+            <div class="barbg"><div class="barfill" data-value="10"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="head reveal">
+        <div class="tag">Roadmap Timeline</div>
+        <h2>Execution path from concept to ecosystem scale</h2>
+        <p>
+          A clean timeline gives visitors and potential investors an immediate sense of progress.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="card road reveal">
+          <div class="phase">Phase 01</div>
+          <h3>Foundation</h3>
+          <ul>
+            <li>Brand identity and website launch</li>
+            <li>Whitepaper publication</li>
+            <li>Community seeding</li>
+          </ul>
+        </div>
+
+        <div class="card road reveal">
+          <div class="phase">Phase 02</div>
+          <h3>Network Readiness</h3>
+          <ul>
+            <li>Contract architecture</li>
+            <li>Tokenomics communication</li>
+            <li>Ecosystem outreach</li>
+          </ul>
+        </div>
+
+        <div class="card road reveal">
+          <div class="phase">Phase 03</div>
+          <h3>Expansion</h3>
+          <ul>
+            <li>Utility dashboards</li>
+            <li>Investor materials</li>
+            <li>Transparency framework</li>
+          </ul>
+        </div>
+
+        <div class="card road reveal">
+          <div class="phase">Phase 04</div>
+          <h3>Scale</h3>
+          <ul>
+            <li>Wider integrations</li>
+            <li>Donation wallet archive</li>
+            <li>Long-term infrastructure growth</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="investors">
+      <div class="head reveal">
+        <div class="tag">Investor Logo Slider</div>
+        <h2>Global venture and ecosystem landscape</h2>
+        <p>
+          This scrolling strip communicates market awareness while preserving legal clarity.
+        </p>
+      </div>
+
+      <div class="card slider reveal" style="padding:18px">
+        <div class="track">
+          <div class="pill">Andreessen Horowitz</div>
+          <div class="pill">Google Ventures</div>
+          <div class="pill">IDG Capital</div>
+          <div class="pill">Ethereum</div>
+          <div class="pill">Base</div>
+          <div class="pill">Arbitrum</div>
+          <div class="pill">Optimism</div>
+          <div class="pill">Polygon</div>
+
+          <div class="pill">Andreessen Horowitz</div>
+          <div class="pill">Google Ventures</div>
+          <div class="pill">IDG Capital</div>
+          <div class="pill">Ethereum</div>
+          <div class="pill">Base</div>
+          <div class="pill">Arbitrum</div>
+          <div class="pill">Optimism</div>
+          <div class="pill">Polygon</div>
+        </div>
+      </div>
+
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px">
+        Logos and names displayed above represent ecosystem research and landscape mapping only.
+        They do not imply investment, partnership, employment, or endorsement unless publicly confirmed.
+      </p>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="head reveal">
+        <div class="tag">Ecosystem Partners</div>
+        <h2>Target ecosystem directions and infrastructure alignment</h2>
+        <p>
+          A structured partner section helps frame the project as integration-ready and expansion-ready.
+        </p>
+      </div>
+
+      <div class="grid4">
+        <div class="card tile reveal">
+          <div class="icon">L1</div>
+          <h3>Layer 1 Infrastructure</h3>
+          <p>Network architecture, validator systems, and core execution design.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">DF</div>
+          <h3>DeFi Integrations</h3>
+          <p>Compatibility with staking, liquidity, utility dashboards, and on-chain tooling.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">CM</div>
+          <h3>Community Systems</h3>
+          <p>Growth channels, contributor networks, and global adoption loops.</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">IM</div>
+          <h3>Impact Infrastructure</h3>
+          <p>Public donation reporting and transparent relief workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="relief">
+      <div class="head reveal">
+        <div class="tag">Relief Partners</div>
+        <h2>Humanitarian organizations for transparent giving</h2>
+        <p>
+          This section shows public relief channels that may be referenced in future charitable distributions.
+        </p>
+      </div>
+
+      <div class="grid2">
+        <div class="card tile reveal">
+          <div class="icon">UN</div>
+          <h3>UNRWA</h3>
+          <p>Humanitarian aid for Palestinian refugees.</p>
+          <p class="muted">Official site: www.unrwa.org</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">WF</div>
+          <h3>World Food Programme</h3>
+          <p>Global food security and emergency response.</p>
+          <p class="muted">Official site: www.wfp.org</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">MS</div>
+          <h3>Doctors Without Borders</h3>
+          <p>Emergency medical humanitarian aid.</p>
+          <p class="muted">Official site: www.msf.org</p>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">UC</div>
+          <h3>UNICEF</h3>
+          <p>Humanitarian support for children and families.</p>
+          <p class="muted">Official site: www.unicef.org</p>
+        </div>
+      </div>
+
+      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px">
+        Donation destinations listed above are independent third-party humanitarian organizations.
+        Win Coin does not represent, own, or control these organizations.
+      </p>
+    </section>
+
+    <section class="section" id="wallets">
+      <div class="head reveal">
+        <div class="tag">Live Donation Wallet Tracker</div>
+        <h2>Transparent wallet placeholders for future cold wallet disclosure</h2>
+        <p>
+          You said wallet addresses will be added later. This section is ready now.
+        </p>
+      </div>
+
+      <div class="grid3">
+        <div class="card tile reveal">
+          <div class="icon">CW</div>
+          <h3>Cold Wallet #1</h3>
+          <p>Primary humanitarian reserve wallet.</p>
+          <div class="walletbox" id="wallet1">TO_BE_ADDED_LATER</div>
+          <button class="mini" data-copy="wallet1">Copy</button>
+          <div class="status">Status: Pending publication</div>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">TX</div>
+          <h3>Cold Wallet #2</h3>
+          <p>Secondary routing wallet for public reporting.</p>
+          <div class="walletbox" id="wallet2">TO_BE_ADDED_LATER</div>
+          <button class="mini" data-copy="wallet2">Copy</button>
+          <div class="status">Status: Pending publication</div>
+        </div>
+
+        <div class="card tile reveal">
+          <div class="icon">RP</div>
+          <h3>Transparency Archive</h3>
+          <p>Each future donation can be linked here with transaction hash, destination, and reporting note.</p>
+          <div class="walletbox">HASH / DATE / DESTINATION / AMOUNT</div>
+          <div class="status">Status: Reporting module ready</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wallet-connect">
+      <div class="head reveal">
+        <div class="tag">Web3 Wallet</div>
+        <h2>Simple wallet connection button</h2>
+        <p>
+          This is a lightweight browser-wallet connection layer for MetaMask-compatible wallets.
+        </p>
+      </div>
+
+      <div class="card tile reveal" style="text-align:center">
+        <button class="btn primary" id="walletMain">Connect Web3 Wallet</button>
+        <p class="muted" id="walletStatus" style="margin-top:18px">Wallet not connected.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold:.12 });
+    revealEls.forEach(el=>ro.observe(el));
+
+    const supply = document.getElementById('supplyCounter');
+    if(supply){
+      const target = Number(supply.dataset.target || 0);
+      let cur = 0;
+      const step = Math.max(1, Math.floor(target / 120));
+      const fmt = new Intl.NumberFormat('en-US');
+      const timer = setInterval(()=>{
+        cur += step;
+        if(cur >= target){
+          cur = target;
+          clearInterval(timer);
+        }
+        supply.textContent = fmt.format(cur) + ' WIN';
+      }, 18);
+    }
+
+    const bars = document.querySelectorAll('.barfill');
+    const bo = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.width = (entry.target.dataset.value || 0) + '%';
+        }
+      });
+    }, { threshold:.3 });
+    bars.forEach(bar=>bo.observe(bar));
+
+    document.querySelectorAll('[data-copy]').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const id = btn.dataset.copy;
+        const text = document.getElementById(id).textContent.trim();
+        try{
+          await navigator.clipboard.writeText(text);
+          btn.textContent = 'Copied';
+          setTimeout(()=>btn.textContent='Copy',1200);
+        }catch(e){
+          btn.textContent = 'Copy failed';
+          setTimeout(()=>btn.textContent='Copy',1200);
+        }
+      });
+    });
+
+    async function connectWallet(){
+      const status = document.getElementById('walletStatus');
+      const top = document.getElementById('walletTop');
+      const main = document.getElementById('walletMain');
+
+      if(!window.ethereum){
+        status.textContent = 'No browser wallet detected. Install MetaMask or another compatible wallet.';
+        return;
+      }
+
+      try{
+        const accounts = await window.ethereum.request({ method:'eth_requestAccounts' });
+        const a = accounts[0] || '';
+        const short = a ? a.slice(0,6) + '...' + a.slice(-4) : 'Connected';
+        status.textContent = 'Connected wallet: ' + short;
+        top.textContent = short;
+        main.textContent = short;
+        top.classList.add('connected');
+        main.classList.add('connected');
+      }catch(e){
+        status.textContent = 'Wallet connection request was rejected or failed.';
+      }
+    }
+
+    document.getElementById('walletTop').addEventListener('click', connectWallet);
+    document.getElementById('walletMain').addEventListener('click', connectWallet);
+  </script>
 </body>
-
 </html>
