@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Win Coin — Premium Web3 Landing</title>
+  <title>Win Coin — Global Web3 Infrastructure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -16,10 +16,11 @@
       --cyan:#22d3ee;
       --violet:#8b5cf6;
       --pink:#d946ef;
+      --green:#10b981;
       --line:rgba(255,255,255,.10);
       --panel:rgba(255,255,255,.06);
       --panel2:rgba(255,255,255,.03);
-      --max:1200px;
+      --max:1240px;
       --r:26px;
     }
 
@@ -50,7 +51,7 @@
       z-index:0;
     }
 
-    a{color:inherit;text-decoration:none}
+    a{text-decoration:none;color:inherit}
     .container{
       width:min(calc(100% - 32px), var(--max));
       margin:auto;
@@ -188,14 +189,14 @@
 
     .hero h1{
       font-family:"Space Grotesk",sans-serif;
-      font-size:clamp(46px,7vw,84px);
+      font-size:clamp(46px,7vw,86px);
       line-height:1.02;
       letter-spacing:-.05em;
       margin:18px 0 0;
     }
 
     .hero p{
-      max-width:740px;
+      max-width:760px;
       color:#cbd5e1;
       line-height:1.9;
       font-size:18px;
@@ -215,10 +216,7 @@
       margin-top:34px;
     }
 
-    .stat{
-      padding:18px;
-    }
-
+    .stat{padding:18px}
     .stat small{
       display:block;
       color:var(--muted);
@@ -234,9 +232,10 @@
 
     .scene{
       position:relative;
-      width:min(480px,95vw);
+      width:min(500px,95vw);
       aspect-ratio:1;
       margin:auto;
+      filter:drop-shadow(0 0 60px rgba(34,211,238,.16));
     }
 
     .ring,.ring2,.ring3{
@@ -245,21 +244,9 @@
       border:1px solid rgba(255,255,255,.1);
     }
 
-    .ring{
-      inset:4%;
-      animation:spin 20s linear infinite;
-    }
-
-    .ring2{
-      inset:16%;
-      border-style:dashed;
-      animation:spinr 24s linear infinite;
-    }
-
-    .ring3{
-      inset:28%;
-      border-color:rgba(34,211,238,.22);
-    }
+    .ring{inset:4%;animation:spin 20s linear infinite}
+    .ring2{inset:16%;border-style:dashed;animation:spinr 24s linear infinite}
+    .ring3{inset:28%;border-color:rgba(34,211,238,.22)}
 
     .node{
       position:absolute;
@@ -283,8 +270,8 @@
       left:50%;
       top:50%;
       transform:translate(-50%,-50%) rotateX(68deg);
-      width:210px;
-      height:210px;
+      width:220px;
+      height:220px;
       border-radius:50%;
       background:linear-gradient(135deg,var(--cyan),var(--violet),var(--pink));
       border:2px solid rgba(255,255,255,.18);
@@ -302,7 +289,7 @@
       border:1px solid rgba(255,255,255,.18);
       background:rgba(4,8,22,.18);
       font-family:"Space Grotesk",sans-serif;
-      font-size:76px;
+      font-size:80px;
       font-weight:700;
       letter-spacing:.18em;
     }
@@ -325,10 +312,7 @@
       gap:20px;
     }
 
-    .tile{
-      padding:26px;
-    }
-
+    .tile{padding:26px}
     .tile h3{
       margin:14px 0 0;
       font-size:22px;
@@ -365,10 +349,7 @@
       gap:24px;
     }
 
-    .supply{
-      padding:26px;
-    }
-
+    .supply{padding:26px}
     .supply small{
       display:block;
       color:var(--muted);
@@ -382,14 +363,8 @@
       margin-top:14px;
     }
 
-    .bars{
-      padding:26px;
-    }
-
-    .baritem + .baritem{
-      margin-top:18px;
-    }
-
+    .bars{padding:26px}
+    .baritem + .baritem{margin-top:18px}
     .bartop{
       display:flex;
       justify-content:space-between;
@@ -461,14 +436,9 @@
       color:#cbd5e1;
     }
 
-    .road li+li{
-      margin-top:10px;
-    }
+    .road li+li{margin-top:10px}
 
-    .slider{
-      overflow:hidden;
-    }
-
+    .slider{overflow:hidden}
     .track{
       display:flex;
       gap:16px;
@@ -1055,37 +1025,5 @@
     document.getElementById('walletTop').addEventListener('click', connectWallet);
     document.getElementById('walletMain').addEventListener('click', connectWallet);
   </script>
-  <section class="coin3d">
-<div class="coin-wrap">
-<div class="coin"></div>
-</div>
-</section>
-
-<style>
-.coin3d{
-display:flex;
-justify-content:center;
-align-items:center;
-padding:120px 0;
-}
-
-.coin-wrap{
-perspective:1000px;
-}
-
-.coin{
-width:180px;
-height:180px;
-border-radius:50%;
-background:linear-gradient(145deg,#7a5cff,#3dd6ff);
-box-shadow:0 0 40px rgba(122,92,255,0.6);
-animation:spinCoin 8s linear infinite;
-}
-
-@keyframes spinCoin{
-0%{transform:rotateY(0deg)}
-100%{transform:rotateY(360deg)}
-}
-</style>
 </body>
 </html>
