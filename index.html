@@ -1433,5 +1433,46 @@
     document.getElementById('walletTop').addEventListener('click', connectWallet);
     document.getElementById('walletMain').addEventListener('click', connectWallet);
   </script>
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const socialContainer = document.createElement("div");
+  socialContainer.style.position = "fixed";
+  socialContainer.style.bottom = "20px";
+  socialContainer.style.right = "20px";
+  socialContainer.style.display = "flex";
+  socialContainer.style.gap = "10px";
+  socialContainer.style.zIndex = "9999";
+
+  const xButton = document.createElement("a");
+  xButton.href = "https://x.com/WinCoinProject";
+  xButton.target = "_blank";
+  xButton.innerText = "X";
+  xButton.style.padding = "12px 16px";
+  xButton.style.borderRadius = "30px";
+  xButton.style.background = "#111";
+  xButton.style.color = "#fff";
+  xButton.style.fontWeight = "700";
+  xButton.style.textDecoration = "none";
+  xButton.style.boxShadow = "0 0 15px rgba(0,0,0,0.4)";
+
+  const tgButton = document.createElement("a");
+  tgButton.href = "https://t.me/+ZbqtCHhGB5U4MzY0";
+  tgButton.target = "_blank";
+  tgButton.innerText = "Telegram";
+  tgButton.style.padding = "12px 16px";
+  tgButton.style.borderRadius = "30px";
+  tgButton.style.background = "#229ED9";
+  tgButton.style.color = "#fff";
+  tgButton.style.fontWeight = "700";
+  tgButton.style.textDecoration = "none";
+  tgButton.style.boxShadow = "0 0 15px rgba(0,0,0,0.4)";
+
+  socialContainer.appendChild(xButton);
+  socialContainer.appendChild(tgButton);
+
+  document.body.appendChild(socialContainer);
+});
+</script> 
 </body>
 </html>
