@@ -1474,5 +1474,85 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.appendChild(socialContainer);
 });
 </script> 
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const nav = document.querySelector(".navlinks");
+  if (nav && !document.getElementById("wincoin-social-nav")) {
+    const wrap = document.createElement("div");
+    wrap.id = "wincoin-social-nav";
+    wrap.style.display = "contents";
+
+    const xLink = document.createElement("a");
+    xLink.href = "https://x.com/WinCoinProject";
+    xLink.target = "_blank";
+    xLink.rel = "noopener noreferrer";
+    xLink.textContent = "X";
+
+    const tgLink = document.createElement("a");
+    tgLink.href = "https://t.me/+ZbqtCHhGB5U4MzY0";
+    tgLink.target = "_blank";
+    tgLink.rel = "noopener noreferrer";
+    tgLink.textContent = "Telegram";
+
+    wrap.appendChild(xLink);
+    wrap.appendChild(tgLink);
+    nav.appendChild(wrap);
+  }
+
+  if (!document.getElementById("wincoin-social-floating-style")) {
+    const style = document.createElement("style");
+    style.id = "wincoin-social-floating-style";
+    style.textContent = `
+      .wincoin-social-floating{
+        position:fixed;
+        right:20px;
+        bottom:20px;
+        display:flex;
+        gap:10px;
+        z-index:9999;
+      }
+      .wincoin-social-floating a{
+        padding:12px 16px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.10);
+        background:rgba(255,255,255,.08);
+        color:#fff;
+        text-decoration:none;
+        font-weight:700;
+        backdrop-filter:blur(12px);
+        -webkit-backdrop-filter:blur(12px);
+        box-shadow:0 10px 30px rgba(0,0,0,.25);
+      }
+      .wincoin-social-floating a:hover{
+        transform:translateY(-1px);
+        background:rgba(255,255,255,.14);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  if (!document.getElementById("wincoin-social-floating")) {
+    const floating = document.createElement("div");
+    floating.id = "wincoin-social-floating";
+    floating.className = "wincoin-social-floating";
+
+    const xBtn = document.createElement("a");
+    xBtn.href = "https://x.com/WinCoinProject";
+    xBtn.target = "_blank";
+    xBtn.rel = "noopener noreferrer";
+    xBtn.textContent = "X";
+
+    const tgBtn = document.createElement("a");
+    tgBtn.href = "https://t.me/+ZbqtCHhGB5U4MzY0";
+    tgBtn.target = "_blank";
+    tgBtn.rel = "noopener noreferrer";
+    tgBtn.textContent = "Telegram";
+
+    floating.appendChild(xBtn);
+    floating.appendChild(tgBtn);
+    document.body.appendChild(floating);
+  }
+});
+</script>
 </body>
 </html>
