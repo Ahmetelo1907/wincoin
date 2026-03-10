@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Win Coin — Global Web3 Infrastructure</title>
+  <title>Win Coin — Global Layer-1 Ecosystem</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
       --cyan:#22d3ee;
       --violet:#8b5cf6;
       --pink:#d946ef;
+      --green:#10b981;
       --line:rgba(255,255,255,.10);
       --panel:rgba(255,255,255,.06);
       --panel2:rgba(255,255,255,.03);
@@ -59,6 +60,7 @@
     }
 
     .section{padding:96px 0}
+
     .tag{
       display:inline-block;
       padding:8px 14px;
@@ -117,6 +119,7 @@
       display:flex;
       align-items:center;
       gap:12px;
+      min-width:0;
     }
 
     .logo-img{
@@ -126,11 +129,13 @@
       object-fit:cover;
       box-shadow:0 0 20px rgba(34,211,238,.5);
       flex:0 0 auto;
+      background:#050816;
     }
 
     .brand-name{
       font-weight:800;
       letter-spacing:.18em;
+      white-space:nowrap;
     }
 
     .brand-sub{
@@ -139,11 +144,12 @@
       letter-spacing:.3em;
       text-transform:uppercase;
       margin-top:4px;
+      white-space:nowrap;
     }
 
     .navlinks{
       display:flex;
-      gap:22px;
+      gap:18px;
       color:#cbd5e1;
       font-size:14px;
       align-items:center;
@@ -154,6 +160,7 @@
       display:flex;
       align-items:center;
       gap:10px;
+      flex:0 0 auto;
     }
 
     .lang-select{
@@ -302,11 +309,23 @@
       overflow:hidden;
     }
 
-    .coin img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
+    .coin::before{
+      content:"W";
+      position:absolute;
+      inset:16px;
       border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(4,8,22,.18);
+      font-family:"Space Grotesk",sans-serif;
+      font-size:80px;
+      font-weight:700;
+      letter-spacing:.18em;
+      color:#fff;
+      text-shadow:
+        0 0 12px rgba(34,211,238,.85),
+        0 0 24px rgba(217,70,239,.55);
     }
 
     .grid4{
@@ -595,11 +614,11 @@
     </a>
 
     <div class="navlinks">
+      <a href="#community" data-i18n="nav_community">Community</a>
       <a href="#team" data-i18n="nav_team">Team</a>
       <a href="#tokenomics" data-i18n="nav_tokenomics">Tokenomics</a>
       <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
       <a href="#investors" data-i18n="nav_investors">Investors</a>
-      <a href="#relief" data-i18n="nav_relief">Relief</a>
       <a href="#wallets" data-i18n="nav_wallets">Wallets</a>
       <a href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">X</a>
       <a href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank" rel="noopener noreferrer">Telegram</a>
@@ -660,9 +679,7 @@
         <div class="node n4"></div>
         <div class="node n5"></div>
         <div class="node n6"></div>
-        <div class="coin">
-          <img src="assets/wincoin-logo.png" alt="Win Coin Coin">
-        </div>
+        <div class="coin"></div>
       </div>
     </section>
 
@@ -731,42 +748,6 @@
       </div>
     </section>
 
-    <section class="section" id="strategic">
-      <div class="head reveal">
-        <div class="tag" data-i18n="strategic_tag">Strategic Network</div>
-        <h2 data-i18n="strategic_title">Exploring relationships across the global Web3 landscape</h2>
-        <p data-i18n="strategic_text">
-          Win Coin monitors high-signal operators, product builders, and ecosystem participants
-          as part of long-term market research and relationship mapping.
-        </p>
-      </div>
-
-      <div class="grid3">
-        <div class="card tile reveal">
-          <div class="icon">GY</div>
-          <h3>Guy Young</h3>
-          <p data-i18n="strategic_card_text">Referenced within ecosystem landscape research and market awareness.</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">AK</div>
-          <h3>Aurora Kind</h3>
-          <p data-i18n="strategic_card_text">Referenced within ecosystem landscape research and market awareness.</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">CL</div>
-          <h3>Chris Larsen</h3>
-          <p data-i18n="strategic_card_text">Referenced within ecosystem landscape research and market awareness.</p>
-        </div>
-      </div>
-
-      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px" data-i18n="strategic_legal">
-        Names referenced in this section are included for ecosystem awareness and industry research purposes only.
-        They do not imply partnership, employment, advisory status, or endorsement unless officially confirmed.
-      </p>
-    </section>
-
     <section class="section" id="tokenomics">
       <div class="head reveal">
         <div class="tag" data-i18n="tokenomics_tag">Tokenomics</div>
@@ -779,7 +760,7 @@
       <div class="split">
         <div class="card supply reveal">
           <small data-i18n="supply_label">Total Token Supply</small>
-          <div class="big" id="supplyCounter" data-target="1000000000">1,000,000,000 WIN</div>
+          <div class="big" id="supplyCounter" data-target="1000000000">0 WIN</div>
           <p class="muted" style="margin-top:14px" data-i18n="supply_text">
             Live animated supply indicator for investor presentation and ecosystem communication.
           </p>
@@ -898,87 +879,6 @@
       </p>
     </section>
 
-    <section class="section" id="partners">
-      <div class="head reveal">
-        <div class="tag" data-i18n="partners_tag">Ecosystem Partners</div>
-        <h2 data-i18n="partners_title">Target ecosystem directions and infrastructure alignment</h2>
-        <p data-i18n="partners_text">
-          A structured partner section helps frame the project as integration-ready and expansion-ready.
-        </p>
-      </div>
-
-      <div class="grid4">
-        <div class="card tile reveal">
-          <div class="icon">L1</div>
-          <h3 data-i18n="partners_card_1_title">Layer 1 Infrastructure</h3>
-          <p data-i18n="partners_card_1_text">Network architecture, validator systems, and core execution design.</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">DF</div>
-          <h3 data-i18n="partners_card_2_title">DeFi Integrations</h3>
-          <p data-i18n="partners_card_2_text">Compatibility with staking, liquidity, utility dashboards, and on-chain tooling.</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">CM</div>
-          <h3 data-i18n="partners_card_3_title">Community Systems</h3>
-          <p data-i18n="partners_card_3_text">Growth channels, contributor networks, and global adoption loops.</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">IM</div>
-          <h3 data-i18n="partners_card_4_title">Impact Infrastructure</h3>
-          <p data-i18n="partners_card_4_text">Public donation reporting and transparent relief workflows.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="relief">
-      <div class="head reveal">
-        <div class="tag" data-i18n="relief_tag">Relief Partners</div>
-        <h2 data-i18n="relief_title">Humanitarian organizations for transparent giving</h2>
-        <p data-i18n="relief_text">
-          This section shows public relief channels that may be referenced in future charitable distributions.
-        </p>
-      </div>
-
-      <div class="grid2">
-        <div class="card tile reveal">
-          <div class="icon">UN</div>
-          <h3>UNRWA</h3>
-          <p data-i18n="relief_card_1_text">Humanitarian aid for Palestinian refugees.</p>
-          <p class="muted">Official site: www.unrwa.org</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">WF</div>
-          <h3>World Food Programme</h3>
-          <p data-i18n="relief_card_2_text">Global food security and emergency response.</p>
-          <p class="muted">Official site: www.wfp.org</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">MS</div>
-          <h3>Doctors Without Borders</h3>
-          <p data-i18n="relief_card_3_text">Emergency medical humanitarian aid.</p>
-          <p class="muted">Official site: www.msf.org</p>
-        </div>
-
-        <div class="card tile reveal">
-          <div class="icon">UC</div>
-          <h3>UNICEF</h3>
-          <p data-i18n="relief_card_4_text">Humanitarian support for children and families.</p>
-          <p class="muted">Official site: www.unicef.org</p>
-        </div>
-      </div>
-
-      <p class="muted" style="font-size:12px;text-align:center;margin-top:18px" data-i18n="relief_legal">
-        Donation destinations listed above are independent third-party humanitarian organizations.
-        Win Coin does not represent, own, or control these organizations.
-      </p>
-    </section>
-
     <section class="section" id="wallets">
       <div class="head reveal">
         <div class="tag" data-i18n="wallets_tag">Live Donation Wallet Tracker</div>
@@ -1056,11 +956,11 @@
     const translations = {
       en: {
         brand_sub: "Layer 1 Ecosystem",
+        nav_community: "Community",
         nav_team: "Team",
         nav_tokenomics: "Tokenomics",
         nav_roadmap: "Roadmap",
         nav_investors: "Investors",
-        nav_relief: "Relief",
         nav_wallets: "Wallets",
         connect_wallet: "Connect Wallet",
         hero_tag: "Infrastructure for the Next Digital Economy",
@@ -1094,11 +994,6 @@
         team_card_3_text: "Leads interface language, product flow, visual identity, and ecosystem-level experience.",
         team_card_4_title: "Marketing & Growth",
         team_card_4_text: "Drives global ecosystem visibility, community expansion, and strategic communications.",
-        strategic_tag: "Strategic Network",
-        strategic_title: "Exploring relationships across the global Web3 landscape",
-        strategic_text: "Win Coin monitors high-signal operators, product builders, and ecosystem participants as part of long-term market research and relationship mapping.",
-        strategic_card_text: "Referenced within ecosystem landscape research and market awareness.",
-        strategic_legal: "Names referenced in this section are included for ecosystem awareness and industry research purposes only. They do not imply partnership, employment, advisory status, or endorsement unless officially confirmed.",
         tokenomics_tag: "Tokenomics",
         tokenomics_title: "Animated token distribution and live supply view",
         tokenomics_text: "This section combines a live total supply counter with animated category distribution bars.",
@@ -1132,25 +1027,6 @@
         investors_title: "Global venture and ecosystem landscape",
         investors_text: "This scrolling strip communicates market awareness while preserving legal clarity.",
         investors_legal: "Logos and names displayed above represent ecosystem research and landscape mapping only. They do not imply investment, partnership, employment, or endorsement unless publicly confirmed.",
-        partners_tag: "Ecosystem Partners",
-        partners_title: "Target ecosystem directions and infrastructure alignment",
-        partners_text: "A structured partner section helps frame the project as integration-ready and expansion-ready.",
-        partners_card_1_title: "Layer 1 Infrastructure",
-        partners_card_1_text: "Network architecture, validator systems, and core execution design.",
-        partners_card_2_title: "DeFi Integrations",
-        partners_card_2_text: "Compatibility with staking, liquidity, utility dashboards, and on-chain tooling.",
-        partners_card_3_title: "Community Systems",
-        partners_card_3_text: "Growth channels, contributor networks, and global adoption loops.",
-        partners_card_4_title: "Impact Infrastructure",
-        partners_card_4_text: "Public donation reporting and transparent relief workflows.",
-        relief_tag: "Relief Partners",
-        relief_title: "Humanitarian organizations for transparent giving",
-        relief_text: "This section shows public relief channels that may be referenced in future charitable distributions.",
-        relief_card_1_text: "Humanitarian aid for Palestinian refugees.",
-        relief_card_2_text: "Global food security and emergency response.",
-        relief_card_3_text: "Emergency medical humanitarian aid.",
-        relief_card_4_text: "Humanitarian support for children and families.",
-        relief_legal: "Donation destinations listed above are independent third-party humanitarian organizations. Win Coin does not represent, own, or control these organizations.",
         wallets_tag: "Live Donation Wallet Tracker",
         wallets_title: "Transparent wallet placeholders for future cold wallet disclosure",
         wallets_text: "You said wallet addresses will be added later. This section is ready now.",
@@ -1171,11 +1047,11 @@
       },
       tr: {
         brand_sub: "Katman 1 Ekosistemi",
+        nav_community: "Topluluk",
         nav_team: "Ekip",
         nav_tokenomics: "Tokenomik",
         nav_roadmap: "Yol Haritası",
         nav_investors: "Yatırımcılar",
-        nav_relief: "Yardım",
         nav_wallets: "Cüzdanlar",
         connect_wallet: "Cüzdan Bağla",
         hero_tag: "Yeni Dijital Ekonomi İçin Altyapı",
@@ -1209,11 +1085,6 @@
         team_card_3_text: "Arayüz dili, ürün akışı, görsel kimlik ve ekosistem deneyimini yönetir.",
         team_card_4_title: "Pazarlama & Büyüme",
         team_card_4_text: "Küresel görünürlük, topluluk büyümesi ve stratejik iletişimi yürütür.",
-        strategic_tag: "Stratejik Ağ",
-        strategic_title: "Küresel Web3 ekosistemindeki ilişkileri keşfetmek",
-        strategic_text: "Win Coin; yüksek sinyalli operatörleri, ürün geliştiricilerini ve ekosistem katılımcılarını uzun vadeli pazar araştırması ve ilişki haritalaması kapsamında izler.",
-        strategic_card_text: "Ekosistem araştırması ve pazar farkındalığı kapsamında referans verilmiştir.",
-        strategic_legal: "Bu bölümde geçen isimler yalnızca ekosistem farkındalığı ve sektör araştırması amacıyla yer almaktadır. Resmî olarak doğrulanmadıkça ortaklık, istihdam, danışmanlık veya destek anlamına gelmez.",
         tokenomics_tag: "Tokenomik",
         tokenomics_title: "Animasyonlu token dağılımı ve canlı arz görünümü",
         tokenomics_text: "Bu bölüm, canlı toplam arz sayacını animasyonlu kategori dağılım çubuklarıyla birleştirir.",
@@ -1247,25 +1118,6 @@
         investors_title: "Küresel girişim ve ekosistem görünümü",
         investors_text: "Bu kayan alan, hukuki netliği korurken pazar farkındalığını gösterir.",
         investors_legal: "Burada yer alan logo ve isimler yalnızca ekosistem araştırması ve pazar haritalaması amaçlıdır. Kamuya açık şekilde doğrulanmadıkça yatırım, ortaklık, istihdam veya destek anlamına gelmez.",
-        partners_tag: "Ekosistem Partnerleri",
-        partners_title: "Hedef ekosistem yönleri ve altyapı uyumu",
-        partners_text: "Yapılandırılmış partner bölümü, projeyi entegrasyona ve büyümeye hazır gösterir.",
-        partners_card_1_title: "Katman 1 Altyapısı",
-        partners_card_1_text: "Ağ mimarisi, doğrulayıcı sistemleri ve çekirdek yürütme tasarımı.",
-        partners_card_2_title: "DeFi Entegrasyonları",
-        partners_card_2_text: "Staking, likidite, fayda panelleri ve zincir üstü araçlarla uyumluluk.",
-        partners_card_3_title: "Topluluk Sistemleri",
-        partners_card_3_text: "Büyüme kanalları, katkıcı ağları ve küresel benimsenme döngüleri.",
-        partners_card_4_title: "Etki Altyapısı",
-        partners_card_4_text: "Kamusal bağış raporlaması ve şeffaf yardım akışları.",
-        relief_tag: "Yardım Partnerleri",
-        relief_title: "Şeffaf bağış için insani yardım kuruluşları",
-        relief_text: "Bu bölüm, gelecekteki bağışlarda referans alınabilecek kamuya açık yardım kanallarını gösterir.",
-        relief_card_1_text: "Filistinli mülteciler için insani yardım.",
-        relief_card_2_text: "Küresel gıda güvenliği ve acil müdahale.",
-        relief_card_3_text: "Acil tıbbi insani yardım.",
-        relief_card_4_text: "Çocuklar ve aileler için insani destek.",
-        relief_legal: "Yukarıda listelenen bağış hedefleri bağımsız üçüncü taraf insani yardım kuruluşlarıdır. Win Coin bu kuruluşları temsil etmez, sahip değildir veya kontrol etmez.",
         wallets_tag: "Canlı Bağış Cüzdan Takibi",
         wallets_title: "Gelecekteki soğuk cüzdan açıklamaları için şeffaf alanlar",
         wallets_text: "Cüzdan adreslerinin daha sonra ekleneceğini söyledin. Bu bölüm şimdi hazır.",
@@ -1286,11 +1138,11 @@
       },
       zh: {
         brand_sub: "第一层生态系统",
+        nav_community: "社区",
         nav_team: "团队",
         nav_tokenomics: "代币经济",
         nav_roadmap: "路线图",
         nav_investors: "投资者",
-        nav_relief: "援助",
         nav_wallets: "钱包",
         connect_wallet: "连接钱包",
         hero_tag: "面向新数字经济的基础设施",
@@ -1324,11 +1176,6 @@
         team_card_3_text: "负责界面语言、产品流程、视觉识别和生态体验。",
         team_card_4_title: "市场与增长",
         team_card_4_text: "推动全球生态可见度、社区扩张和战略传播。",
-        strategic_tag: "战略网络",
-        strategic_title: "探索全球 Web3 生态中的关系网络",
-        strategic_text: "Win Coin 持续关注高价值运营者、产品建设者和生态参与者，用于长期市场研究与关系映射。",
-        strategic_card_text: "用于生态研究和市场认知的参考。",
-        strategic_legal: "本部分提及的名称仅用于生态认知和行业研究目的。除非官方确认，否则不代表合作、雇佣、顾问关系或背书。",
         tokenomics_tag: "代币经济",
         tokenomics_title: "动态代币分配与实时供应视图",
         tokenomics_text: "本部分将实时总供应计数器与动画分配条形图结合展示。",
@@ -1362,25 +1209,6 @@
         investors_title: "全球风投与生态版图",
         investors_text: "此滚动区域在保持法律清晰的同时展示市场认知。",
         investors_legal: "此处显示的标识和名称仅用于生态研究与市场映射。除非公开确认，不代表投资、合作、雇佣或背书。",
-        partners_tag: "生态合作方向",
-        partners_title: "目标生态方向与基础设施兼容性",
-        partners_text: "结构化的合作方向板块有助于展现项目的集成准备度与扩展潜力。",
-        partners_card_1_title: "Layer 1 基础设施",
-        partners_card_1_text: "网络架构、验证者系统和核心执行设计。",
-        partners_card_2_title: "DeFi 集成",
-        partners_card_2_text: "兼容质押、流动性、实用仪表盘和链上工具。",
-        partners_card_3_title: "社区系统",
-        partners_card_3_text: "增长渠道、贡献者网络与全球采用循环。",
-        partners_card_4_title: "影响力基础设施",
-        partners_card_4_text: "公开捐赠报告与透明援助流程。",
-        relief_tag: "援助合作方",
-        relief_title: "用于透明捐赠的人道主义组织",
-        relief_text: "本部分展示未来慈善分配中可能引用的公开援助渠道。",
-        relief_card_1_text: "为巴勒斯坦难民提供人道主义援助。",
-        relief_card_2_text: "全球粮食安全与紧急响应。",
-        relief_card_3_text: "紧急医疗人道主义援助。",
-        relief_card_4_text: "为儿童和家庭提供人道主义支持。",
-        relief_legal: "上方列出的捐赠目标均为独立的第三方人道主义组织。Win Coin 不代表、拥有或控制这些组织。",
         wallets_tag: "实时捐赠钱包追踪",
         wallets_title: "为未来冷钱包披露准备的透明占位区",
         wallets_text: "你提到钱包地址将稍后添加。本部分现在已准备就绪。",
