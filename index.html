@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Win Coin | Layer 1 Ecosystem</title>
-  <meta name="description" content="Win Coin is a next-generation Layer 1 ecosystem focused on commerce, community, charity, and transparency." />
+  <meta name="description" content="Win Coin is a premium Web3 ecosystem focused on community, commerce, transparency and growth." />
   <style>
     :root{
-      --bg:#071325;
-      --bg2:#0b1b35;
+      --bg:#06111f;
+      --bg2:#0d1f3c;
+      --bg3:#1a2452;
       --card:rgba(255,255,255,.05);
-      --line:rgba(255,255,255,.08);
-      --text:#f4f7fb;
-      --muted:#9aacbf;
+      --line:rgba(255,255,255,.09);
+      --text:#f5f8fd;
+      --muted:#a7b7c9;
       --blue:#49b3ff;
-      --cyan:#55e2ff;
+      --cyan:#50e6ff;
       --purple:#8a63ff;
-      --btn:#ffffff;
-      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --shadow:0 14px 34px rgba(0,0,0,.28);
       --radius:24px;
       --max:1280px;
     }
@@ -29,9 +29,9 @@
       font-family:Inter, Arial, Helvetica, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 20% 20%, rgba(73,179,255,.12), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(138,99,255,.12), transparent 28%),
-        linear-gradient(90deg, #071325 0%, #0d1f3f 55%, #141f4d 100%);
+        radial-gradient(circle at 18% 18%, rgba(73,179,255,.12), transparent 28%),
+        radial-gradient(circle at 82% 28%, rgba(138,99,255,.14), transparent 28%),
+        linear-gradient(90deg, var(--bg) 0%, var(--bg2) 58%, var(--bg3) 100%);
     }
 
     a{
@@ -54,15 +54,15 @@
       top:0;
       z-index:100;
       padding:16px 0 0;
-      backdrop-filter: blur(8px);
+      backdrop-filter:blur(8px);
     }
 
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
-      min-height:76px;
+      gap:18px;
+      min-height:78px;
       padding:12px 18px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.04);
@@ -78,31 +78,31 @@
     }
 
     .brand-logo{
-      width:54px;
-      height:54px;
+      width:56px;
+      height:56px;
       border-radius:50%;
       object-fit:cover;
-      box-shadow:0 0 20px rgba(83,198,255,.2);
       flex-shrink:0;
+      box-shadow:0 0 24px rgba(91,205,255,.18);
     }
 
     .brand-text{
       display:flex;
       flex-direction:column;
-      line-height:1.1;
+      line-height:1.08;
     }
 
     .brand-text strong{
       font-size:17px;
-      letter-spacing:.18em;
       font-weight:800;
+      letter-spacing:.18em;
       white-space:nowrap;
     }
 
     .brand-text span{
       font-size:11px;
-      letter-spacing:.28em;
       color:var(--muted);
+      letter-spacing:.26em;
       text-transform:uppercase;
       white-space:nowrap;
     }
@@ -116,9 +116,9 @@
     }
 
     .nav a{
-      color:#d8e4f4;
+      color:#d7e5f3;
       font-size:15px;
-      opacity:.9;
+      opacity:.92;
     }
 
     .nav a:hover{
@@ -163,8 +163,8 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:32px;
+      grid-template-columns:1.06fr .94fr;
+      gap:30px;
       align-items:center;
       min-height:calc(100vh - 140px);
     }
@@ -174,9 +174,9 @@
       align-items:center;
       padding:10px 18px;
       border-radius:999px;
-      border:1px solid rgba(80,220,255,.2);
+      border:1px solid rgba(80,220,255,.18);
       background:rgba(54,162,235,.12);
-      color:#9ee8ff;
+      color:#9cecff;
       letter-spacing:.22em;
       text-transform:uppercase;
       font-size:12px;
@@ -193,18 +193,18 @@
     }
 
     .hero p{
-      margin:0 0 30px;
-      max-width:800px;
+      margin:0 0 28px;
+      max-width:760px;
       font-size:18px;
-      color:#b8c6d7;
-      line-height:1.75;
+      color:#b7c6d7;
+      line-height:1.72;
     }
 
     .hero-actions{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-bottom:20px;
+      margin-bottom:18px;
     }
 
     .btn{
@@ -232,6 +232,11 @@
       color:#fff;
     }
 
+    .wallet-status{
+      color:#cfe0f5;
+      font-size:14px;
+    }
+
     .hero-visual{
       position:relative;
       min-height:620px;
@@ -247,7 +252,7 @@
       pointer-events:none;
     }
 
-    .orbit-1{ width:480px; height:480px; }
+    .orbit-1{ width:490px; height:490px; }
     .orbit-2{ width:360px; height:360px; }
     .orbit-3{ width:240px; height:240px; }
 
@@ -257,15 +262,15 @@
       height:14px;
       border-radius:50%;
       background:linear-gradient(180deg, #67f1ff, #21a8e8);
-      box-shadow:0 0 20px rgba(89,236,255,.5);
+      box-shadow:0 0 20px rgba(89,236,255,.55);
     }
 
-    .d1{ top:70px; left:50%; transform:translateX(-50%); }
-    .d2{ right:110px; top:140px; }
-    .d3{ right:92px; bottom:140px; }
-    .d4{ bottom:78px; left:50%; transform:translateX(-50%); }
-    .d5{ left:102px; bottom:140px; }
-    .d6{ left:86px; top:155px; }
+    .d1{ top:62px; left:50%; transform:translateX(-50%); }
+    .d2{ right:104px; top:144px; }
+    .d3{ right:96px; bottom:144px; }
+    .d4{ bottom:68px; left:50%; transform:translateX(-50%); }
+    .d5{ left:104px; bottom:144px; }
+    .d6{ left:88px; top:150px; }
 
     .hero-logo-wrap{
       position:relative;
@@ -273,21 +278,21 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      width:280px;
-      height:280px;
+      width:290px;
+      height:290px;
       border-radius:50%;
       background:
-        radial-gradient(circle at 50% 50%, rgba(137,99,255,.35), rgba(44,132,255,.15) 45%, rgba(255,255,255,.02) 75%);
+        radial-gradient(circle at 50% 50%, rgba(137,99,255,.34), rgba(44,132,255,.14) 45%, rgba(255,255,255,.02) 75%);
       box-shadow:
-        0 0 80px rgba(104,157,255,.18),
+        0 0 80px rgba(104,157,255,.20),
         inset 0 0 40px rgba(255,255,255,.04);
     }
 
     .hero-logo{
-      width:230px;
-      height:230px;
+      width:240px;
+      height:240px;
       object-fit:contain;
-      filter:drop-shadow(0 10px 30px rgba(0,0,0,.25));
+      filter:drop-shadow(0 12px 30px rgba(0,0,0,.26));
     }
 
     .section{
@@ -363,12 +368,6 @@
       border:1px solid var(--line);
       border-radius:16px;
       background:rgba(255,255,255,.04);
-    }
-
-    .wallet-status{
-      margin-top:14px;
-      color:#cfe0f5;
-      font-size:14px;
     }
 
     footer{
