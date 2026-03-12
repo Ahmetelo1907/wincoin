@@ -14,11 +14,7 @@
       --line:rgba(255,255,255,.09);
       --text:#f5f8fd;
       --muted:#a7b7c9;
-      --blue:#49b3ff;
-      --cyan:#50e6ff;
-      --purple:#8a63ff;
       --shadow:0 14px 34px rgba(0,0,0,.28);
-      --radius:24px;
       --max:1280px;
     }
 
@@ -78,12 +74,13 @@
     }
 
     .brand-logo{
-      width:54px;
-      height:54px;
+      width:48px;
+      height:48px;
       border-radius:50%;
-      object-fit:cover;
+      object-fit:contain;
       flex-shrink:0;
-      box-shadow:0 0 24px rgba(91,205,255,.20);
+      background:transparent;
+      box-shadow:0 0 16px rgba(91,205,255,.18);
     }
 
     .brand-text{
@@ -278,21 +275,22 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      width:290px;
-      height:290px;
+      width:260px;
+      height:260px;
       border-radius:50%;
       background:
-        radial-gradient(circle at 50% 50%, rgba(137,99,255,.34), rgba(44,132,255,.14) 45%, rgba(255,255,255,.02) 75%);
+        radial-gradient(circle at 50% 50%, rgba(137,99,255,.22), rgba(44,132,255,.10) 45%, rgba(255,255,255,.01) 75%);
       box-shadow:
-        0 0 80px rgba(104,157,255,.20),
-        inset 0 0 40px rgba(255,255,255,.04);
+        0 0 50px rgba(104,157,255,.14),
+        inset 0 0 24px rgba(255,255,255,.03);
     }
 
     .hero-logo{
-      width:220px;
-      height:220px;
+      width:170px;
+      height:170px;
       object-fit:contain;
-      filter:drop-shadow(0 0 24px rgba(138,99,255,.30));
+      background:transparent;
+      filter:drop-shadow(0 0 20px rgba(138,99,255,.22));
     }
 
     .section{
@@ -391,10 +389,11 @@
     }
 
     .footer-brand img{
-      width:42px;
-      height:42px;
+      width:40px;
+      height:40px;
       border-radius:50%;
-      object-fit:cover;
+      object-fit:contain;
+      background:transparent;
     }
 
     .footer-links{
@@ -452,8 +451,8 @@
       }
 
       .hero-logo{
-        width:170px;
-        height:170px;
+        width:150px;
+        height:150px;
       }
 
       .orbit-1{ width:350px; height:350px; }
@@ -747,4 +746,4 @@
     }
   </script>
 </body>
-</html> bu kodu tam düzenle gönder bana artık insan gibi yapıştırayım iteratif konuşmaya döndürdün iyice
+</html>
