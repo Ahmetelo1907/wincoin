@@ -254,7 +254,6 @@
 
     .orbit-1{ width:490px; height:490px; }
     .orbit-2{ width:360px; height:360px; }
-    .orbit-3{ width:240px; height:240px; }
 
     .dot{
       position:absolute;
@@ -265,35 +264,77 @@
       box-shadow:0 0 20px rgba(89,236,255,.55);
     }
 
-    .d1{ top:62px; left:50%; transform:translateX(-50%); }
-    .d2{ right:104px; top:144px; }
-    .d3{ right:96px; bottom:144px; }
-    .d4{ bottom:68px; left:50%; transform:translateX(-50%); }
-    .d5{ left:104px; bottom:144px; }
-    .d6{ left:88px; top:150px; }
+    .d1{ top:78px; left:50%; transform:translateX(-50%); }
+    .d2{ right:110px; top:150px; }
+    .d3{ right:96px; bottom:148px; }
+    .d4{ bottom:82px; left:50%; transform:translateX(-50%); }
+    .d5{ left:102px; bottom:146px; }
+    .d6{ left:92px; top:155px; }
 
-    .hero-logo-wrap{
+    .hero-card{
       position:relative;
       z-index:2;
+      width:360px;
+      height:360px;
+      border-radius:36px;
       display:flex;
       align-items:center;
       justify-content:center;
-      width:320px;
-      height:320px;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(117,84,255,.22), rgba(36,109,255,.08) 45%, rgba(255,255,255,.01) 75%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:
+        0 0 70px rgba(111,129,255,.20),
+        inset 0 0 30px rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:22px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,.05);
+      pointer-events:none;
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
       border-radius:50%;
       background:
-        radial-gradient(circle at 50% 50%, rgba(137,99,255,.20), rgba(44,132,255,.10) 45%, rgba(255,255,255,.01) 75%);
-      box-shadow:
-        0 0 60px rgba(104,157,255,.16),
-        inset 0 0 28px rgba(255,255,255,.03);
+        radial-gradient(circle, rgba(133,88,255,.25), rgba(62,130,255,.10) 48%, transparent 72%);
+      filter:blur(8px);
+      pointer-events:none;
     }
 
     .hero-logo{
-      width:250px;
-      height:250px;
+      position:relative;
+      z-index:3;
+      width:285px;
+      height:285px;
       object-fit:contain;
       background:transparent;
-      filter:drop-shadow(0 0 32px rgba(138,99,255,.45));
+      filter:drop-shadow(0 0 34px rgba(138,99,255,.42));
+    }
+
+    .hero-badge{
+      position:absolute;
+      left:22px;
+      bottom:22px;
+      z-index:4;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#cfe8ff;
+      background:rgba(8,18,38,.58);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(8px);
     }
 
     .section{
@@ -421,7 +462,7 @@
       }
 
       .hero-visual{
-        min-height:500px;
+        min-height:520px;
       }
 
       .cards-3{
@@ -448,19 +489,27 @@
         grid-template-columns:1fr;
       }
 
-      .hero-logo-wrap{
-        width:240px;
-        height:240px;
+      .hero-card{
+        width:260px;
+        height:260px;
+        border-radius:28px;
       }
 
       .hero-logo{
-        width:185px;
-        height:185px;
+        width:205px;
+        height:205px;
+      }
+
+      .hero-badge{
+        left:14px;
+        right:14px;
+        bottom:14px;
+        text-align:center;
+        font-size:11px;
       }
 
       .orbit-1{ width:350px; height:350px; }
       .orbit-2{ width:270px; height:270px; }
-      .orbit-3{ width:180px; height:180px; }
     }
   </style>
 </head>
@@ -524,7 +573,6 @@
         <div class="hero-visual">
           <div class="orbit orbit-1"></div>
           <div class="orbit orbit-2"></div>
-          <div class="orbit orbit-3"></div>
 
           <span class="dot d1"></span>
           <span class="dot d2"></span>
@@ -533,8 +581,9 @@
           <span class="dot d5"></span>
           <span class="dot d6"></span>
 
-          <div class="hero-logo-wrap">
+          <div class="hero-card">
             <img class="hero-logo" src="assets/wincoin-logo.png" alt="Win Coin Main Logo" />
+            <div class="hero-badge">WIN Token Identity</div>
           </div>
         </div>
       </div>
