@@ -124,7 +124,7 @@
     }
 
     .hero{
-      padding:82px 0 48px;
+      padding:82px 0 26px;
     }
 
     .hero-grid{
@@ -137,7 +137,8 @@
     .hero-box,
     .card,
     .wallet-box,
-    .footer-box{
+    .footer-box,
+    .trust-strip{
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border:1px solid rgba(255,255,255,0.08);
       box-shadow:var(--shadow);
@@ -453,6 +454,46 @@
       color:#fff;
     }
 
+    /* TRUST STRIP */
+    .trust-wrap{
+      padding:0 0 8px;
+    }
+
+    .trust-strip{
+      padding:14px 18px;
+    }
+
+    .trust-items{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+    }
+
+    .trust-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      min-height:56px;
+    }
+
+    .trust-bullet{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      flex:none;
+    }
+
+    .trust-item span{
+      color:#dbe5f1;
+      font-size:14px;
+      font-weight:600;
+    }
+
     /* PARTNER SLIDER */
     .partner-slider{
       overflow:hidden;
@@ -513,7 +554,8 @@
 
       .grid-3,
       .grid-2,
-      .wallet-row{
+      .wallet-row,
+      .trust-items{
         grid-template-columns:1fr;
       }
     }
@@ -525,7 +567,7 @@
       }
 
       .hero{
-        padding:54px 0 28px;
+        padding:54px 0 20px;
       }
 
       .hero-grid,
@@ -635,6 +677,35 @@
             <h3>Domain</h3>
             <p>Official website: wincoin.online</p>
             <a class="btn btn-secondary" href="https://wincoin.online" target="_blank">Open Website</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-wrap">
+      <div class="container">
+        <div class="trust-strip">
+          <div class="trust-items">
+            <div class="trust-item">
+              <span class="trust-bullet"></span>
+              <span>Layer-1 Structure</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-bullet"></span>
+              <span>Official X Presence</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-bullet"></span>
+              <span>Official Telegram</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-bullet"></span>
+              <span>WhitePaper Access</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-bullet"></span>
+              <span>Ecosystem Visibility</span>
+            </div>
           </div>
         </div>
       </div>
