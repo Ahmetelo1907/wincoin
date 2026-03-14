@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Win Coin Whitepaper</title>
-  <meta name="description" content="Win Coin Whitepaper - project overview, ecosystem vision, utility, tokenomics and roadmap." />
+  <title>Win Coin | Layer-1 Blockchain</title>
+  <meta name="description" content="Win Coin is a Layer-1 blockchain project focused on speed, trust, ecosystem growth, and community-driven expansion." />
 
   <style>
     :root{
       --bg:#050914;
+      --bg-soft:#0b1220;
+      --card:rgba(255,255,255,0.05);
+      --card-2:rgba(255,255,255,0.035);
+      --line:rgba(255,255,255,0.08);
       --text:#ffffff;
       --muted:#9aa4b2;
       --primary:#6d5efc;
       --primary-2:#29c7ff;
-      --line:rgba(255,255,255,0.08);
+      --success:#10b981;
+      --warning:#f59e0b;
       --shadow:0 12px 30px rgba(0,0,0,0.28);
-      --max:1050px;
+      --radius:18px;
+      --max:1200px;
     }
 
     *{box-sizing:border-box}
@@ -23,32 +29,36 @@
     body{
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(109,94,252,0.18), transparent 28%),
         radial-gradient(circle at top right, rgba(41,199,255,0.12), transparent 24%),
         var(--bg);
+      color:var(--text);
     }
 
     a{text-decoration:none;color:inherit}
-    .container{width:min(92%, var(--max));margin:auto}
+    img{display:block;max-width:100%}
+
+    .container{
+      width:min(92%, var(--max));
+      margin:auto;
+    }
 
     .site-header{
       position:sticky;
       top:0;
       z-index:50;
       backdrop-filter:blur(12px);
-      background:rgba(5,9,20,0.82);
+      background:rgba(5,9,20,0.78);
       border-bottom:1px solid rgba(255,255,255,0.06);
     }
 
     .header-inner{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      gap:16px;
+      justify-content:space-between;
+      gap:20px;
       padding:16px 0;
-      flex-wrap:wrap;
     }
 
     .logo{
@@ -57,16 +67,35 @@
       gap:12px;
       font-size:20px;
       font-weight:700;
+      letter-spacing:.2px;
+      white-space:nowrap;
     }
 
     .logo img{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      object-fit:cover;
-      padding:4px;
+      width:42px;
+      height:42px;
+      object-fit:contain;
+      border-radius:12px;
       background:rgba(255,255,255,0.05);
+      padding:5px;
       border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:var(--muted);
+      font-size:14px;
+      transition:.2s ease;
+    }
+
+    .nav a:hover{
+      color:#fff;
     }
 
     .btn{
@@ -83,6 +112,10 @@
       transition:.2s ease;
     }
 
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
     .btn-primary{
       background:linear-gradient(135deg,var(--primary),var(--primary-2));
       box-shadow:0 10px 24px rgba(109,94,252,0.22);
@@ -93,20 +126,42 @@
       border:1px solid rgba(255,255,255,0.08);
     }
 
+    .btn-dark{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
     .hero{
-      padding:70px 0 20px;
+      padding:82px 0 26px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:24px;
+      align-items:stretch;
     }
 
     .hero-box,
-    .paper-card,
-    .footer-box{
+    .card,
+    .wallet-box,
+    .footer-box,
+    .trust-strip,
+    .why-card,
+    .utility-card,
+    .roadmap-item,
+    .ecosystem-card,
+    .newsletter-box,
+    .use-card{
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
       box-shadow:var(--shadow);
+      border-radius:24px;
     }
 
-    .hero-box{padding:34px}
+    .hero-copy{
+      padding:34px;
+    }
 
     .hero-badge{
       display:inline-flex;
@@ -128,50 +183,94 @@
       background:linear-gradient(135deg,var(--primary),var(--primary-2));
     }
 
-    h1{
-      margin:0 0 14px;
-      font-size:48px;
-      line-height:1.05;
+    .hero h1{
+      margin:0 0 16px;
+      font-size:56px;
+      line-height:1.03;
+      max-width:10.5ch;
     }
 
-    .hero-box p{
+    .hero p{
       margin:0;
       color:#c8d0dc;
-      line-height:1.8;
       font-size:17px;
-      max-width:720px;
+      line-height:1.7;
+      max-width:60ch;
     }
 
     .hero-actions{
       display:flex;
-      gap:12px;
       flex-wrap:wrap;
-      margin-top:24px;
+      gap:12px;
+      margin-top:28px;
     }
 
-    main section{padding:18px 0}
-
-    .paper-card{padding:28px}
-
-    h2{
-      margin:0 0 12px;
-      font-size:30px;
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:28px;
     }
 
-    h3{
-      margin:24px 0 10px;
-      font-size:20px;
+    .stat{
+      padding:16px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
     }
 
-    p, li{
+    .stat strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:6px;
+    }
+
+    .stat span{
       color:var(--muted);
-      line-height:1.8;
-      font-size:15px;
+      font-size:13px;
     }
 
-    ul{
-      margin:8px 0 0;
-      padding-left:20px;
+    .hero-side{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      justify-content:center;
+    }
+
+    .hero-panel{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:18px;
+    }
+
+    .hero-panel h3{
+      margin:0 0 8px;
+      font-size:18px;
+    }
+
+    .hero-panel p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    section{
+      padding:30px 0;
+    }
+
+    .section-title{
+      font-size:34px;
+      margin:0 0 10px;
+    }
+
+    .section-sub{
+      margin:0 0 24px;
+      color:var(--muted);
+      max-width:760px;
+      line-height:1.7;
     }
 
     .grid-2{
@@ -180,26 +279,394 @@
       gap:18px;
     }
 
-    .mini-card{
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .card{
+      padding:22px;
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .social-card{
+      min-height:200px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .social-icon,
+    .team-avatar,
+    .why-icon,
+    .use-icon,
+    .utility-icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:linear-gradient(135deg, rgba(109,94,252,0.24), rgba(41,199,255,0.16));
+      border:1px solid rgba(255,255,255,0.08);
+      font-weight:700;
+      color:#fff;
+      margin-bottom:14px;
+    }
+
+    .social-card .social-icon{
+      margin-bottom:0;
+    }
+
+    .team-avatar{
+      width:54px;
+      height:54px;
+    }
+
+    .trust-wrap{
+      padding:0 0 8px;
+    }
+
+    .trust-strip{
+      padding:14px 18px;
+    }
+
+    .trust-items{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+    }
+
+    .trust-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      min-height:56px;
+    }
+
+    .trust-bullet{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      flex:none;
+    }
+
+    .trust-item span{
+      color:#dbe5f1;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .why-grid,
+    .use-grid,
+    .utility-grid,
+    .ecosystem-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .why-card,
+    .use-card,
+    .utility-card,
+    .ecosystem-card{
+      padding:22px;
+    }
+
+    .why-card h3,
+    .use-card h3,
+    .utility-card h3,
+    .ecosystem-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+
+    .why-card p,
+    .use-card p,
+    .utility-card p,
+    .ecosystem-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .token-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .token-item{
       padding:18px;
-      border-radius:18px;
+      border-radius:16px;
       background:rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.08);
     }
 
-    .mini-card strong{
+    .token-item strong{
       display:block;
-      margin-bottom:8px;
-      font-size:16px;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .token-item span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .token-bar{
+      width:100%;
+      height:12px;
+      border-radius:999px;
+      margin-top:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.06);
+    }
+
+    .token-fill{
+      width:100%;
+      height:100%;
+      background:linear-gradient(
+        90deg,
+        #6d5efc 0% 18%,
+        #29c7ff 18% 40%,
+        #34d399 40% 55%,
+        #fbbf24 55% 67%,
+        #fb7185 67% 80%,
+        #94a3b8 80% 100%
+      );
+    }
+
+    .roadmap-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .roadmap-item{
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .roadmap-phase{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
       color:#fff;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.4px;
+      margin-bottom:14px;
+    }
+
+    .roadmap-item h3{
+      margin:0 0 12px;
+      font-size:20px;
+    }
+
+    .roadmap-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:14px;
+    }
+
+    .ecosystem-grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .ecosystem-logo{
+      width:100%;
+      min-height:100px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      margin-bottom:14px;
+    }
+
+    .ecosystem-logo img{
+      max-height:40px;
+      width:auto;
+      object-fit:contain;
+      opacity:.95;
+    }
+
+    .partner-slider{
+      overflow:hidden;
+      position:relative;
+      width:100%;
+      margin-top:18px;
+      padding:6px 0;
+    }
+
+    .partner-track{
+      display:flex;
+      gap:18px;
+      width:max-content;
+      animation:scrollPartners 32s linear infinite;
+    }
+
+    .partner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:240px;
+      padding:16px 18px;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.06);
+      color:#fff;
+      font-size:15px;
+      font-weight:600;
+      transition:all .25s ease;
+      box-shadow:0 8px 22px rgba(0,0,0,0.18);
+    }
+
+    .partner:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,0.14);
+      box-shadow:0 12px 30px rgba(0,0,0,0.28);
+    }
+
+    .partner img{
+      width:36px;
+      height:36px;
+      object-fit:contain;
+      display:block;
+      border-radius:10px;
+      flex:none;
+    }
+
+    .wallet-box{
+      padding:24px;
+    }
+
+    .wallet-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .wallet-status{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .status-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .status-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--warning);
+    }
+
+    .status-dot.connected{
+      background:var(--success);
+    }
+
+    .wallet-address{
+      color:#dbe4ef;
+      font-size:14px;
+    }
+
+    .newsletter-box{
+      padding:28px;
+    }
+
+    .newsletter-row{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:center;
+    }
+
+    .newsletter-copy h3{
+      margin:0 0 10px;
+      font-size:28px;
+    }
+
+    .newsletter-copy p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .newsletter-form{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .newsletter-form input{
+      min-width:260px;
+      flex:1;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.04);
+      color:#fff;
+      outline:none;
+    }
+
+    .newsletter-form input::placeholder{
+      color:#91a0b3;
     }
 
     .footer{
-      padding:28px 0 40px;
+      padding:36px 0 44px;
     }
 
     .footer-box{
-      padding:20px;
+      padding:22px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -228,170 +695,603 @@
       color:#fff;
     }
 
+    @keyframes scrollPartners{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    @media (max-width:1024px){
+      .hero-grid,
+      .grid-4,
+      .roadmap-grid,
+      .ecosystem-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .grid-3,
+      .grid-2,
+      .wallet-row,
+      .trust-items,
+      .why-grid,
+      .use-grid,
+      .utility-grid,
+      .newsletter-row{
+        grid-template-columns:1fr;
+      }
+    }
+
     @media (max-width:780px){
-      h1{font-size:36px}
-      h2{font-size:26px}
-      .grid-2{grid-template-columns:1fr}
-      .hero{padding:50px 0 16px}
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero{
+        padding:54px 0 20px;
+      }
+
+      .hero-grid,
+      .hero-stats,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .token-grid,
+      .roadmap-grid,
+      .ecosystem-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .section-title{
+        font-size:28px;
+      }
+
+      .partner{
+        min-width:220px;
+      }
+
+      .nav{
+        gap:12px;
+      }
+
+      .newsletter-form{
+        justify-content:flex-start;
+      }
+
+      .newsletter-form input{
+        min-width:100%;
+      }
     }
   </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="varliklar/wincoin-maskot.png" alt="Win Coin">
+      <div class="logo">
+        <img src="assets/wincoin-logo.png" alt="Win Coin Logo">
         <span>Win Coin</span>
-      </a>
-
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a class="btn btn-secondary" href="index.html">Back to Homepage</a>
-        <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">Official X</a>
       </div>
+
+      <nav class="nav">
+        <a href="#community">Community</a>
+        <a href="#why-wincoin">Why</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#partners">Partners</a>
+        <a href="whitepaper.html">WhitePaper</a>
+        <a href="#wallet">Wallet</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container">
-        <div class="hero-box">
+      <div class="container hero-grid">
+        <div class="hero-box hero-copy">
           <div class="hero-badge">
             <span class="hero-dot"></span>
-            <span>Official Project Document</span>
+            <span>Fast. Trusted. Community-driven Layer-1.</span>
           </div>
-          <h1>Win Coin Whitepaper</h1>
+
+          <h1>Win Coin Layer-1 Blockchain</h1>
           <p>
-            This document provides a clear overview of Win Coin’s vision, positioning, utility structure,
-            ecosystem direction, token design, and long-term roadmap. It is written to present the project
-            in a cleaner and more professional way than a temporary placeholder page.
+            Win Coin is a modern Layer-1 blockchain project focused on speed, trust, visibility, and long-term ecosystem growth.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">Follow on X</a>
-            <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank" rel="noopener noreferrer">Join Telegram</a>
+            <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank">Follow on X</a>
+            <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">Join Telegram</a>
+            <a class="btn btn-secondary" href="whitepaper.html">Read WhitePaper</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>Layer-1</strong>
+              <span>Blockchain Infrastructure</span>
+            </div>
+            <div class="stat">
+              <strong>Fast</strong>
+              <span>Lightweight Website Structure</span>
+            </div>
+            <div class="stat">
+              <strong>Global</strong>
+              <span>Community-Oriented Growth</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-box hero-side">
+          <div class="hero-panel">
+            <h3>Official X</h3>
+            <p>Follow Win Coin updates, announcements, and ecosystem visibility.</p>
+            <a class="btn btn-secondary" href="https://x.com/WinCoinProject" target="_blank">Open X</a>
+          </div>
+
+          <div class="hero-panel">
+            <h3>Official Telegram</h3>
+            <p>Join the community and stay close to project activity and discussion.</p>
+            <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">Open Telegram</a>
+          </div>
+
+          <div class="hero-panel">
+            <h3>WhitePaper</h3>
+            <p>Read the project document for structure, vision, and ecosystem direction.</p>
+            <a class="btn btn-secondary" href="whitepaper.html">Open WhitePaper</a>
+          </div>
+
+          <div class="hero-panel">
+            <h3>Domain</h3>
+            <p>Official website: wincoin.online</p>
+            <a class="btn btn-secondary" href="https://wincoin.online" target="_blank">Open Website</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="trust-wrap">
       <div class="container">
-        <div class="paper-card">
-          <h2>1. Introduction</h2>
-          <p>
-            Win Coin is designed as a modern Layer-1 blockchain project centered around speed, clarity,
-            trust, and long-term ecosystem visibility. The project aims to build a foundation that can
-            support broader Web3 participation while maintaining a clean public-facing identity.
-          </p>
+        <div class="trust-strip">
+          <div class="trust-items">
+            <div class="trust-item"><span class="trust-bullet"></span><span>Layer-1 Structure</span></div>
+            <div class="trust-item"><span class="trust-bullet"></span><span>Official X Presence</span></div>
+            <div class="trust-item"><span class="trust-bullet"></span><span>Official Telegram</span></div>
+            <div class="trust-item"><span class="trust-bullet"></span><span>WhitePaper Access</span></div>
+            <div class="trust-item"><span class="trust-bullet"></span><span>Ecosystem Visibility</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <h2>2. Vision</h2>
-          <p>
-            The vision of Win Coin is to grow into a recognizable blockchain brand that combines technical
-            direction with strong community visibility. The long-term objective is to create a network
-            environment that can support products, contributors, partnerships, and ecosystem-led growth.
-          </p>
+    <section id="community">
+      <div class="container">
+        <h2 class="section-title">Community</h2>
+        <p class="section-sub">
+          Visible communication channels are critical for trust. Win Coin keeps X and Telegram front and center for stronger community presence.
+        </p>
 
-          <h2>3. Core Positioning</h2>
-          <div class="grid-2">
-            <div class="mini-card">
-              <strong>Layer-1 Identity</strong>
-              <p>A clear Layer-1 narrative gives the project a stronger foundation for future ecosystem expansion.</p>
+        <div class="grid-2">
+          <div class="card social-card">
+            <div class="social-icon">X</div>
+            <div>
+              <h3>Official X Account</h3>
+              <p>Announcements, updates, product visibility, ecosystem sharing, and project communication.</p>
             </div>
-            <div class="mini-card">
-              <strong>Community Visibility</strong>
-              <p>Public channels such as X and Telegram create transparency, trust, and direct communication.</p>
-            </div>
-            <div class="mini-card">
-              <strong>Brand Presentation</strong>
-              <p>A premium and consistent public presentation can improve project perception across the market.</p>
-            </div>
-            <div class="mini-card">
-              <strong>Long-term Growth</strong>
-              <p>The project is structured to support gradual ecosystem expansion instead of short-lived attention cycles.</p>
-            </div>
+            <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank">https://x.com/WinCoinProject</a>
           </div>
 
-          <h2>4. Utility</h2>
-          <p>
-            The token utility framework is designed to support activity inside the ecosystem and create
-            long-term relevance for holders and contributors.
-          </p>
-          <ul>
-            <li>Gas fee usage for on-chain interaction</li>
-            <li>Governance participation for ecosystem direction</li>
-            <li>Staking-based contribution and retention mechanics</li>
-            <li>Community reward structures</li>
-            <li>Access utility for future launches, features, and ecosystem tools</li>
-          </ul>
+          <div class="card social-card">
+            <div class="social-icon">TG</div>
+            <div>
+              <h3>Official Telegram</h3>
+              <p>Official community channel for direct access to updates and ongoing project interaction.</p>
+            </div>
+            <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">https://t.me/+ZbqtCHhGB5U4MzY0</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <h2>5. Tokenomics</h2>
-          <p>
-            The project currently presents a simple visual token allocation structure:
-          </p>
-          <ul>
-            <li>18% Core Development</li>
-            <li>22% Ecosystem Growth</li>
-            <li>15% Liquidity</li>
-            <li>12% Community Rewards</li>
-            <li>13% Team Allocation</li>
-            <li>20% Treasury</li>
-          </ul>
-          <p>
-            These categories are intended to communicate the high-level allocation model clearly. Final
-            legal, technical, and economic revisions should always be reflected in future official updates.
-          </p>
+    <section id="why-wincoin">
+      <div class="container">
+        <h2 class="section-title">Why Win Coin</h2>
+        <p class="section-sub">
+          A premium Layer-1 direction built around clarity, trust, and long-term ecosystem positioning.
+        </p>
 
-          <h2>6. Ecosystem Direction</h2>
-          <p>
-            Win Coin is positioned to support multiple future directions within Web3. These may include:
-          </p>
-          <ul>
-            <li>DeFi applications</li>
-            <li>NFT ecosystems</li>
-            <li>Gaming integrations</li>
-            <li>Cross-chain expansion narratives</li>
-            <li>Community-led participation systems</li>
-            <li>Brand-led digital ecosystems</li>
-          </ul>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">L1</div>
+            <h3>Scalable Layer-1 Foundation</h3>
+            <p>Win Coin is positioned as a Layer-1 blockchain with a clean structure, modern presentation, and room for long-term technical expansion.</p>
+          </div>
 
-          <h2>7. Community Strategy</h2>
-          <p>
-            A strong community presence is critical for credibility and long-term growth. Win Coin’s public
-            communication approach prioritizes visibility, accessibility, and continuity through official
-            project channels.
-          </p>
+          <div class="why-card">
+            <div class="why-icon">CM</div>
+            <h3>Community-First Expansion</h3>
+            <p>Official X and Telegram presence create a visible community layer, helping the project feel active, open, and easier to trust.</p>
+          </div>
 
-          <h3>Official communication channels</h3>
-          <ul>
-            <li>X for announcements, updates, and visibility</li>
-            <li>Telegram for direct community interaction</li>
-            <li>Website and whitepaper for structured information access</li>
-          </ul>
+          <div class="why-card">
+            <div class="why-icon">EC</div>
+            <h3>Premium Ecosystem Positioning</h3>
+            <p>Strategic branding, partner visibility, and a premium interface help position Win Coin more seriously in the broader blockchain ecosystem.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <h2>8. Roadmap</h2>
-          <p>
-            The roadmap is currently structured in four broad phases:
-          </p>
-          <ul>
-            <li><strong>Phase 1:</strong> Brand structure, website launch, community channels, positioning</li>
-            <li><strong>Phase 2:</strong> Ecosystem visibility, whitepaper presence, community growth</li>
-            <li><strong>Phase 3:</strong> Utility expansion, stronger Layer-1 narrative, adoption mechanics</li>
-            <li><strong>Phase 4:</strong> Global reach, advanced integrations, long-term scaling</li>
-          </ul>
+    <section id="use-cases">
+      <div class="container">
+        <h2 class="section-title">What Can You Build on Win Coin</h2>
+        <p class="section-sub">
+          A flexible Layer-1 structure makes Win Coin suitable for multiple Web3 directions across products, applications, and community ecosystems.
+        </p>
 
-          <h2>9. Brand and Transparency</h2>
-          <p>
-            One of the key lessons from earlier site versions is that consistency matters. Public-facing
-            trust depends not only on technical claims but also on stable branding, accessible project
-            documents, visible communication, and clear asset management across the website.
-          </p>
+        <div class="use-grid">
+          <div class="use-card">
+            <div class="use-icon">DF</div>
+            <h3>DeFi Applications</h3>
+            <p>Support lending, swapping, staking, and treasury-based protocols with a clean Layer-1 foundation.</p>
+          </div>
 
-          <h2>10. Closing Note</h2>
-          <p>
-            Win Coin is presented as a project with long-term ambition, clean structure, and community-first
-            visibility. This whitepaper page should evolve as the project matures, with future updates
-            reflecting technical progress, ecosystem development, and verified announcements.
-          </p>
+          <div class="use-card">
+            <div class="use-icon">NFT</div>
+            <h3>NFT Marketplaces</h3>
+            <p>Launch creator-driven collections, ownership layers, and collectible ecosystems with stronger branding value.</p>
+          </div>
+
+          <div class="use-card">
+            <div class="use-icon">GM</div>
+            <h3>Web3 Gaming</h3>
+            <p>Enable in-game tokens, digital rewards, and ecosystem participation around game-native economies.</p>
+          </div>
+
+          <div class="use-card">
+            <div class="use-icon">CC</div>
+            <h3>Cross-chain Expansion</h3>
+            <p>Position Win Coin for broader ecosystem connectivity and future interoperability narratives.</p>
+          </div>
+
+          <div class="use-card">
+            <div class="use-icon">CM</div>
+            <h3>Community Platforms</h3>
+            <p>Build community reward systems, loyalty mechanics, and social participation loops around the token.</p>
+          </div>
+
+          <div class="use-card">
+            <div class="use-icon">BR</div>
+            <h3>Brand-led Web3 Products</h3>
+            <p>Use Win Coin as the foundation for premium branded ecosystems that need clean design and investor appeal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <div class="container">
+        <h2 class="section-title">Tokenomics</h2>
+        <p class="section-sub">
+          Clean visual token structure designed to feel simple, fast, and investor-friendly.
+        </p>
+
+        <div class="card">
+          <div class="token-grid">
+            <div class="token-item"><strong>18%</strong><span>Core Development</span></div>
+            <div class="token-item"><strong>22%</strong><span>Ecosystem Growth</span></div>
+            <div class="token-item"><strong>15%</strong><span>Liquidity</span></div>
+            <div class="token-item"><strong>12%</strong><span>Community Rewards</span></div>
+            <div class="token-item"><strong>13%</strong><span>Team Allocation</span></div>
+            <div class="token-item"><strong>20%</strong><span>Treasury</span></div>
+          </div>
+
+          <div class="token-bar">
+            <div class="token-fill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="utility">
+      <div class="container">
+        <h2 class="section-title">Win Coin Utility</h2>
+        <p class="section-sub">
+          Beyond allocation, utility explains why the token matters inside the ecosystem and how it supports long-term network value.
+        </p>
+
+        <div class="utility-grid">
+          <div class="utility-card">
+            <div class="utility-icon">GF</div>
+            <h3>Gas Fees</h3>
+            <p>Win Coin can act as a native transaction layer for network operations and on-chain ecosystem activity.</p>
+          </div>
+
+          <div class="utility-card">
+            <div class="utility-icon">GV</div>
+            <h3>Governance</h3>
+            <p>Token-based governance structure can support community alignment and ecosystem direction over time.</p>
+          </div>
+
+          <div class="utility-card">
+            <div class="utility-icon">ST</div>
+            <h3>Staking</h3>
+            <p>Staking mechanics can strengthen holder participation and long-term ecosystem commitment.</p>
+          </div>
+
+          <div class="utility-card">
+            <div class="utility-icon">RW</div>
+            <h3>Ecosystem Rewards</h3>
+            <p>Community rewards and contributor incentives help support adoption, activity, and network engagement.</p>
+          </div>
+
+          <div class="utility-card">
+            <div class="utility-icon">AC</div>
+            <h3>Access Layer</h3>
+            <p>Win Coin can become an access token for future launches, community tools, ecosystem perks, and premium features.</p>
+          </div>
+
+          <div class="utility-card">
+            <div class="utility-icon">TR</div>
+            <h3>Treasury Coordination</h3>
+            <p>Utility expands when treasury capital is tied to ecosystem growth, grants, partnerships, and strategic support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container">
+        <h2 class="section-title">Roadmap</h2>
+        <p class="section-sub">
+          A simple roadmap creates direction, improves confidence, and helps the project feel more structured and serious.
+        </p>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-item">
+            <span class="roadmap-phase">PHASE 1</span>
+            <h3>Foundation</h3>
+            <ul class="roadmap-list">
+              <li>Brand structure</li>
+              <li>Website launch</li>
+              <li>Community channels</li>
+              <li>Core positioning</li>
+            </ul>
+          </div>
+
+          <div class="roadmap-item">
+            <span class="roadmap-phase">PHASE 2</span>
+            <h3>Expansion</h3>
+            <ul class="roadmap-list">
+              <li>Partner visibility</li>
+              <li>Ecosystem awareness</li>
+              <li>WhitePaper visibility</li>
+              <li>Community growth</li>
+            </ul>
+          </div>
+
+          <div class="roadmap-item">
+            <span class="roadmap-phase">PHASE 3</span>
+            <h3>Network Growth</h3>
+            <ul class="roadmap-list">
+              <li>Layer-1 narrative strengthening</li>
+              <li>Utility expansion</li>
+              <li>Token adoption mechanics</li>
+              <li>Broader ecosystem positioning</li>
+            </ul>
+          </div>
+
+          <div class="roadmap-item">
+            <span class="roadmap-phase">PHASE 4</span>
+            <h3>Long-term Vision</h3>
+            <ul class="roadmap-list">
+              <li>Global reach</li>
+              <li>Advanced integrations</li>
+              <li>Ecosystem maturity</li>
+              <li>Strategic scaling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem">
+      <div class="container">
+        <h2 class="section-title">Investor / Ecosystem</h2>
+        <p class="section-sub">
+          A calm premium layout helps the project feel more serious, scalable, and ecosystem-ready.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Infrastructure Ready</h3>
+            <p>Strong Layer-1 positioning supports long-term narrative building, ecosystem growth, and network identity.</p>
+          </div>
+
+          <div class="card">
+            <h3>Growth Potential</h3>
+            <p>Visible channels, clean branding, and structured presentation improve confidence and external perception.</p>
+          </div>
+
+          <div class="card">
+            <h3>Trust-Focused Presence</h3>
+            <p>Minimal design, spacing, and clarity help Win Coin present itself as modern, clean, and serious.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trusted-ecosystem">
+      <div class="container">
+        <h2 class="section-title">Trusted Ecosystem</h2>
+        <p class="section-sub">
+          A stronger ecosystem section helps outside visitors quickly understand brand adjacency, market positioning, and network seriousness.
+        </p>
+
+        <div class="ecosystem-grid">
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/arbitrum.png" alt="Arbitrum"></div>
+            <h3>Arbitrum</h3>
+            <p>Recognized Layer-2 infrastructure visibility within the broader blockchain ecosystem.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/bnb.png" alt="BNB"></div>
+            <h3>BNB</h3>
+            <p>Strong exchange and ecosystem association with wide market recognition.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/xrp.png" alt="XRP"></div>
+            <h3>XRP</h3>
+            <p>Globally visible digital asset presence that adds familiarity to ecosystem branding.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/eigen.png" alt="Eigen"></div>
+            <h3>Eigen</h3>
+            <p>Advanced ecosystem visibility around blockchain infrastructure and network expansion narratives.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/amazon.png" alt="Amazon"></div>
+            <h3>Amazon</h3>
+            <p>Global technology familiarity that adds premium visual context and broader trust perception.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/google-ventures.png" alt="Google Ventures"></div>
+            <h3>Google Ventures</h3>
+            <p>Strong venture and technology recognition that improves presentation quality and external credibility.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/intel-capital.png" alt="Intel Capital"></div>
+            <h3>Intel Capital</h3>
+            <p>Enterprise technology familiarity that adds depth to the ecosystem positioning narrative.</p>
+          </div>
+
+          <div class="ecosystem-card">
+            <div class="ecosystem-logo"><img src="assets/icons/ena.png" alt="ENA"></div>
+            <h3>ENA</h3>
+            <p>Additional crypto ecosystem adjacency that strengthens Win Coin’s premium market framing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners">
+      <div class="container">
+        <h2 class="section-title">Partners & Close Supporters</h2>
+        <p class="section-sub">
+          Strategic network visibility across blockchain, infrastructure, and global technology ecosystem.
+        </p>
+
+        <div class="partner-slider">
+          <div class="partner-track">
+            <div class="partner"><img src="assets/icons/arbitrum.png" alt="Arbitrum">Arbitrum</div>
+            <div class="partner"><img src="assets/icons/ena.png" alt="ENA">ENA</div>
+            <div class="partner"><img src="assets/icons/xrp.png" alt="XRP">XRP</div>
+            <div class="partner"><img src="assets/icons/eigen.png" alt="Eigen">Eigen</div>
+            <div class="partner"><img src="assets/icons/bnb.png" alt="BNB">BNB</div>
+            <div class="partner"><img src="assets/icons/amazon.png" alt="Amazon">Amazon</div>
+            <div class="partner"><img src="assets/icons/google-ventures.png" alt="Google Ventures">Google Ventures</div>
+            <div class="partner"><img src="assets/icons/intel-capital.png" alt="Intel Capital">Intel Capital</div>
+
+            <div class="partner"><img src="assets/icons/arbitrum.png" alt="Arbitrum">Arbitrum</div>
+            <div class="partner"><img src="assets/icons/ena.png" alt="ENA">ENA</div>
+            <div class="partner"><img src="assets/icons/xrp.png" alt="XRP">XRP</div>
+            <div class="partner"><img src="assets/icons/eigen.png" alt="Eigen">Eigen</div>
+            <div class="partner"><img src="assets/icons/bnb.png" alt="BNB">BNB</div>
+            <div class="partner"><img src="assets/icons/amazon.png" alt="Amazon">Amazon</div>
+            <div class="partner"><img src="assets/icons/google-ventures.png" alt="Google Ventures">Google Ventures</div>
+            <div class="partner"><img src="assets/icons/intel-capital.png" alt="Intel Capital">Intel Capital</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <h2 class="section-title">Team</h2>
+        <p class="section-sub">
+          Core contributors focused on network vision, technical development, ecosystem reach, and long-term strategic growth.
+        </p>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="team-avatar">WC</div>
+            <h3>Founder</h3>
+            <p>Defines the long-term vision, network direction, and strategic positioning of the project.</p>
+          </div>
+
+          <div class="card">
+            <div class="team-avatar">WC</div>
+            <h3>Engineering</h3>
+            <p>Focused on blockchain architecture, performance, and the core Layer-1 technical foundation.</p>
+          </div>
+
+          <div class="card">
+            <div class="team-avatar">WC</div>
+            <h3>Growth</h3>
+            <p>Builds awareness, communication, and community reach across key digital channels.</p>
+          </div>
+
+          <div class="card">
+            <div class="team-avatar">WC</div>
+            <h3>Partnerships</h3>
+            <p>Supports ecosystem relationships, strategic introductions, and long-term expansion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wallet">
+      <div class="container">
+        <h2 class="section-title">Wallet Connect</h2>
+        <p class="section-sub">
+          Lightweight example for MetaMask-compatible browsers. No heavy library is used.
+        </p>
+
+        <div class="wallet-box">
+          <div class="wallet-row">
+            <div class="wallet-status">
+              <div class="status-pill">
+                <span id="walletDot" class="status-dot"></span>
+                <span id="walletStatusText">Wallet not connected</span>
+              </div>
+              <span id="walletAddress" class="wallet-address"></span>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button class="btn btn-primary" id="connectWalletBtn" type="button">Connect Wallet</button>
+              <button class="btn btn-secondary" id="copyAddressBtn" type="button">Copy Address</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <div class="container">
+        <div class="newsletter-box">
+          <div class="newsletter-row">
+            <div class="newsletter-copy">
+              <h3>Stay Updated with Win Coin</h3>
+              <p>
+                Follow product direction, ecosystem updates, and community visibility from one place. This section improves premium feel even before a backend mailing system is added.
+              </p>
+            </div>
+
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Newsletter form is a visual placeholder for now.');">
+              <input type="email" placeholder="Enter your email address" />
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -406,12 +1306,90 @@
         </div>
 
         <div class="footer-links">
-          <a href="index.html">Homepage</a>
-          <a href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://x.com/WinCoinProject" target="_blank">X</a>
+          <a href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">Telegram</a>
+          <a href="whitepaper.html">WhitePaper</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#utility">Utility</a>
+          <a href="https://wincoin.online" target="_blank">Website</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    let connectedAddress = "";
+
+    const walletDot = document.getElementById("walletDot");
+    const walletStatusText = document.getElementById("walletStatusText");
+    const walletAddress = document.getElementById("walletAddress");
+    const connectWalletBtn = document.getElementById("connectWalletBtn");
+    const copyAddressBtn = document.getElementById("copyAddressBtn");
+
+    function shortenAddress(address){
+      if(!address) return "";
+      return address.slice(0,6) + "..." + address.slice(-4);
+    }
+
+    function refreshWalletStatus(type="idle"){
+      if(type === "missing"){
+        walletStatusText.textContent = "Wallet extension not found";
+        walletDot.classList.remove("connected");
+        walletAddress.textContent = "";
+        return;
+      }
+
+      if(connectedAddress){
+        walletStatusText.textContent = "Wallet connected";
+        walletDot.classList.add("connected");
+        walletAddress.textContent = shortenAddress(connectedAddress);
+      }else{
+        walletStatusText.textContent = "Wallet not connected";
+        walletDot.classList.remove("connected");
+        walletAddress.textContent = "";
+      }
+    }
+
+    async function connectWallet(){
+      if(!window.ethereum){
+        refreshWalletStatus("missing");
+        return;
+      }
+
+      try{
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        connectedAddress = accounts && accounts[0] ? accounts[0] : "";
+        refreshWalletStatus();
+      }catch(error){
+        console.error("Wallet connection failed:", error);
+      }
+    }
+
+    async function copyAddress(){
+      if(!connectedAddress){
+        alert("No address to copy");
+        return;
+      }
+
+      try{
+        await navigator.clipboard.writeText(connectedAddress);
+        alert("Address copied");
+      }catch(error){
+        console.error(error);
+      }
+    }
+
+    connectWalletBtn.addEventListener("click", connectWallet);
+    copyAddressBtn.addEventListener("click", copyAddress);
+
+    if(window.ethereum && window.ethereum.on){
+      window.ethereum.on("accountsChanged", (accounts) => {
+        connectedAddress = accounts && accounts[0] ? accounts[0] : "";
+        refreshWalletStatus();
+      });
+    }
+
+    refreshWalletStatus();
+  </script>
 </body>
 </html>
