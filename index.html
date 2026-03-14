@@ -72,13 +72,14 @@
     }
 
     .logo img{
-      width:42px;
-      height:42px;
-      object-fit:contain;
-      border-radius:12px;
+      width:48px;
+      height:48px;
+      object-fit:cover;
+      border-radius:14px;
       background:rgba(255,255,255,0.05);
-      padding:5px;
+      padding:4px;
       border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 8px 20px rgba(0,0,0,0.22);
     }
 
     .nav{
@@ -236,6 +237,28 @@
       flex-direction:column;
       gap:16px;
       justify-content:center;
+    }
+
+    .hero-mascot-card{
+      padding:22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:320px;
+      background:
+        radial-gradient(circle at center, rgba(109,94,252,0.22), transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-mascot-card img{
+      width:min(100%, 360px);
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 14px 30px rgba(0,0,0,0.28));
     }
 
     .hero-panel{
@@ -772,7 +795,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">
-        <img src="assets/wincoin-logo.png" alt="Win Coin Logo">
+        <img src="varlıklar/wincoin-maskot.png" alt="Win Coin Mascot">
         <span>Win Coin</span>
       </div>
 
@@ -784,7 +807,7 @@
         <a href="#roadmap">Roadmap</a>
         <a href="#ecosystem">Ecosystem</a>
         <a href="#partners">Partners</a>
-        <a href="whitepaper.html">WhitePaper</a>
+        <a href="beyaz kağıt.html">WhitePaper</a>
         <a href="#wallet">Wallet</a>
       </nav>
     </div>
@@ -807,7 +830,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank">Follow on X</a>
             <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">Join Telegram</a>
-            <a class="btn btn-secondary" href="whitepaper.html">Read WhitePaper</a>
+            <a class="btn btn-secondary" href="beyaz kağıt.html">Read WhitePaper</a>
           </div>
 
           <div class="hero-stats">
@@ -826,7 +849,11 @@
           </div>
         </div>
 
-        <div class="hero-box hero-side">
+        <div class="hero-side">
+          <div class="hero-mascot-card">
+            <img src="varlıklar/wincoin-maskot.png" alt="Win Coin Mascot Large">
+          </div>
+
           <div class="hero-panel">
             <h3>Official X</h3>
             <p>Follow Win Coin updates, announcements, and ecosystem visibility.</p>
@@ -837,18 +864,6 @@
             <h3>Official Telegram</h3>
             <p>Join the community and stay close to project activity and discussion.</p>
             <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">Open Telegram</a>
-          </div>
-
-          <div class="hero-panel">
-            <h3>WhitePaper</h3>
-            <p>Read the project document for structure, vision, and ecosystem direction.</p>
-            <a class="btn btn-secondary" href="whitepaper.html">Open WhitePaper</a>
-          </div>
-
-          <div class="hero-panel">
-            <h3>Domain</h3>
-            <p>Official website: wincoin.online</p>
-            <a class="btn btn-secondary" href="https://wincoin.online" target="_blank">Open Website</a>
           </div>
         </div>
       </div>
@@ -1134,49 +1149,49 @@
 
         <div class="ecosystem-grid">
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/arbitrum.png" alt="Arbitrum"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/arbitrum.png" alt="Arbitrum"></div>
             <h3>Arbitrum</h3>
             <p>Recognized Layer-2 infrastructure visibility within the broader blockchain ecosystem.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/bnb.png" alt="BNB"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/bnb.png" alt="BNB"></div>
             <h3>BNB</h3>
             <p>Strong exchange and ecosystem association with wide market recognition.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/xrp.png" alt="XRP"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/xrp.png" alt="XRP"></div>
             <h3>XRP</h3>
             <p>Globally visible digital asset presence that adds familiarity to ecosystem branding.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/eigen.png" alt="Eigen"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/eigen.png" alt="Eigen"></div>
             <h3>Eigen</h3>
             <p>Advanced ecosystem visibility around blockchain infrastructure and network expansion narratives.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/amazon.png" alt="Amazon"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/amazon.png" alt="Amazon"></div>
             <h3>Amazon</h3>
             <p>Global technology familiarity that adds premium visual context and broader trust perception.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/google-ventures.png" alt="Google Ventures"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/google-ventures.png" alt="Google Ventures"></div>
             <h3>Google Ventures</h3>
             <p>Strong venture and technology recognition that improves presentation quality and external credibility.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/intel-capital.png" alt="Intel Capital"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/intel-capital.png" alt="Intel Capital"></div>
             <h3>Intel Capital</h3>
             <p>Enterprise technology familiarity that adds depth to the ecosystem positioning narrative.</p>
           </div>
 
           <div class="ecosystem-card">
-            <div class="ecosystem-logo"><img src="assets/icons/ena.png" alt="ENA"></div>
+            <div class="ecosystem-logo"><img src="varlıklar/icons/ena.png" alt="ENA"></div>
             <h3>ENA</h3>
             <p>Additional crypto ecosystem adjacency that strengthens Win Coin’s premium market framing.</p>
           </div>
@@ -1193,23 +1208,23 @@
 
         <div class="partner-slider">
           <div class="partner-track">
-            <div class="partner"><img src="assets/icons/arbitrum.png" alt="Arbitrum">Arbitrum</div>
-            <div class="partner"><img src="assets/icons/ena.png" alt="ENA">ENA</div>
-            <div class="partner"><img src="assets/icons/xrp.png" alt="XRP">XRP</div>
-            <div class="partner"><img src="assets/icons/eigen.png" alt="Eigen">Eigen</div>
-            <div class="partner"><img src="assets/icons/bnb.png" alt="BNB">BNB</div>
-            <div class="partner"><img src="assets/icons/amazon.png" alt="Amazon">Amazon</div>
-            <div class="partner"><img src="assets/icons/google-ventures.png" alt="Google Ventures">Google Ventures</div>
-            <div class="partner"><img src="assets/icons/intel-capital.png" alt="Intel Capital">Intel Capital</div>
+            <div class="partner"><img src="varlıklar/icons/arbitrum.png" alt="Arbitrum">Arbitrum</div>
+            <div class="partner"><img src="varlıklar/icons/ena.png" alt="ENA">ENA</div>
+            <div class="partner"><img src="varlıklar/icons/xrp.png" alt="XRP">XRP</div>
+            <div class="partner"><img src="varlıklar/icons/eigen.png" alt="Eigen">Eigen</div>
+            <div class="partner"><img src="varlıklar/icons/bnb.png" alt="BNB">BNB</div>
+            <div class="partner"><img src="varlıklar/icons/amazon.png" alt="Amazon">Amazon</div>
+            <div class="partner"><img src="varlıklar/icons/google-ventures.png" alt="Google Ventures">Google Ventures</div>
+            <div class="partner"><img src="varlıklar/icons/intel-capital.png" alt="Intel Capital">Intel Capital</div>
 
-            <div class="partner"><img src="assets/icons/arbitrum.png" alt="Arbitrum">Arbitrum</div>
-            <div class="partner"><img src="assets/icons/ena.png" alt="ENA">ENA</div>
-            <div class="partner"><img src="assets/icons/xrp.png" alt="XRP">XRP</div>
-            <div class="partner"><img src="assets/icons/eigen.png" alt="Eigen">Eigen</div>
-            <div class="partner"><img src="assets/icons/bnb.png" alt="BNB">BNB</div>
-            <div class="partner"><img src="assets/icons/amazon.png" alt="Amazon">Amazon</div>
-            <div class="partner"><img src="assets/icons/google-ventures.png" alt="Google Ventures">Google Ventures</div>
-            <div class="partner"><img src="assets/icons/intel-capital.png" alt="Intel Capital">Intel Capital</div>
+            <div class="partner"><img src="varlıklar/icons/arbitrum.png" alt="Arbitrum">Arbitrum</div>
+            <div class="partner"><img src="varlıklar/icons/ena.png" alt="ENA">ENA</div>
+            <div class="partner"><img src="varlıklar/icons/xrp.png" alt="XRP">XRP</div>
+            <div class="partner"><img src="varlıklar/icons/eigen.png" alt="Eigen">Eigen</div>
+            <div class="partner"><img src="varlıklar/icons/bnb.png" alt="BNB">BNB</div>
+            <div class="partner"><img src="varlıklar/icons/amazon.png" alt="Amazon">Amazon</div>
+            <div class="partner"><img src="varlıklar/icons/google-ventures.png" alt="Google Ventures">Google Ventures</div>
+            <div class="partner"><img src="varlıklar/icons/intel-capital.png" alt="Intel Capital">Intel Capital</div>
           </div>
         </div>
       </div>
@@ -1308,7 +1323,7 @@
         <div class="footer-links">
           <a href="https://x.com/WinCoinProject" target="_blank">X</a>
           <a href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">Telegram</a>
-          <a href="whitepaper.html">WhitePaper</a>
+          <a href="beyaz kağıt.html">WhitePaper</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#utility">Utility</a>
           <a href="https://wincoin.online" target="_blank">Website</a>
