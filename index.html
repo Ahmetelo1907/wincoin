@@ -138,7 +138,8 @@
     .card,
     .wallet-box,
     .footer-box,
-    .trust-strip{
+    .trust-strip,
+    .why-card{
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border:1px solid rgba(255,255,255,0.08);
       box-shadow:var(--shadow);
@@ -494,6 +495,42 @@
       font-weight:600;
     }
 
+    /* WHY WIN COIN */
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .why-card{
+      padding:22px;
+    }
+
+    .why-card h3{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+
+    .why-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .why-icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      margin-bottom:14px;
+      background:linear-gradient(135deg, rgba(109,94,252,0.24), rgba(41,199,255,0.16));
+      border:1px solid rgba(255,255,255,0.08);
+      font-weight:700;
+      color:#fff;
+    }
+
     /* PARTNER SLIDER */
     .partner-slider{
       overflow:hidden;
@@ -555,7 +592,8 @@
       .grid-3,
       .grid-2,
       .wallet-row,
-      .trust-items{
+      .trust-items,
+      .why-grid{
         grid-template-columns:1fr;
       }
     }
@@ -735,6 +773,41 @@
               <p>Official community channel for direct access to updates and ongoing project interaction.</p>
             </div>
             <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank">https://t.me/+ZbqtCHhGB5U4MzY0</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-wincoin">
+      <div class="container">
+        <h2 class="section-title">Why Win Coin</h2>
+        <p class="section-sub">
+          A premium Layer-1 direction built around clarity, trust, and long-term ecosystem positioning.
+        </p>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">L1</div>
+            <h3>Scalable Layer-1 Foundation</h3>
+            <p>
+              Win Coin is positioned as a Layer-1 blockchain with a clean structure, modern presentation, and room for long-term technical expansion.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">CM</div>
+            <h3>Community-First Expansion</h3>
+            <p>
+              Official X and Telegram presence create a visible community layer, helping the project feel active, open, and easier to trust.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">EC</div>
+            <h3>Premium Ecosystem Positioning</h3>
+            <p>
+              Strategic branding, partner visibility, and a premium interface help position Win Coin more seriously in the broader blockchain ecosystem.
+            </p>
           </div>
         </div>
       </div>
