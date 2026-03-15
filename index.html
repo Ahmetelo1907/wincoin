@@ -682,7 +682,9 @@
     <section id="logo-system">
       <div class="container">
         <h2 class="section-title" data-i18n="logos.title">Logo System</h2>
-        <p class="section-sub" data-i18n="logos.sub">Missing and future logos should have dedicated visible areas so nothing gets lost when the homepage is updated again.</p>
+        <p class="section-sub" data-i18n="logos.sub">
+          Missing and future logos should have dedicated visible areas so nothing gets lost when the homepage is updated again.
+        </p>
 
         <div class="logo-grid">
           <div class="logo-card">
@@ -690,31 +692,31 @@
               <img src="assets/wincoin-logo.png" alt="Win Coin main logo">
             </div>
             <h3 data-i18n="logos.mainTitle">Main Project Logo</h3>
-            <p data-i18n="logos.mainText">Current core project identity used in the header and hero area.</p>
+            <p data-i18n="logos.mainText">
+              Current core project identity used in the header and hero area.
+            </p>
           </div>
 
           <div class="logo-card">
-            <div class="logo-frame" id="futureLogoFrame">
-              <img src="assets/custom-logo.png" alt="Future custom logo" id="futureLogoImage">
-            </div>
-            <div class="logo-placeholder" id="futureLogoPlaceholder" hidden>
-              <strong data-i18n="logos.futurePlaceholderTitle">Custom Logo Slot</strong>
-              <span data-i18n="logos.futurePlaceholderText">Your next approved logo can be added here without changing the layout.</span>
+            <div class="logo-placeholder">
+              <strong data-i18n="logos.futurePlaceholderTitle">Future Custom Logo</strong>
+              <span data-i18n="logos.futurePlaceholderText">Your upcoming approved custom logo can be placed here later.</span>
             </div>
             <h3 data-i18n="logos.futureTitle">Reserved Custom Logo Area</h3>
-            <p data-i18n="logos.futureText">Drop your future logo into assets/custom-logo.png and this block will automatically show it.</p>
+            <p data-i18n="logos.futureText">
+              This area is kept ready for a future logo update without changing the layout.
+            </p>
           </div>
 
           <div class="logo-card">
-            <div class="logo-frame" id="oldLogoFrame">
-              <img src="assets/old-logo.png" alt="Previous project logo" id="oldLogoImage">
-            </div>
-            <div class="logo-placeholder" id="oldLogoPlaceholder" hidden>
-              <strong data-i18n="logos.oldPlaceholderTitle">Brand Archive Slot</strong>
-              <span data-i18n="logos.oldPlaceholderText">Earlier logo versions can be kept here for continuity and future reference.</span>
+            <div class="logo-placeholder">
+              <strong data-i18n="logos.oldPlaceholderTitle">Previous Logo Archive</strong>
+              <span data-i18n="logos.oldPlaceholderText">Older brand versions can be displayed here when needed.</span>
             </div>
             <h3 data-i18n="logos.oldTitle">Previous Logo Archive Area</h3>
-            <p data-i18n="logos.oldText">Drop an older logo into assets/old-logo.png and this archive area will display it.</p>
+            <p data-i18n="logos.oldText">
+              This section can be used to preserve older logo versions for continuity.
+            </p>
           </div>
         </div>
       </div>
@@ -943,13 +945,6 @@
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
 
-    const futureLogoImage = document.getElementById("futureLogoImage");
-    const futureLogoFrame = document.getElementById("futureLogoFrame");
-    const futureLogoPlaceholder = document.getElementById("futureLogoPlaceholder");
-    const oldLogoImage = document.getElementById("oldLogoImage");
-    const oldLogoFrame = document.getElementById("oldLogoFrame");
-    const oldLogoPlaceholder = document.getElementById("oldLogoPlaceholder");
-
     const translations = {
       en: {
         "nav.community":"Community",
@@ -1014,14 +1009,14 @@
         "logos.sub":"Missing and future logos should have dedicated visible areas so nothing gets lost when the homepage is updated again.",
         "logos.mainTitle":"Main Project Logo",
         "logos.mainText":"Current core project identity used in the header and hero area.",
-        "logos.futurePlaceholderTitle":"Custom Logo Slot",
-        "logos.futurePlaceholderText":"Your next approved logo can be added here without changing the layout.",
+        "logos.futurePlaceholderTitle":"Future Custom Logo",
+        "logos.futurePlaceholderText":"Your upcoming approved custom logo can be placed here later.",
         "logos.futureTitle":"Reserved Custom Logo Area",
-        "logos.futureText":"Drop your future logo into assets/custom-logo.png and this block will automatically show it.",
-        "logos.oldPlaceholderTitle":"Brand Archive Slot",
-        "logos.oldPlaceholderText":"Earlier logo versions can be kept here for continuity and future reference.",
+        "logos.futureText":"This area is kept ready for a future logo update without changing the layout.",
+        "logos.oldPlaceholderTitle":"Previous Logo Archive",
+        "logos.oldPlaceholderText":"Older brand versions can be displayed here when needed.",
         "logos.oldTitle":"Previous Logo Archive Area",
-        "logos.oldText":"Drop an older logo into assets/old-logo.png and this archive area will display it.",
+        "logos.oldText":"This section can be used to preserve older logo versions for continuity.",
         "why.title":"Why Win Coin",
         "why.sub":"A premium Layer-1 direction built around clarity, trust, and long-term ecosystem positioning.",
         "why.card1Title":"Scalable Layer-1 Foundation",
@@ -1206,14 +1201,14 @@
         "logos.sub":"Eksik ve gelecekte eklenecek logoların kaybolmaması için görünür ve ayrılmış alanları olmalı.",
         "logos.mainTitle":"Ana Proje Logosu",
         "logos.mainText":"Header ve hero alanında kullanılan mevcut ana proje kimliği.",
-        "logos.futurePlaceholderTitle":"Özel Logo Alanı",
-        "logos.futurePlaceholderText":"Onaylanan bir sonraki logonuz, tasarımı bozmadan buraya eklenebilir.",
+        "logos.futurePlaceholderTitle":"Gelecek Özel Logo",
+        "logos.futurePlaceholderText":"Onaylanan bir sonraki özel logonuz daha sonra buraya eklenebilir.",
         "logos.futureTitle":"Ayrılmış Özel Logo Alanı",
-        "logos.futureText":"Gelecekteki logonuzu assets/custom-logo.png içine koyun; bu alan otomatik gösterecektir.",
-        "logos.oldPlaceholderTitle":"Marka Arşiv Alanı",
-        "logos.oldPlaceholderText":"Önceki logo versiyonları süreklilik ve referans için burada saklanabilir.",
+        "logos.futureText":"Bu alan, yerleşimi bozmadan gelecekteki logo güncellemeleri için hazır tutulur.",
+        "logos.oldPlaceholderTitle":"Önceki Logo Arşivi",
+        "logos.oldPlaceholderText":"Eski marka versiyonları gerektiğinde burada gösterilebilir.",
         "logos.oldTitle":"Önceki Logo Arşiv Alanı",
-        "logos.oldText":"Eski logonuzu assets/old-logo.png içine koyun; bu arşiv alanı gösterecektir.",
+        "logos.oldText":"Bu bölüm, süreklilik için eski logo versiyonlarını korumak amacıyla kullanılabilir.",
         "why.title":"Neden Win Coin",
         "why.sub":"Netlik, güven ve uzun vadeli ekosistem konumlandırması etrafında kurulan premium bir Layer-1 yaklaşımı.",
         "why.card1Title":"Ölçeklenebilir Layer-1 Temeli",
@@ -1453,20 +1448,6 @@
       mobileMenu.hidden = !open;
       menuBtn.setAttribute('aria-expanded', String(open));
     }
-
-    function setupImageFallback(imgEl, frameEl, placeholderEl){
-      imgEl.addEventListener('error', () => {
-        frameEl.hidden = true;
-        placeholderEl.hidden = false;
-      });
-      imgEl.addEventListener('load', () => {
-        frameEl.hidden = false;
-        placeholderEl.hidden = true;
-      });
-    }
-
-    setupImageFallback(futureLogoImage, futureLogoFrame, futureLogoPlaceholder);
-    setupImageFallback(oldLogoImage, oldLogoFrame, oldLogoPlaceholder);
 
     langButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
