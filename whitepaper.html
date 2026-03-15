@@ -1,3 +1,528 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Win Coin Whitepaper</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/style.css"/></head><body><div class="nav-shell"><div class="container"><header class="nav card"><a class="brand" href="index.html"><div class="logo">W</div><div><div class="brand-name">WIN COIN</div><div class="brand-sub">Layer 1 Ecosystem</div></div></a><nav class="nav-links"><a href="index.html#technology">Technology</a><a href="whitepaper.html">Whitepaper</a><a href="team.html">Team</a><a href="impact.html">Impact</a><a href="pitch.html">VC Pitch</a></nav><div class="nav-actions"><a class="btn secondary" href="index.html">Home</a></div></header></div></div><main class="container">
-<section class="section"><div class="section-head reveal"><div class="small-tag">Win Coin Whitepaper</div><h2>Whitepaper page designed for on-site reading and investor sharing</h2><p>I do not have the exact long whitepaper text from our earlier draft in this session, so I built a polished whitepaper page with aligned content that you can publish now and then replace section-by-section with your final text.</p></div><div class="paper-layout"><aside class="card paper-side reveal"><strong>Contents</strong><a href="#overview">01 Overview</a><a href="#problem">02 Problem</a><a href="#solution">03 Solution</a><a href="#architecture">04 Architecture</a><a href="#utility">05 Token Utility</a><a href="#tokenomics">06 Tokenomics</a><a href="#roadmap">07 Roadmap</a><a href="#governance">08 Governance</a><a href="#impact">09 Impact Vision</a></aside><div class="paper-main"><section class="card chapter reveal" id="overview"><h3>Overview</h3><p>Win Coin is a Layer 1 and ecosystem-focused blockchain initiative designed to support scalable digital participation, decentralized products, payment rails, and community-driven governance.</p><p>The project vision combines infrastructure credibility with ecosystem accessibility, aiming to create a network that can support developers, validators, communities, and future utility layers in a globally connected environment.</p></section><section class="card chapter reveal" id="problem"><h3>Problem Statement</h3><p>Many digital assets launch as speculative instruments without infrastructure depth, clear utility, or long-term ecosystem planning. This weakens adoption, trust, and network sustainability.</p><p>Win Coin addresses this by positioning the token within a broader infrastructure framework instead of a single-use or short-cycle model.</p></section><section class="card chapter reveal" id="solution"><h3>Proposed Solution</h3><p>Win Coin proposes a modular ecosystem model centered on secure infrastructure, scalable transaction support, governance participation, and long-term integration readiness.</p><ul><li>Infrastructure-first network narrative</li><li>Validator-aligned security model</li><li>Utility-led token design</li><li>Ecosystem expansion across DeFi, payments, and tooling</li></ul></section><section class="card chapter reveal" id="architecture"><h3>Architecture</h3><p>The network is positioned as a high-throughput, scalable Layer 1 designed for future applications and cross-network integrations. The architecture emphasizes reliability, clarity, and progressive expansion.</p></section><section class="card chapter reveal" id="utility"><h3>Token Utility</h3><ul><li>Transaction payments</li><li>Staking and reward participation</li><li>Governance voting</li><li>Validator incentives</li><li>Ecosystem access</li></ul></section><section class="card chapter reveal" id="tokenomics"><h3>Tokenomics</h3><p>Total Supply: 1,000,000,000 WIN</p><ul><li>40% Ecosystem Growth</li><li>20% Development</li><li>15% Liquidity</li><li>15% Marketing</li><li>10% Team</li></ul></section><section class="card chapter reveal" id="roadmap"><h3>Roadmap</h3><p>Phase 1: Foundation and branding. Phase 2: Token launch and initial ecosystem rollout. Phase 3: Integrations, developer onboarding, staking utility. Phase 4: Scale, governance, and global ecosystem growth.</p></section><section class="card chapter reveal" id="governance"><h3>Governance</h3><p>Win Coin aims to evolve toward transparent governance where community participation, token utility, and long-term protocol direction can align in a structured model.</p></section><section class="card chapter reveal" id="impact"><h3>Impact Vision</h3><p>The project can incorporate transparent social impact commitments, including verified humanitarian support mechanisms, without compromising product credibility or investor trust.</p></section></div></div></section>
-</main><footer class="footer"><div class="container footer-wrap"><div><div class="brand-name">WIN COIN</div><div class="muted" style="margin-top:10px;max-width:560px">A premium Layer 1 and ecosystem-focused digital infrastructure concept built for modern Web3 positioning.</div></div><div class="socials"><a href="#">X / Twitter</a><a href="#">Telegram</a><a href="#">Discord</a><a href="#">GitHub</a><a href="#">Medium</a></div></div></footer><script src="assets/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win Coin Whitepaper</title>
+  <meta name="description" content="Win Coin Whitepaper - Shop-to-Earn humanitarian blockchain ecosystem." />
+  <style>
+    :root{
+      --bg:#050914;
+      --card:rgba(255,255,255,0.05);
+      --line:rgba(255,255,255,0.08);
+      --text:#ffffff;
+      --muted:#9aa4b2;
+      --primary:#6d5efc;
+      --primary-2:#29c7ff;
+      --shadow:0 12px 30px rgba(0,0,0,0.28);
+      --max:980px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(109,94,252,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(41,199,255,0.12), transparent 24%),
+        var(--bg);
+      color:var(--text);
+    }
+
+    a{text-decoration:none;color:inherit}
+    .container{
+      width:min(92%, var(--max));
+      margin:auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(5,9,20,0.82);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:20px;
+      font-weight:700;
+    }
+
+    .logo img{
+      width:48px;
+      height:48px;
+      object-fit:cover;
+      border-radius:14px;
+      background:rgba(255,255,255,0.05);
+      padding:4px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:none;
+      cursor:pointer;
+      padding:12px 18px;
+      border-radius:12px;
+      color:#fff;
+      font-weight:600;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      box-shadow:0 10px 24px rgba(109,94,252,0.22);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero{
+      padding:70px 0 24px;
+    }
+
+    .hero-box,.paper-box,.footer-box{
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-box{
+      padding:34px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      font-size:14px;
+      color:#d9e2ef;
+      margin-bottom:18px;
+    }
+
+    .hero-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:46px;
+      line-height:1.08;
+    }
+
+    .hero-box p{
+      margin:0;
+      color:#c8d0dc;
+      font-size:17px;
+      line-height:1.7;
+      max-width:760px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    section{
+      padding:22px 0;
+    }
+
+    .paper-box{
+      padding:30px;
+    }
+
+    h2{
+      margin:28px 0 12px;
+      font-size:28px;
+    }
+
+    h3{
+      margin:22px 0 10px;
+      font-size:20px;
+    }
+
+    p, li{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    ul{
+      margin:10px 0 0;
+      padding-left:20px;
+    }
+
+    .footer{
+      padding:28px 0 42px;
+    }
+
+    .footer-box{
+      padding:22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .footer-note{
+      color:var(--muted);
+      font-size:14px;
+      margin-top:6px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#fff;
+    }
+
+    @media (max-width:780px){
+      h1{font-size:34px}
+      h2{font-size:24px}
+      .hero{padding:48px 0 18px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/wincoin-maskot.png" alt="Win Coin Mascot">
+        <span>Win Coin</span>
+      </a>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn btn-secondary" href="index.html">Back to Home</a>
+        <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">Official X</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          <div class="hero-badge">
+            <span class="hero-dot"></span>
+            <span>Official Project Document</span>
+          </div>
+          <h1>Win Coin Whitepaper</h1>
+          <p>
+            Win Coin is a Shop-to-Earn humanitarian blockchain ecosystem designed to connect everyday shopping activity with transparent community impact and long-term ecosystem growth.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">Follow on X</a>
+            <a class="btn btn-secondary" href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank" rel="noopener noreferrer">Join Telegram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="paper-box">
+
+          <h2>1. Introduction</h2>
+          <p>
+            Win Coin is a next-generation Shop-to-Earn humanitarian blockchain ecosystem designed to transform everyday shopping into a meaningful force for global good.
+          </p>
+          <p>
+            Every day, millions of people participate in economic activity through shopping, yet this activity rarely contributes directly to solving urgent global humanitarian problems such as poverty, hunger, lack of healthcare, and limited access to education.
+          </p>
+          <p>
+            Win Coin aims to change that reality by creating an ecosystem where users can earn WIN tokens through shopping, use those tokens for payments, hold them as digital assets, or contribute them to humanitarian initiatives.
+          </p>
+          <p>
+            By combining commerce, blockchain technology, and social impact, Win Coin seeks to build a sustainable ecosystem where everyday spending can help improve lives.
+          </p>
+          <p><strong>Shop. Earn. Help. Win.</strong><br><strong>Let the World Win. Let Peace Win.</strong></p>
+
+          <h2>2. The Problem</h2>
+          <p>
+            Despite major technological progress, the world continues to face serious humanitarian challenges.
+          </p>
+          <p>Millions of people are affected by:</p>
+          <ul>
+            <li>armed conflicts</li>
+            <li>poverty</li>
+            <li>hunger</li>
+            <li>disease</li>
+            <li>lack of clean water</li>
+            <li>limited access to education</li>
+            <li>insufficient medical resources</li>
+          </ul>
+          <p>The most vulnerable groups often include:</p>
+          <ul>
+            <li>mothers in conflict regions</li>
+            <li>pregnant women</li>
+            <li>babies and children</li>
+            <li>families displaced by war</li>
+            <li>communities without adequate access to hospitals or schools</li>
+          </ul>
+          <p>
+            In addition, millions of stray animals around the world continue to suffer from lack of food, shelter, and care.
+          </p>
+          <p>
+            Although charitable organizations and aid systems already exist, many people still question transparency, efficiency, and the visibility of how support is delivered. At the same time, everyday consumer spending rarely contributes to humanitarian impact in a direct and traceable way.
+          </p>
+          <p>
+            There is currently no widely adopted global system that effectively connects shopping activity with transparent humanitarian support.
+          </p>
+
+          <h2>3. The Win Coin Solution</h2>
+          <p>
+            Win Coin introduces a Shop-to-Earn + Humanitarian Impact ecosystem powered by blockchain technology.
+          </p>
+          <p>
+            The ecosystem is designed to allow users to earn digital rewards through everyday shopping while also creating opportunities to support humanitarian causes in a transparent and traceable way.
+          </p>
+          <p>Through the Win Coin ecosystem, users may be able to:</p>
+          <ul>
+            <li>earn WIN tokens from shopping activity</li>
+            <li>use WIN tokens for payments within the ecosystem</li>
+            <li>contribute WIN tokens to humanitarian initiatives</li>
+            <li>follow project updates and impact reporting</li>
+          </ul>
+          <p>
+            Blockchain-based infrastructure can help improve transparency and strengthen trust across the ecosystem.
+          </p>
+          <p>
+            The long-term goal is to build a global community where economic activity contributes to meaningful social impact.
+          </p>
+
+          <h2>4. Win Coin Ecosystem</h2>
+          <p>
+            The Win Coin ecosystem is built around three core components.
+          </p>
+
+          <h3>4.1 Win App</h3>
+          <p>
+            Win App is the user-facing mobile platform through which participants interact with the ecosystem.
+          </p>
+          <p>Through the app, users may be able to:</p>
+          <ul>
+            <li>shop with participating merchants</li>
+            <li>earn WIN rewards</li>
+            <li>track token balances</li>
+            <li>contribute to humanitarian campaigns</li>
+            <li>follow ecosystem and impact updates</li>
+          </ul>
+          <p>
+            The application is intended to prioritize simplicity, transparency, and accessibility.
+          </p>
+
+          <h3>4.2 Win Pay</h3>
+          <p>
+            Win Pay is the merchant integration layer of the ecosystem.
+          </p>
+          <p>
+            Participating businesses may reward customers with WIN tokens when purchases are completed.
+          </p>
+          <p>Potential benefits for merchants include:</p>
+          <ul>
+            <li>stronger customer loyalty</li>
+            <li>increased brand visibility</li>
+            <li>participation in a socially impactful ecosystem</li>
+          </ul>
+
+          <h3>4.3 Win Charity</h3>
+          <p>
+            Win Charity represents the humanitarian dimension of the ecosystem.
+          </p>
+          <p>
+            Contributions generated through the platform are intended to support vulnerable communities and urgent humanitarian needs.
+          </p>
+          <p>Priority focus areas may include:</p>
+          <ul>
+            <li>mothers affected by war</li>
+            <li>pregnant women</li>
+            <li>babies and children</li>
+            <li>healthcare and hospital support</li>
+            <li>schools and educational access</li>
+            <li>families lacking food and clean water</li>
+            <li>stray animals in need of care</li>
+          </ul>
+          <p>
+            Win Coin aims to work with reliable partners and transparent reporting methods in order to support fair, visible, and needs-based humanitarian contribution models.
+          </p>
+
+          <h2>5. Transparency and Trust</h2>
+          <p>
+            Transparency is one of the core principles of the Win Coin ecosystem.
+          </p>
+          <p>
+            The platform aims to provide the community with clear reporting and visible updates regarding ecosystem activity and humanitarian contribution efforts.
+          </p>
+          <p>Users may be able to follow information such as:</p>
+          <ul>
+            <li>how much support has been collected</li>
+            <li>which regions or causes received assistance</li>
+            <li>what types of resources were delivered or funded</li>
+          </ul>
+          <p>
+            The purpose of this model is to strengthen trust, improve accountability, and keep the community engaged in long-term impact.
+          </p>
+
+          <h2>6. WIN Token</h2>
+          <p>WIN is the native token of the Win Coin ecosystem.</p>
+          <ul>
+            <li><strong>Token Name:</strong> Win Coin</li>
+            <li><strong>Symbol:</strong> WIN</li>
+            <li><strong>Network:</strong> BNB Chain</li>
+            <li><strong>Token Standard:</strong> BEP-20</li>
+            <li><strong>Total Supply:</strong> 100,000,000,000 WIN</li>
+          </ul>
+
+          <h2>7. Token Utility</h2>
+          <p>WIN tokens are designed to serve multiple functions within the ecosystem.</p>
+          <p>Potential use cases include:</p>
+          <ul>
+            <li>shopping rewards</li>
+            <li>payment utility with participating merchants</li>
+            <li>support for humanitarian contribution models</li>
+            <li>ecosystem participation</li>
+            <li>community reward incentives</li>
+          </ul>
+
+          <h2>8. Token Distribution</h2>
+          <p>Total Supply: <strong>100,000,000,000 WIN</strong></p>
+          <p>Proposed allocation:</p>
+          <ul>
+            <li>35% Shopping Rewards</li>
+            <li>20% Liquidity</li>
+            <li>15% Marketing</li>
+            <li>10% Team</li>
+            <li>10% Charity Fund</li>
+            <li>5% Development</li>
+            <li>5% Community & Airdrops</li>
+          </ul>
+          <p>
+            This distribution is intended to support ecosystem growth, user participation, operational development, and long-term sustainability.
+          </p>
+
+          <h2>9. Roadmap</h2>
+          <h3>Phase 1 – Foundation</h3>
+          <ul>
+            <li>project concept development</li>
+            <li>branding and identity</li>
+            <li>whitepaper creation</li>
+            <li>website launch</li>
+          </ul>
+
+          <h3>Phase 2 – Token Launch</h3>
+          <ul>
+            <li>WIN token deployment</li>
+            <li>community development</li>
+            <li>early partnerships</li>
+          </ul>
+
+          <h3>Phase 3 – Ecosystem Development</h3>
+          <ul>
+            <li>Win App development</li>
+            <li>merchant integrations</li>
+            <li>charity infrastructure</li>
+          </ul>
+
+          <h3>Phase 4 – Global Expansion</h3>
+          <ul>
+            <li>global partnerships</li>
+            <li>humanitarian initiatives</li>
+            <li>major exchange listing efforts</li>
+          </ul>
+
+          <h2>10. Governance</h2>
+          <p>
+            Win Coin aims to evolve toward a community-driven ecosystem in which users and stakeholders can play a more active role in shaping the platform’s future.
+          </p>
+          <p>
+            Governance mechanisms may be introduced over time to support community participation and ecosystem decision-making.
+          </p>
+
+          <h2>11. Vision for the Future</h2>
+          <p>
+            Win Coin envisions a future in which technology helps create a more compassionate and connected world.
+          </p>
+          <p>A world where:</p>
+          <ul>
+            <li>children suffer less from the consequences of war</li>
+            <li>access to healthcare becomes more equal</li>
+            <li>education becomes more accessible</li>
+            <li>communities can rebuild hope and stability</li>
+          </ul>
+          <p>
+            Through everyday actions such as shopping, individuals can become part of a broader movement for positive global change.
+          </p>
+          <p>
+            Win Coin believes that millions of small contributions can create extraordinary impact.
+          </p>
+          <p>
+            Together, we can build a better future.
+          </p>
+          <p><strong>Shop. Earn. Help. Win.</strong><br><strong>Let the World Win. Let Peace Win.</strong></p>
+
+          <h2>Founder</h2>
+          <p><strong>Aurora Kind</strong></p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box">
+        <div>
+          <strong>Win Coin</strong>
+          <div class="footer-note">Shop-to-Earn humanitarian blockchain ecosystem.</div>
+        </div>
+
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="https://x.com/WinCoinProject" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://t.me/+ZbqtCHhGB5U4MzY0" target="_blank" rel="noopener noreferrer">Telegram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
